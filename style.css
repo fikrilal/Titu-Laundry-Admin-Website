@@ -15,13 +15,8 @@
   font-weight: 800;
   font-size: 32px;
   line-height: 39px;
-  /* identical to box height */
-
   display: flex;
   align-items: center;
-
-  /* Gray 1 */
-
   color: #333333;
 }
 
@@ -30,13 +25,8 @@
   font-weight: 800;
   font-size: 32px;
   line-height: 39px;
-  /* identical to box height */
-
   text-align: center;
   align-items: center;
-
-  /* Gray 1 */
-
   color: #333333;
 }
 
@@ -46,8 +36,28 @@
   font-size: 18px;
   line-height: 22px;
   margin-bottom: 52px;
+  text-align: center;
+  align-items: center;
+  color: #828282;
+}
 
-text-align: center;
+.new-password h1 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  align-items: center;
+  color: #333333;
+}
+
+.new-password p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 52px;
+  text-align: center;
   align-items: center;
   color: #828282;
 }
@@ -76,7 +86,7 @@ text-align: center;
   color: #4F4F4F;
 }
 
-/* .reset-form label {
+.new-password-form label {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -86,9 +96,14 @@ text-align: center;
   margin-top: 24px;
 
   color: #4F4F4F;
-} */
+}
 
 .login-form input {
+  height: 52px;
+  border-radius: 8px;
+}
+
+.new-password-form input {
   height: 52px;
   border-radius: 8px;
 }
@@ -110,7 +125,7 @@ text-align: center;
 }
 
 a:hover {
-  color:#1366D6;
+  color: #1366D6;
   transition: 0.4s;
 }
 
@@ -125,6 +140,11 @@ a:hover {
   color: #FFFFFF;
 }
 
+.signin:hover {
+  background-color: #1366D6;
+  transition: 0.4s;
+}
+
 .reset-form .resetBtn {
   width: 100%;
   height: 52px;
@@ -136,7 +156,29 @@ a:hover {
   color: #FFFFFF;
 }
 
-.signin:hover {
-  background-color:#1366D6;
+.resetBtn:hover {
+  background-color: #1366D6;
   transition: 0.4s;
+}
+
+.new-password-form .confirmBtn {
+  width: 100%;
+  height: 52px;
+  margin-top: 32px;
+  background: #2F80ED;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+}
+
+.confirmBtn:hover {
+  background-color: #1366D6;
+  transition: 0.4s;
+}
+
+.rowReset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
