@@ -6,6 +6,10 @@
   height: 100vh;
 }
 
+.reset-password {
+  height: 100vh;
+}
+
 .header h1 {
   font-style: normal;
   font-weight: 800;
@@ -19,6 +23,33 @@
   /* Gray 1 */
 
   color: #333333;
+}
+
+.reset h1 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 39px;
+  /* identical to box height */
+
+  text-align: center;
+  align-items: center;
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+
+.reset p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 52px;
+
+text-align: center;
+  align-items: center;
+  color: #828282;
 }
 
 .header p {
@@ -45,24 +76,42 @@
   color: #4F4F4F;
 }
 
+/* .reset-form label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+
+  color: #4F4F4F;
+} */
+
 .login-form input {
   height: 52px;
-  background: #F2F2F2;
+  border-radius: 8px;
+}
+
+.reset-form input {
+  text-align: center;
+  height: 52px;
   border-radius: 8px;
 }
 
 .login-form a {
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  margin-top: 16px;
-  /* identical to box height */
-
+  font-size: 16px;
+  line-height: 19px;
   display: flex;
-  align-items: right;
-
+  margin-top: 16px;
   color: #828282;
+}
+
+a:hover {
+  color:#1366D6;
+  transition: 0.4s;
 }
 
 .login-form .signin {
@@ -72,5 +121,22 @@
   background: #2F80ED;
   border-radius: 8px;
   border: none;
+  outline: none;
   color: #FFFFFF;
+}
+
+.reset-form .resetBtn {
+  width: 100%;
+  height: 52px;
+  margin-top: 32px;
+  background: #2F80ED;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+}
+
+.signin:hover {
+  background-color:#1366D6;
+  transition: 0.4s;
 }
