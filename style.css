@@ -177,8 +177,7 @@ a:hover {
   transition: 0.4s;
 }
 
-.rowReset {
-  display: flex;
+.new-password {
   justify-content: center;
   align-items: center;
 }
