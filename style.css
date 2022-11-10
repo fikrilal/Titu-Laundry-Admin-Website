@@ -473,20 +473,28 @@ nav.close ~ .dashboard .top {
   background-color: #E3F5FF;
 }
 
-.box i {
+.boxes .box i {
   font-size: 20px;
   color: #828282;
 }
 
-.box .text {
+.boxes .box .text {
   white-space: nowrap;
   font-size: 16px;
   font-weight: 500;
   color: #828282;
 }
 
-.box .number {
+.boxes .box .number {
   font-size: 24px;
   font-weight: 600;
   color: #333333;
+}
+
+.boxes .box.box2 {
+  background-color: #F7F9FB;
+}
+
+.boxes .box.box4 {
+  background-color: #F7F9FB;
 }
