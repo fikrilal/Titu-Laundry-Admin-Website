@@ -428,7 +428,7 @@ nav.close ~ .dashboard .top {
 }
 
 .dashboard .dash-content {
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 .dash-content .title {
@@ -439,7 +439,6 @@ nav.close ~ .dashboard .top {
 
 .dash-content .title i {
   margin-top: 32px;
-  position: relative;
   height: 35px;
   width: 35px;
   background-color: #2F80ED;
@@ -530,7 +529,7 @@ nav.close ~ .dashboard .top {
 .activity-data .data .data-list {
   font-size: 16px;
   font-weight: 500;
-  margin-top: 20px;
+  margin-top: 32px;
   white-space: norwrap;
   color: #333333;
 }
