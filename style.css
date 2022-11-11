@@ -438,6 +438,7 @@ nav.close ~ .dashboard .top {
 }
 
 .dash-content .title i {
+  margin-top: 32px;
   position: relative;
   height: 35px;
   width: 35px;
@@ -451,6 +452,7 @@ nav.close ~ .dashboard .top {
 }
 
 .dash-content .title .text {
+  margin-top: 32px;
   font-size: 22px;
   font-weight: 600;
   color: #333333;
@@ -466,7 +468,7 @@ nav.close ~ .dashboard .top {
 .dash-content .boxes .box {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 12px;
   width: calc(100% / 4 - 16px);
   padding: 15px 20px;
@@ -479,6 +481,7 @@ nav.close ~ .dashboard .top {
 }
 
 .boxes .box .text {
+  margin-top: 8px;
   white-space: nowrap;
   font-size: 16px;
   font-weight: 500;
@@ -486,6 +489,7 @@ nav.close ~ .dashboard .top {
 }
 
 .boxes .box .number {
+  margin-top: 12px;
   font-size: 24px;
   font-weight: 600;
   color: #333333;
@@ -497,4 +501,36 @@ nav.close ~ .dashboard .top {
 
 .boxes .box.box4 {
   background-color: #F7F9FB;
+}
+
+.dash-content .activity .activity-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.activity .activity-data {
+  display: flex;
+}
+
+.activity-data .data{
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 5 - 16px);
+  /* margin: 0 4px; */
+}
+
+.activity-data .data-title {
+  font-size: 16x;
+  font-weight: 500;
+  color: #828282;
+}
+
+.activity-data .data .data-list {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  white-space: norwrap;
+  color: #333333;
 }
