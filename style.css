@@ -449,6 +449,20 @@ nav.close ~ .dashboard .top {
   font-size: 24px;
 }
 
+.dash-content .title .btntambah {
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-left: 32px;
+  width: 131px;
+  height: 35px;
+  outline: none;
+  border: none;
+  background: #2F80ED;
+  border-radius: 6px;
+}
+
 .dash-content .title .text {
   margin-top: 32px;
   font-size: 22px;
@@ -522,16 +536,26 @@ nav.close ~ .dashboard .top {
 .activity-data .data-title {
   font-size: 16x;
   font-weight: 500;
+  margin-bottom: 24px;
   color: #828282;
 }
 
 .activity-data .data .data-list {
   font-size: 16px;
   font-weight: 500;
-  margin-top: 32px;
-  white-space: norwrap;
+  white-space: nowrap;
+  border-top: 1px solid #E0E0E0;
+  padding: 32px 0px;
+  padding-right: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #333333;
 }
+
+/* .activity .activity-data .data-gambar img {
+  width: 40px;
+  height: 40px;
+} */
 
 @media (max-width: 1000px) {
   nav {
@@ -576,3 +600,6 @@ nav.close ~ .dashboard .top {
     overflow-y: scroll;
   }
 }
+
+/* CSS PRODUCT BEGAN HERE */
+
