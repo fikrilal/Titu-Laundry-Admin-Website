@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: linear-gradient(to right, #3a7bd5, #3a6073);
+    background: #333333;
 }
 
 .center {
@@ -21,4 +23,60 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 380px;
+    padding: 20px 30px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0, 15);
 }
+
+.popup .form h2 {
+    text-align: center;
+    color: #333333;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.popup .form .form-element {
+    margin: 16px 0px;
+}
+
+.popup .form .form-element label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4F4F4F;
+}
+
+.popup .form .form-element input {
+    width: 520px;
+    height: 58px;
+    left: 80px;
+    top: 440px;
+    border-radius: 8px;
+    border-color: #FFFFFF;
+    outline: none;
+}
+
+
+
+/* .popup .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    color: black;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #3a7bd5;
+    cursor: pointer;
+}
+
+.popup .close-btn i {
+    color: #FFFFFF;
+    font-size: 24px;
+    min-width: 45px;
+    height: 100%;
+    align-content: center;
+} */

@@ -451,11 +451,9 @@ nav.close ~ .dashboard .top {
 }
 
 .dash-content .title .btntambah {
-  position: fixed;
+  position: static;
   right: 24px;
-  width: calc(100% - 250px);
-  justify-content: space-between;
-  align-items: center;
+
 
   margin-top: 32px;
   font-size: 16px;
