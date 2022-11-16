@@ -49,7 +49,16 @@ body {
     border: none;
     outline: none;
     color: #FFFFFF;
+}
 
+.popup .form .simpan-btn:hover {
+    background-color: #1366D6;
+    transition: 0.4s;
+}
+
+.popup .form .kembali-btn:hover {
+    background-color: rgba(47, 128, 237, 0.16);
+    transition: 0.4s;
 }
 
 .popup .form .kembali-btn {
