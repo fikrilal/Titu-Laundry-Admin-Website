@@ -11,51 +11,82 @@ body {
     background: #333333;
 }
 
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .popup {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 380px;
+    width: 420px;
     padding: 20px 30px;
     background-color: #FFFFFF;
     box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0, 15);
 }
 
-.popup .form h2 {
-    text-align: center;
-    color: #333333;
-    font-size: 24px;
+.header h1 {
+    font-style: normal;
     font-weight: 600;
-    margin-bottom: 32px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333333;
+    margin-bottom: 24px;
 }
 
-.popup .form .form-element {
-    margin: 16px 0px;
+.popup .form .simpan-btn {
+    width: 100%;
+    height: 52px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    background: #2F80ED;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+
 }
 
-.popup .form .form-element label {
+.popup .form .kembali-btn {
+    width: 100%;
+    height: 52px;
+    margin-bottom: 16px;
+    background: #FFFFFF;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #2F80ED;
+    outline: none;
+    color: #2F80ED;
+
+}
+
+
+/* .popup .form label {
+    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
     color: #4F4F4F;
-}
+} */
 
-.popup .form .form-element input {
-    width: 520px;
-    height: 58px;
-    left: 80px;
-    top: 440px;
+.popup .form input {
+    width: 100%;
+    height: 52px;
     border-radius: 8px;
-    border-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
     outline: none;
+    margin-bottom: 16px;
+    padding-left: 16px;
 }
 
 
