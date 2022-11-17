@@ -95,21 +95,21 @@
                     $jmlpesanan = $row2['COUNT(id_pesanan)'];
                     ?>
 
-                <div class="boxes">
+<div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-user"></i>
                         <span class="text">Pengguna</span>
-                        <span class="number">37.812</span>
+                        <span class="number"><?php echo $jmlpengguna?></span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-shopping-bag"></i>
                         <span class="text">Pesanan</span>
-                        <span class="number">267</span>
+                        <span class="number"><?php echo $jmlpesanan?></span>
                     </div>
                     <div class="box box3">
                         <i class="uil uil-money-bill"></i>
                         <span class="text">Pendapatan</span>
-                        <span class="number">Rp816.900</span>
+                        <span class="number"><?php echo $jmlharga?></span>
                     </div>
                     <div class="box box4">
                         <i class="uil uil-shopping-cart"></i>
