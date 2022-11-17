@@ -10,3 +10,15 @@ modeToggle.addEventListener ("click", () =>{
 sidebarToggle.addEventListener("click", () => {
 sidebar.classList.toggle("close");
 })
+
+document.querySelector("#btntambah").addEventListener("click", function() {
+    document.querySelector(".popup").classList.add("active");
+});
+
+document.querySelector(".popup .form .kembali-btn").addEventListener("click", function() {
+    document.querySelector(".popup").classList.remove("active");
+});
+
+$(window).load(function(){
+    $('#exampleModal').modal('show');
+});

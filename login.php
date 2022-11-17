@@ -74,8 +74,7 @@
             <img src="img/image-right.jpg" class="img-fluid h-100 w-100" alt="Responsive image">
         </div>
     </section>
-
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
