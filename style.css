@@ -451,17 +451,15 @@ nav.close ~ .dashboard .top {
 }
 
 .dash-content .title .btntambah {
-  position: static;
+  /* DISINI MASIH ADA BUG, TOMBOL HARUS MEPET KANAN */
   right: 24px;
-
-
   margin-top: 32px;
   font-size: 16px;
   font-weight: 400;
   color: #FFFFFF;
   margin-left: 32px;
   width: 160px;
-  height: 35px;
+  height: 42px;
   outline: none;
   border: none;
   background: #2F80ED;
@@ -560,6 +558,15 @@ nav.close ~ .dashboard .top {
   overflow: hidden;
   text-overflow: ellipsis;
   color: #333333;
+}
+
+.activity-data .data .data-thumb {
+  white-space: nowrap;
+  border-top: 1px solid #E0E0E0;
+  padding-top: 36px;
+  padding-bottom: 32px;
+  padding-right: 24px;
+  overflow: hidden;
 }
 
 /* .activity .activity-data .data-gambar img {
