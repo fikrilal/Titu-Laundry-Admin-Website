@@ -90,9 +90,9 @@
                     $jmlpesanan = $row1['COUNT(id_pesanan)'];
                     $jmlharga = $row1['SUM(total_harga)'];
 
-                    $query2 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan");
+                    $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan GROUP BY status_pesanan;");
                     $row2 = mysqli_fetch_array($query2);
-                    $jmlpesanan = $row2['COUNT(id_pesanan)'];
+                    $jmlpesanan = $row2['COUNT(status_pesanan)'];
                     ?>
 
 <div class="boxes">
@@ -114,11 +114,15 @@
                     <div class="box box4">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="text">Pesanan berjalan</span>
-                        <span class="number">35</span>
+                        <span class="number"><?php echo $jmlpesanan?></span>
                     </div>
                 </div>
             </div>
-
+            <?php
+                    $query3 = mysqli_query($koneksi, "SELECT (id_pesanan) FROM user");
+                    $row = mysqli_fetch_array($query);
+                    $idpesanan = $row['id_pesanan'];
+                    ?>
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-shopping-cart"></i>
@@ -128,12 +132,8 @@
                 <div class="activity-data">
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
-                        <span class="data-list">#6548</span>
-                        <span class="data-list">#6549</span>
-                        <span class="data-list">#6550</span>
-                        <span class="data-list">#6551</span>
-                        <span class="data-list">#6552</span>
-                        <span class="data-list">#6553</span>
+                        <span class="data-list">$idpesanan</span>
+
                     </div>
                     <div class="data date">
                         <span class="data-title">Tanggal</span>
