@@ -109,9 +109,26 @@
                             <!-- <label for="email" class="form-label">Deskripsi</label> -->
                             <input type="email" class="form-control" id="email" placeholder="Deskripsi (max: 200 kata)">
 
-                            <!-- <label for="email" class="form-label">Foto produk</label> -->
-                            <input type="email" class="form-control" id="email"
-                                placeholder="Foto produk (.png/.jpg/.jpeg)">
+                            <div class="wrapper">
+                                <!-- <span class="data-title">Foto produk</span> -->
+                                <form action="#">
+                                    <i class="uil uil-cloud-upload"></i>
+                                    <p>Tambahkan foto produk</p>
+                                </form>
+                                <section class="progress-area">
+                                    <li class="row">
+                                        <i class="uil uil-file"></i>
+                                        <div class="content">
+                                            <div class="details"></div>
+                                            <div class="progress-bar">
+
+                                            </div>
+                                        </div>
+                                        </i>
+                                    </li>
+                                </section>
+                                <section class="upload-area"></section>
+                            </div>
 
                             <button class="simpan-btn">Simpan</button>
                             <button class="kembali-btn" data-dismiss="modal" aria-label="Close">
@@ -185,6 +202,7 @@
                         <span class="data-list">Sedang diproses</span>
                         <span class="data-list">Sedang diproses</span>
                     </div>
+
                 </div>
             </div>
         </div>
