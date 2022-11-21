@@ -92,42 +92,44 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Tambah produk baru</h5>
-                                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button> -->
                             </div>
 
-                            <!-- <label for="email" class="form-label">Nama produk</label> -->
-                            <input type="email" class="form-control" id="nama" placeholder="Nama produk">
-
-                            <!-- <label for="email" class="form-label">Durasi</label> -->
-                            <input type="email" class="form-control" id="email" placeholder="Durasi (hari)">
-
-                            <!-- <label for="email" class="form-label">Harga</label> -->
-                            <input type="email" class="form-control" id="email" placeholder="Harga (per kg)">
-
-                            <!-- <label for="email" class="form-label">Deskripsi</label> -->
-                            <input type="email" class="form-control" id="email" placeholder="Deskripsi (max: 200 kata)">
+                            <input type="text" class="form-control" id="nama" placeholder="Nama produk">
+                            <input type="text" class="form-control" id="durasi" placeholder="Durasi (hari)">
+                            <input type="text" class="form-control" id="harga" placeholder="Harga (per kg)">
+                            <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi (max: 200 kata)">
 
                             <div class="wrapper">
-                                <!-- <span class="data-title">Foto produk</span> -->
                                 <form action="#">
                                     <i class="uil uil-cloud-upload"></i>
                                     <p>Tambahkan foto produk</p>
                                 </form>
                                 <section class="progress-area">
                                     <li class="row">
-                                        <i class="uil uil-file"></i>
+                                        <i class="uil uil-file-alt"></i>
                                         <div class="content">
-                                            <div class="details"></div>
+                                            <div class="details">
+                                                <span class="name">image.png • Uploading</span>
+                                                <span class="percent">50%</span>
+                                            </div>
                                             <div class="progress-bar">
-
+                                                <div class="progress"></div>
                                             </div>
                                         </div>
-                                        </i>
                                     </li>
                                 </section>
-                                <section class="upload-area"></section>
+                                <section class="uploaded-area">
+                                    <li class="row">
+                                        <div class="content">
+                                            <i class="uil uil-file-alt"></i>
+                                            <div class="details">
+                                                <span class="name">image.png • Uploaded</span>
+                                                <span class="size">70 KB</span>
+                                            </div>
+                                        </div>
+                                        <i class="uil uil-check"></i>
+                                    </li>
+                                </section>
                             </div>
 
                             <button class="simpan-btn">Simpan</button>
