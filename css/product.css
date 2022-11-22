@@ -154,6 +154,7 @@ section .details span {
 } */
 
 .progress-area .details {
+    height: 6px;
     display: flex;
     align-items: center;
     margin-bottom: 7px;
@@ -165,13 +166,13 @@ section .details span {
     width: 100%;
     background: #FFFFFF;
     margin-bottom: 4px;
-    margin-top: 4px;
+    
     border-radius: 30px;
 }
 
 .progress-bar .progress {
     height: 100%;
-    width: 50%;
+    width: 0%;
     background: #2F80ED;
     border-radius: inherit;
 }
@@ -180,6 +181,10 @@ section .details span {
     max-height: 156px;
     overflow-y: scroll;
 }
+
+.uploaded-area.onprogress{
+    max-height: 150px;
+  }
 
 .uploaded-area::-webkit-scrollbar {
     width: 0px;
