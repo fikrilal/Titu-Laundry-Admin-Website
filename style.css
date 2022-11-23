@@ -431,6 +431,23 @@ nav.close ~ .dashboard .top {
   padding-top: 60px;
 }
 
+.dashboard .menu {
+  position: relative;
+  margin-top: 30px;
+  background-color: #E3F5FF;
+  padding: 18px;
+  border-radius: 6px;
+}
+
+.dashboard .menu a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #828282;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
 .dash-content .title {
   display: flex;
   align-items: center;
@@ -476,6 +493,34 @@ nav.close ~ .dashboard .top {
   font-size: 22px;
   font-weight: 600;
   color: #333333;
+  margin-left: 10px;
+}
+
+.dash-content .notification {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 30px 0;
+  background-color: #E3F5FF;
+  padding: 18px;
+  border-radius: 6px;
+}
+
+.dash-content .notification i {
+  height: 35px;
+  width: 35px;
+  background-color: #2F80ED;
+  border-radius: 4px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.dash-content .notification .text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2F80ED;
   margin-left: 10px;
 }
 
