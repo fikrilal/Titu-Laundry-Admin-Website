@@ -431,7 +431,7 @@ nav.close ~ .dashboard .top {
   padding-top: 60px;
 }
 
-.dashboard .menu {
+/* .dashboard .menu {
   position: relative;
   margin-top: 30px;
   background-color: #E3F5FF;
@@ -446,7 +446,7 @@ nav.close ~ .dashboard .top {
   text-decoration: none;
   position: relative;
   z-index: 1;
-}
+} */
 
 .dash-content .title {
   display: flex;
@@ -663,5 +663,101 @@ nav.close ~ .dashboard .top {
   }
 }
 
-/* CSS PRODUCT BEGAN HERE */
+/* CSS ORDER BEGAN HERE */
 
+.dashboard .menu {
+  height: 90px;
+  width: 560px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  display: flex;
+  padding: 24px 15px 24px 0px;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+.dashboard .menu .option {
+  background: #FFFFFF;
+  height: 100%;
+  width: 100%;
+  margin-right: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid #E0E0E0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.3s ease;
+}
+
+.dashboard .menu .option .dot {
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+
+#option-1:checked ~ .option-1,
+#option-2:checked ~ .option-2 {
+  border-color: #2F80ED;
+  background: #2F80ED;
+}
+#option-3:checked ~ .option-3 {
+  border-color: #2F80ED;
+  background: #2F80ED;
+}
+#option-4:checked ~ .option-4 {
+  border-color: #2F80ED;
+  background: #2F80ED;
+}
+
+.dashboard .menu .option .dot::before {
+  position: absolute;
+  content: "";
+  left: 4px;
+  top: 4px;
+  height: 12px;
+  width: 12px;
+  background: #2F80ED;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+
+#option-1:checked ~ .option-1 .dot::before,
+#option-2:checked ~ .option-2 .dot::before {
+  opacity: 1;
+  transform: scale(1);
+}
+#option-3:checked ~ .option-3 .dot::before {
+  opacity: 1;
+  transform: scale(1);
+}
+#option-4:checked ~ .option-4 .dot::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dashboard .menu span {
+  color: #808080;
+  font-size: 16px;
+}
+
+#option-1:checked ~ .option-1 span,
+#option-2:checked ~ .option-2 span {
+  color: #FFFFFF;
+}
+#option-3:checked ~ .option-3 span {
+  color: #FFFFFF;
+}
+#option-4:checked ~ .option-4 span {
+  color: #FFFFFF;
+}
+
+input[type="radio"]{
+  display: none;
+}
