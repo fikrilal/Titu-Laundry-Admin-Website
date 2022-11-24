@@ -1,9 +1,13 @@
 <?php
-    session_start();
-    require "koneksi.php";
+
+use LDAP\Result;
+
+session_start();
+require "koneksi.php";
 ?>
 
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,48 +85,44 @@
                 </div>
 
                 <?php
-                    $query = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user");
-                    $row = mysqli_fetch_array($query);
-                    $jmlpengguna = $row['COUNT(id_user)'];
+                $query = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user");
+                $row = mysqli_fetch_array($query);
+                $jmlpengguna = $row['COUNT(id_user)'];
 
-                    $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan), SUM(total_harga) FROM pesanan");
-                    $row1 = mysqli_fetch_array($query1);
-                    $jmlpesanan = $row1['COUNT(id_pesanan)'];
-                    $jmlharga = $row1['SUM(total_harga)'];
+                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan), SUM(total_harga) FROM pesanan");
+                $row1 = mysqli_fetch_array($query1);
+                $jmlpesanan = $row1['COUNT(id_pesanan)'];
+                $jmlharga = $row1['SUM(total_harga)'];
 
-                    $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan GROUP BY status_pesanan;");
-                    $row2 = mysqli_fetch_array($query2);
-                    $jmlpesanan = $row2['COUNT(status_pesanan)'];
-                    ?>
+                $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan GROUP BY status_pesanan;");
+                $row2 = mysqli_fetch_array($query2);
+                $jmlstatus = $row2['COUNT(status_pesanan)'];
+                ?>
 
-<div class="boxes">
+                <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-user"></i>
                         <span class="text">Pengguna</span>
-                        <span class="number"><?php echo $jmlpengguna?></span>
+                        <span class="number"><?php echo $jmlpengguna ?></span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-shopping-bag"></i>
                         <span class="text">Pesanan</span>
-                        <span class="number"><?php echo $jmlpesanan?></span>
+                        <span class="number"><?php echo $jmlpesanan ?></span>
                     </div>
                     <div class="box box3">
                         <i class="uil uil-money-bill"></i>
                         <span class="text">Pendapatan</span>
-                        <span class="number"><?php echo $jmlharga?></span>
+                        <span class="number"><?php echo $jmlharga ?></span>
                     </div>
                     <div class="box box4">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="text">Pesanan berjalan</span>
-                        <span class="number"><?php echo $jmlpesanan?></span>
+                        <span class="number"><?php echo $jmlstatus ?></span>
                     </div>
                 </div>
             </div>
-            <?php
-                    $query3 = mysqli_query($koneksi, "SELECT (id_pesanan) FROM user");
-                    $row = mysqli_fetch_array($query);
-                    $idpesanan = $row['id_pesanan'];
-                    ?>
+
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-shopping-cart"></i>
@@ -132,67 +132,100 @@
                 <div class="activity-data">
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
-                        <span class="data-list">$idpesanan</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
 
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['id_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data date">
                         <span class="data-title">Tanggal</span>
-                        <span class="data-list">11 Nov 2022</span>
-                        <span class="data-list">11 Nov 2022</span>
-                        <span class="data-list">11 Nov 2022</span>
-                        <span class="data-list">11 Nov 2022</span>
-                        <span class="data-list">11 Nov 2022</span>
-                        <span class="data-list">11 Nov 2022</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                            ?>
+                            <span class="data-list"><?php echo $siswa['tanggal'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data name">
                         <span class="data-title">Nama</span>
-                        <span class="data-list">Ahmad Fikril</span>
-                        <span class="data-list">Ahmad Fikril</span>
-                        <span class="data-list">Ahmad Fikril</span>
-                        <span class="data-list">Ahmad Fikril</span>
-                        <span class="data-list">Ahmad Fikril</span>
-                        <span class="data-list">Ahmad Fikril</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                            ?>
+                            <span class="data-list"><?php echo $siswa['nama'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data order">
                         <span class="data-title">Pesanan</span>
-                        <span class="data-list">Cuci kering</span>
-                        <span class="data-list">Cuci kering</span>
-                        <span class="data-list">Cuci kering</span>
-                        <span class="data-list">Cuci kering</span>
-                        <span class="data-list">Cuci kering</span>
-                        <span class="data-list">Cuci kering</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                            ?>
+                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data weight">
                         <span class="data-title">Berat</span>
-                        <span class="data-list">3 Kg</span>
-                        <span class="data-list">3 Kg</span>
-                        <span class="data-list">3 Kg</span>
-                        <span class="data-list">3 Kg</span>
-                        <span class="data-list">3 Kg</span>
-                        <span class="data-list">3 Kg</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                            ?>
+                            <span class="data-list"><?php echo $siswa['total_berat'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data price">
                         <span class="data-title">Harga</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                            ?>
+                            <span class="data-list"><?php echo $siswa['total_harga'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data status">
                         <span class="data-title">Status</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                            ?>
+                            <span class="data-list"><?php echo $siswa['status_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
-                    
+
                 </div>
+
+
             </div>
-        </div>
     </section>
     <script src="script.js"></script>
 </body>
