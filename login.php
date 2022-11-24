@@ -52,7 +52,7 @@
                         $emaillog = htmlspecialchars($_POST['emaillog']);
                         $passwordlog = htmlspecialchars($_POST['passwordlog']);
 
-                        $query =  mysqli_query($koneksi, "SELECT * FROM login WHERE username='$emaillog' and password='$passwordlog'");
+                        $query =  mysqli_query($koneksi, "SELECT * FROM user WHERE email='$emaillog' and password='$passwordlog'");
                         $count = mysqli_num_rows($query);
 
                         if( $count > 0){

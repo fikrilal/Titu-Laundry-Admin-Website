@@ -41,7 +41,7 @@
                     <?php
                     if(isset($_POST['resetBtn'])){
                         $emailres = htmlspecialchars($_POST['emailres']);
-                        $query = mysqli_query($koneksi, "SELECT username from login WHERE username='$emailres'");
+                        $query = mysqli_query($koneksi, "SELECT email from user WHERE email='$emailres'");
                         $count = mysqli_num_rows($query);
 
                         if( $count > 0){

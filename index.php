@@ -94,7 +94,7 @@ require "koneksi.php";
                 $jmlpesanan = $row1['COUNT(id_pesanan)'];
                 $jmlharga = $row1['SUM(total_harga)'];
 
-                $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan GROUP BY status_pesanan;");
+                $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan WHERE status_pesanan='Sedang diproses'");
                 $row2 = mysqli_fetch_array($query2);
                 $jmlstatus = $row2['COUNT(status_pesanan)'];
                 ?>
