@@ -380,7 +380,7 @@ nav.close~.dashboard {
   transition: var(--tran-05);
 }
 
-nav.close ~ .dashboard .top {
+nav.close~.dashboard .top {
   left: 73px;
   width: calc(100% - 73px);
 }
@@ -419,7 +419,7 @@ nav.close ~ .dashboard .top {
   top: 50%;
   transform: translateY(-50%);
   color: #828282;
-} 
+}
 
 .top img {
   width: 40px;
@@ -579,7 +579,7 @@ nav.close ~ .dashboard .top {
   display: flex;
 }
 
-.activity-data .data{
+.activity-data .data {
   display: flex;
   flex-direction: column;
   width: calc(100% / 5 - 16px);
@@ -619,50 +619,6 @@ nav.close ~ .dashboard .top {
   height: 40px;
 } */
 
-@media (max-width: 1000px) {
-  nav {
-    width: 73px;
-  }
-  nav.close {
-    width: 250px;
-  }
-  nav .logo_name {
-    opacity: 0;
-    pointer-events: none;
-  }
-  nav.close .logo_name {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  nav li a .link-name {
-    opacity: 0;
-    pointer-events: none;
-  }
-  nav.close li a .link-name {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  nav ~ .dashboard {
-    left: 73px;
-    width: calc(100% - 73px);
-  }
-  nav.close ~ .dashboard {
-    left: 250px;
-    width: calc(100% - 250px);
-  }
-  nav ~ .dashboard .top {
-    left: 73px;
-    width: calc(100% - 73px);
-  }
-  nav.close ~ .dashboard .top {
-    left: 250px;
-    width: calc(100% - 250px);
-  }
-  .activity .activity-data {
-    overflow-y: scroll;
-  }
-}
-
 /* CSS ORDER BEGAN HERE */
 
 .dashboard .menu {
@@ -700,16 +656,18 @@ nav.close ~ .dashboard .top {
   position: relative;
 }
 
-#option-1:checked ~ .option-1,
-#option-2:checked ~ .option-2 {
+#option-1:checked~.option-1,
+#option-2:checked~.option-2 {
   border-color: #2F80ED;
   background: #2F80ED;
 }
-#option-3:checked ~ .option-3 {
+
+#option-3:checked~.option-3 {
   border-color: #2F80ED;
   background: #2F80ED;
 }
-#option-4:checked ~ .option-4 {
+
+#option-4:checked~.option-4 {
   border-color: #2F80ED;
   background: #2F80ED;
 }
@@ -728,16 +686,18 @@ nav.close ~ .dashboard .top {
   transition: all 0.3s ease;
 }
 
-#option-1:checked ~ .option-1 .dot::before,
-#option-2:checked ~ .option-2 .dot::before {
+#option-1:checked~.option-1 .dot::before,
+#option-2:checked~.option-2 .dot::before {
   opacity: 1;
   transform: scale(1);
 }
-#option-3:checked ~ .option-3 .dot::before {
+
+#option-3:checked~.option-3 .dot::before {
   opacity: 1;
   transform: scale(1);
 }
-#option-4:checked ~ .option-4 .dot::before {
+
+#option-4:checked~.option-4 .dot::before {
   opacity: 1;
   transform: scale(1);
 }
@@ -747,17 +707,74 @@ nav.close ~ .dashboard .top {
   font-size: 16px;
 }
 
-#option-1:checked ~ .option-1 span,
-#option-2:checked ~ .option-2 span {
-  color: #FFFFFF;
-}
-#option-3:checked ~ .option-3 span {
-  color: #FFFFFF;
-}
-#option-4:checked ~ .option-4 span {
+#option-1:checked~.option-1 span,
+#option-2:checked~.option-2 span {
   color: #FFFFFF;
 }
 
-input[type="radio"]{
+#option-3:checked~.option-3 span {
+  color: #FFFFFF;
+}
+
+#option-4:checked~.option-4 span {
+  color: #FFFFFF;
+}
+
+input[type="radio"] {
   display: none;
 }
+
+@media (max-width: 1000px) {
+  nav {
+    width: 73px;
+  }
+
+  nav.close {
+    width: 250px;
+  }
+
+  nav .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close .logo_name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close li a .link-name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav~.dashboard {
+    left: 73px;
+    width: calc(100% - 73px);
+  }
+
+  nav.close~.dashboard {
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+
+  nav~.dashboard .top {
+    left: 73px;
+    width: calc(100% - 73px);
+  }
+
+  nav.close~.dashboard .top {
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+
+  .activity .activity-data {
+    overflow-y: scroll;
+  }
+}
+

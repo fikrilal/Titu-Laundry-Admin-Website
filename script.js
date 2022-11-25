@@ -3,70 +3,6 @@ const body = document.querySelector("body"),
 sidebar = body.querySelector("nav");
 sidebarToggle = body.querySelector(".sidebar-toggle");
 
-const form = document.querySelector("form"),
-    fileInput = form.querySelector(".file-input"),
-    progressArea = document.querySelector(".progress-area"),
-    uploadedArea = document.querySelector(".uploaded-area");
-
-form.addEventListener("click", () => {
-    fileInput.click();
-});
-
-fileInput.onchange = ({ target }) => {
-    let file = target.files[0];
-    if (file) {
-        let fileName = file.name;
-        if(fileName.length >= 12){
-            let splitName = fileName.split('.');
-            fileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
-          }
-        uploadFile(fileName);
-    }
-}
-
-function uploadFile(name) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "upload.php");
-    xhr.upload.addEventListener("progress", ({ loaded, total }) => {
-        let fileLoaded = Math.floor((loaded / total) * 100); //mendapatkan presentasi dari ukuran file yang di upload
-        let fileTotal = Math.floor(total / 1000);
-        let fileSize;
-        (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024*1024)).toFixed(2) + " MB";
-        let progressHTML = `<li class="row">
-        <i class="uil uil-image-upload"></i>
-        <div class="content">    
-            <div class="details">
-                <span class="name">${name} • Uploading</span>
-                <span class="percent"> ${fileLoaded}%</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress" style="width: ${fileLoaded}%"></div>
-            </div>
-        </div>
-    </li>`;
-
-    uploadedArea.classList.add("onprogress");
-    uploadedArea.innerHTML = progressHTML;
-    if(loaded == total) {
-        progressArea.innerHTML = "";
-        let uploadedHTML = `<li class="row">
-        <div class="content upload">
-            <i class="uil uil-image-check"></i>
-            <div class="details">
-                <span class="name">${name} • Uploaded</span>
-                <span class="size">${fileTotal}</span>
-            </div>
-        </div>
-        <i class="uil uil-check"></i>
-    </li>`;
-    uploadedArea.classList.remove("onprogress");
-      uploadedArea.insertAdjacentHTML("afterbegin", uploadedHTML);
-    }
-    });
-    let data = new FormData(form);
-    xhr.send(data);
-}
-
 modeToggle.addEventListener("click", () => {
     body.classList.toggle("dark");
 });
@@ -74,6 +10,7 @@ modeToggle.addEventListener("click", () => {
 sidebarToggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 });
+
 
 // document.querySelector(".btntambah").addEventListener("click", function () {
 //     document.querySelector(".popup").classList.add("active");
