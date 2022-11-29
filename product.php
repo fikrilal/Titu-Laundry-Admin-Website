@@ -10,11 +10,8 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 </head>
 
@@ -37,7 +34,7 @@
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="order.php">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="link-name">Order</span>
                     </a></li>
@@ -86,8 +83,7 @@
                     <button class="btntambah" data-toggle="modal" data-target="#exampleModal">+ Tambah produk</button>
                 </div>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -97,8 +93,7 @@
                             <input type="text" class="form-control" id="nama" placeholder="Nama produk">
                             <input type="text" class="form-control" id="durasi" placeholder="Durasi (hari)">
                             <input type="text" class="form-control" id="harga" placeholder="Harga (per kg)">
-                            <input type="text" class="form-control" id="deskripsi"
-                                placeholder="Deskripsi (max: 200 kata)">
+                            <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi (max: 200 kata)">
 
                             <div class="wrapper">
                                 <form action="#">
@@ -123,12 +118,12 @@
 
                     <div class="data order-id">
                         <span class="data-title">Gambar</span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="20" height="20"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="20" height="20"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="20" height="20"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="20" height="20"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="20" height="20"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="20" height="20"></span>
+                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
+                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
+                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
+                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
+                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
+                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
                     </div>
                     <div class="data date">
                         <span class="data-title">Nama</span>

@@ -606,10 +606,11 @@ nav.close~.dashboard .top {
 }
 
 .activity-data .data .data-thumb {
+  display: flex;
   white-space: nowrap;
   border-top: 1px solid #E0E0E0;
-  padding-top: 36px;
-  padding-bottom: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   padding-right: 24px;
   overflow: hidden;
 }

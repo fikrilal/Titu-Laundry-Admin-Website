@@ -37,7 +37,7 @@ require "koneksi.php";
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="order.php">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="link-name">Order</span>
                     </a></li>
@@ -138,7 +138,7 @@ require "koneksi.php";
 
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-list"><?php echo $siswa['id_pesanan'] ?></span>
+                            <span class="data-list">#<?php echo $siswa['id_pesanan'] ?></span>
                         <?php
                         }
                         ?>
@@ -190,7 +190,7 @@ require "koneksi.php";
 
                         while ($siswa = mysqli_fetch_array($query)) {
                             ?>
-                            <span class="data-list"><?php echo $siswa['total_berat'] ?></span>
+                            <span class="data-list"><?php echo $siswa['total_berat'] ?> KG</span>
                         <?php
                         }
                         ?>
