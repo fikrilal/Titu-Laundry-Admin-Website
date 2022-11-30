@@ -5,7 +5,7 @@
 
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,47 +21,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 </head>
-<body>
+  <body>
 
     <section class="reset-password">
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-5">
                 <div class="reset">
-                    <h1>Reset password</h1>
-                    <p>Tidak perlu khawatir! Masukkan emailmu dan kami akan mengirim intruksi untuk mereset password</p>
+                    <h1>OTP Verification</h1>
+                    <p>Masukkan kode OTP yang telah dikirim ke alamat email milikmu</p>
                 </div>
 
                 <div class="reset-form">
                 <form action="" method="post">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" name="emailres" class="form-control" id="email" placeholder="yourname@gmail.com">
+                    <!-- <label for="email" class="form-label">Kode OTP</label> -->
+                    <input type="text" class="form-control" name="emailres" id="email" placeholder="kode verifikasi">
                     
                     <button class="resetBtn" name="resetBtn">Continue</button>
-                    </from>
-                    <?php
-                    if(isset($_POST['resetBtn'])){
-                        $emailres = htmlspecialchars($_POST['emailres']);
-                        $query = mysqli_query($koneksi, "SELECT email from user WHERE email='$emailres'");
-                        $count = mysqli_num_rows($query);
-                        $digits = 5;
-                        $verifNumber =  rand(pow(10, $digits - 1), pow(10, $digits) - 1);                
-
-                        if( $count > 0){
-                            $_SESSION['emailres'] = $emailres;
-                            $query1 = mysqli_query($koneksi, "INSERT INTO `register`(`kode_verifikasi`, `verify_status`, `id_user`) VALUES ('$verifNumber','verifikasi','1')");
-
-                            header("location:reset-password.php");
-                        }
-                        else{
-                            echo "Email tidak terdaftar";
-                        }
-                    }
-                    ?>
+                </form>
                 </div>
+                <?php
+                if(isset($_POST['resetBtn'])){
+                    $emailres = htmlspecialchars($_POST['emailres']);
+                    $query = mysqli_query($koneksi, "SELECT * FROM `register` WHERE kode_verifikasi='$emailres'");
+                    $count = mysqli_num_rows($query);
+
+                    if( $count > 0){
+                        header("location:reset-new-password.php");
+                    }
+                    else{
+                        echo "Kode verfikasi salah";
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
