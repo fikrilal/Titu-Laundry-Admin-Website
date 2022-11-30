@@ -112,58 +112,313 @@ require "koneksi.php";
                 <input type="radio" name="select" id="option-2">
                 <input type="radio" name="select" id="option-3">
                 <input type="radio" name="select" id="option-4">
-                <label for="option-1" class="option option-1">
+                <label for="option-1" class="option option-1" onclick="opsiMenu(event, 'Semua')">
                     <div class="dot"></div>
                     <span>Semua</span>
                 </label>
-                <label for="option-2" class="option option-2">
+                <label for="option-2" class="option option-2" onclick="opsiMenu(event, 'Diproses')">
                     <div class="dot"></div>
                     <span>Diproses</span>
                 </label>
-                <label for="option-3" class="option option-3">
+                <label for="option-3" class="option option-3" onclick="opsiMenu(event, 'Dijemput')">
                     <div class="dot"></div>
                     <span>Dijemput</span>
                 </label>
-                <label for="option-4" class="option option-4">
+                <label for="option-4" class="option option-4" onclick="opsiMenu(event, 'Diantar')">
                     <div class="dot"></div>
                     <span>Diantar</span>
                 </label>
             </div>
 
-            <div class="activity activity-1">
+            <div id="Semua" class="activity activity-1">
                 <div class="activity-data">
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
-                        <span class="data-list">#6548</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list">#<?php echo $siswa['id_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data date">
                         <span class="data-title">Tanggal</span>
-                        <span class="data-list">11 Nov 2022</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['tanggal'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data name">
                         <span class="data-title">Nama</span>
-                        <span class="data-list">Ahmad Fikril</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['nama'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data order">
                         <span class="data-title">Pesanan</span>
-                        <span class="data-list">Cuci kering</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data weight">
                         <span class="data-title">Berat</span>
-                        <span class="data-list">3 Kg</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['total_berat'] ?> KG</span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data price">
                         <span class="data-title">Harga</span>
-                        <span class="data-list">Rp12.000</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['total_harga'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data status">
                         <span class="data-title">Status</span>
-                        <span class="data-list">Sedang diproses</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['status_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
 
-            <div class="activity activity-2">
+            <div id="Diproses" class="activity activity-2">
+                <div class="activity-data">
+                    <div class="data order-id">
+                        <span class="data-title">Order ID</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list">#<?php echo $siswa['id_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data date">
+                        <span class="data-title">Tanggal</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['tanggal'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data name">
+                        <span class="data-title">Nama</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['nama'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data order">
+                        <span class="data-title">Pesanan</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data weight">
+                        <span class="data-title">Berat</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['total_berat'] ?> KG</span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data price">
+                        <span class="data-title">Harga</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['total_harga'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data status">
+                        <span class="data-title">Status</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['status_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Dijemput" class="activity activity-3">
+                <div class="activity-data">
+                    <div class="data order-id">
+                        <span class="data-title">Order ID</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list">#<?php echo $siswa['id_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data date">
+                        <span class="data-title">Tanggal</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['tanggal'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data name">
+                        <span class="data-title">Nama</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['nama'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data order">
+                        <span class="data-title">Pesanan</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data weight">
+                        <span class="data-title">Berat</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['total_berat'] ?> KG</span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data price">
+                        <span class="data-title">Harga</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['total_harga'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data status">
+                        <span class="data-title">Status</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['status_pesanan'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Diantar" class="activity activity-4">
                 <div class="activity-data">
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
@@ -262,6 +517,7 @@ require "koneksi.php";
         </div>
 
     </section>
+    <script src="order.js"></script>
     <script src="script.js"></script>
 </body>
 

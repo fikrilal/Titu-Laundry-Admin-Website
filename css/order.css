@@ -575,18 +575,18 @@ nav.close~.dashboard .top {
   width: 100%;
 }
 
-.dash-content .activity {
+/* .dash-content .activity {
     display: none;
-}
+} */
 
-#option-1:checked~.dash-content .activity-1 {
+/* #option-1:checked~.dash-content .activity-1 {
     display: block;
-}
+} */
 
 
 /* .dash-content .activity-1 {
     display: block;
-  } */
+} */
 
 
 .activity .activity-data {
