@@ -112,7 +112,13 @@ require "koneksi.php";
                 <input type="radio" name="select" id="option-2">
                 <input type="radio" name="select" id="option-3">
                 <input type="radio" name="select" id="option-4">
-                <label for="option-1" class="option option-1" onclick="opsiMenu(event, 'Semua')">
+                <label for="option-1" class="option option-1" onclick="opsiMenu(event, 'Semua')" id="defaultOpen">
+                <script>
+                    // Untuk autoclick kategori "Diproses" saat halaman diload
+                    window.onload = function() {
+                    document.getElementById("defaultOpen").click();
+                    }
+                    </script>
                     <div class="dot"></div>
                     <span>Semua</span>
                 </label>
