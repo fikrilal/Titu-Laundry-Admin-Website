@@ -72,7 +72,9 @@ require "koneksi.php";
 
             <div class="search-box">
                 <i class="uil uil-search"></i>
+                <form action="" method="post">
                 <input type="text" placeholder="Cari disini..">
+                </from>
             </div>
             <img src="./img/profile.jpg" alt="">
         </div>
@@ -83,13 +85,12 @@ require "koneksi.php";
                 <?php
                 $tgl='date("Y-m-d")';
                 $query4 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE tanggal ='$tgl'");
-                $row4 = mysqli_fetch_array($query4);
-                $jmlpengguna4 = $row4['COUNT(id_pesanan)'];
+                $count = mysqli_num_rows($query4);
                 ?>
 
                 <div class="notification">
                     <i class="uil uil-bell"></i>
-                    <span class="text"><?php echo $jmlpengguna4?> Pesanan hari ini menunggu diproses</span>
+                    <span class="text"><?php echo $count?> Pesanan hari ini menunggu diproses</span>
                 </div>
 
                 <?php
