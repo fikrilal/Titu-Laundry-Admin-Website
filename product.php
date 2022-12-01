@@ -1,3 +1,23 @@
+<?php
+
+@include 'koneksi.php';
+
+// if (isset($_POST['add_product'])) {
+//     $nama_produk = $_POST['nama_produk'];
+//     $durasi_produk = $_POST['durasi_produk'];
+//     $harga_produk = $_POST['harga_produk'];
+//     $deskripsi_produk = $_POST['deskripsi_produk'];
+//     $product_image = $_FILES['product_image']['name'];
+//     $product_image_tmp_name = $_FILES['product_image']['name'];
+//     $product_image_image_folder = 'img/' . $product_image;
+
+//     if (empty($nama_produk) || empty($durasi_produk) || empty($harga_produk) || empty($deskripsi_produk) || empty($product_image)) {
+//         $message[] = 'Data produk tidak boleh kosong';
+//     }
+// }
+
+?>
+
 <html>
 
 <head>
@@ -16,6 +36,8 @@
 </head>
 
 <body>
+
+
     <nav>
         <div class="logo-name">
             <div class="logo-image">
@@ -83,17 +105,19 @@
                     <button class="btntambah" data-toggle="modal" data-target="#exampleModal">+ Tambah produk</button>
                 </div>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Tambah produk baru</h5>
                             </div>
 
-                            <input type="text" class="form-control" id="nama" placeholder="Nama produk">
-                            <input type="text" class="form-control" id="durasi" placeholder="Durasi (hari)">
-                            <input type="text" class="form-control" id="harga" placeholder="Harga (per kg)">
-                            <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi (max: 200 kata)">
+                            <input type="text" class="form-control" id="nama_produk" placeholder="Nama produk" name="nama_produk">
+                            <input type="text" class="form-control" id="deskripsi_produk" placeholder="Deskripsi (max: 200 kata)" name="deskripsi_produk">
+                            <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="durasi_produk">
+                            <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="harga_produk">
+                            <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1" required="">
+                            <button type="submit" class="btn btn-success mb-3" name="add_product">Simpan</button>
 
                             <div class="wrapper">
                                 <form action="#">
@@ -105,7 +129,7 @@
                                 <section class="uploaded-area"></section>
                             </div>
 
-                            <button class="simpan-btn">Simpan</button>
+                            <button class="simpan-btn" name="simpan-btn">Simpan</button>
                             <button class="kembali-btn" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">Kembali</span>
                             </button>
@@ -118,64 +142,83 @@
 
                     <div class="data order-id">
                         <span class="data-title">Gambar</span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
-                        <span class="data-thumb"><img src="img/profile.jpg" width="56" height="56" style="border-radius: 5px"></span>
+                        <?php
+                        $sql = "SELECT image FROM `jasa`";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-thumb"><img src="img/<?php echo $siswa['image'] ?>" style="height: 56; width: 56; object-fit: cover; border-radius: 5px;"></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data date">
                         <span class="data-title">Nama</span>
-                        <span class="data-list">Cuci kering</span>
-                        <span class="data-list">Cuci setrika</span>
-                        <span class="data-list">Cuci spesial</span>
-                        <span class="data-list">Cuci karpet</span>
-                        <span class="data-list">Cuci express</span>
-                        <span class="data-list">Cuci nama</span>
+                        <?php
+                        $sql = "SELECT jenis_jasa FROM `jasa`";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data desc">
                         <span class="data-title">Deskripsi</span>
-                        <span class="data-list">Minimal pemesanan untuk laundry cuci kering adalah 1 kg. Pakaian akan
-                            diproses mulai dari pencucian, pewangi, hingga pengeringan. </span>
-                        <span class="data-list">Minimal pemesanan untuk laundry cuci kering adalah 1 kg. Pakaian akan
-                            diproses mulai dari pencucian, pewangi, hingga pengeringan. </span>
-                        <span class="data-list">Minimal pemesanan untuk laundry cuci kering adalah 1 kg. Pakaian akan
-                            diproses mulai dari pencucian, pewangi, hingga pengeringan. </span>
-                        <span class="data-list">Minimal pemesanan untuk laundry cuci kering adalah 1 kg. Pakaian akan
-                            diproses mulai dari pencucian, pewangi, hingga pengeringan. </span>
-                        <span class="data-list">Minimal pemesanan untuk laundry cuci kering adalah 1 kg. Pakaian akan
-                            diproses mulai dari pencucian, pewangi, hingga pengeringan. </span>
-                        <span class="data-list">Minimal pemesanan untuk laundry cuci kering adalah 1 kg. Pakaian akan
-                            diproses mulai dari pencucian, pewangi, hingga pengeringan. </span>
+                        <?php
+                        $sql = "SELECT deskripsi FROM `jasa`";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['deskripsi'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data order">
                         <span class="data-title">Durasi</span>
-                        <span class="data-list">1 hari</span>
-                        <span class="data-list">1 hari</span>
-                        <span class="data-list">1 hari</span>
-                        <span class="data-list">1 hari</span>
-                        <span class="data-list">1 hari</span>
-                        <span class="data-list">1 hari</span>
+                        <?php
+                        $sql = "SELECT durasi FROM `jasa`";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['durasi'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
 
                     <div class="data price">
                         <span class="data-title">Harga</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
-                        <span class="data-list">Rp12.000</span>
+                        <?php
+                        $sql = "SELECT harga FROM `jasa`";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $siswa['harga'] ?></span>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="data status">
                         <span class="data-title">Action</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
-                        <span class="data-list">Sedang diproses</span>
+                        <?php
+                        $sql = "SELECT id_jasa FROM `jasa`";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <a href="edit_barang.php?id_barang=<?php echo $siswa['id_jasa']; ?>" name="bupdate" class="btn btn-warning mb-3">Edit</a>
+                            <a href="hapus_barang.php?id_barang=<?php echo $siswa['id_jasa']; ?>" name="bhapus" class="btn btn-danger mb-3">Hapus</a>
+                        <?php
+                        }
+                        ?>
                     </div>
 
                 </div>
