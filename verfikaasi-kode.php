@@ -7,12 +7,16 @@ use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
+require "koneksi.php";
 
+        $query = mysqli_query($koneksi, "SELECT `kode_verifikasi` FROM `register` WHERE id_user='1' ORDER BY kode_verifikasi DESC LIMIT 1");
+        $row = mysqli_fetch_array($query);
+        $jmlpengguna = $row['kode_verifikasi'];
 
         //sesuaikan name dengan di form nya ya 
         $email = $_SESSION['emailres'];
-        $judul = "test";
-        $pesan = "test";
+        $judul = "Kode verifikasi password";
+        $pesan = "Kode verifikasi : $jmlpengguna";
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
