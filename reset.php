@@ -50,7 +50,7 @@
                             $_SESSION['emailres'] = $emailres;
                             $query1 = mysqli_query($koneksi, "INSERT INTO `register`(`kode_verifikasi`, `verify_status`, `id_user`) VALUES ('$verifNumber','verifikasi','1')");
 
-                            header("location:reset-password.php");
+                            header("location:verfikaasi-kode.php");
                         }
                         else{
                             echo "Email tidak terdaftar";

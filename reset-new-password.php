@@ -48,6 +48,7 @@
 
                         if($new_password==$konfirmasi_password){
                             $query =  mysqli_query($koneksi, "UPDATE `user` SET `password`='$new_password' WHERE email='$emailres'");
+                            header("location:login.php");
                         }
                         else{
                             header("location:reset-new-password.php");
