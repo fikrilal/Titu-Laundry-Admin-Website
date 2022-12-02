@@ -203,7 +203,9 @@
 
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
-                            <a href="edit_barang.php?id_barang=<?php echo $siswa['id_jasa']; ?>" name="bupdate" class="btn btn-warning mb-3">Manage</a> 
+                            <a href="addproduct.php">
+                                <button href="addproduct.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Manage</button>
+                            </a>
                         <?php
                         }
                         ?>

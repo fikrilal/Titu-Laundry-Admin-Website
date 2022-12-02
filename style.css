@@ -615,13 +615,18 @@ nav.close~.dashboard .top {
   overflow: hidden;
 }
 
-.activity-data .data .data-edit {
-  display: flex;
-  white-space: nowrap;
-  font-size: 24px;
-  color: #2F80ED;
-  position: relative;
-  justify-content: space-around;
+.activity-data .data .btntambah {
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  width: 160px;
+  height: 42px;
+  outline: none;
+  border: none;
+  background: #333333;
+  border-radius: 6px;
+  /* border-: 8px solid #E0E0E0; */
 }
 
 /* .activity .activity-data .data-gambar img {
