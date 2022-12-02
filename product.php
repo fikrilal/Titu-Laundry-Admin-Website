@@ -2,20 +2,6 @@
 
 @include 'koneksi.php';
 
-// if (isset($_POST['add_product'])) {
-//     $nama_produk = $_POST['nama_produk'];
-//     $durasi_produk = $_POST['durasi_produk'];
-//     $harga_produk = $_POST['harga_produk'];
-//     $deskripsi_produk = $_POST['deskripsi_produk'];
-//     $product_image = $_FILES['product_image']['name'];
-//     $product_image_tmp_name = $_FILES['product_image']['name'];
-//     $product_image_image_folder = 'img/' . $product_image;
-
-//     if (empty($nama_produk) || empty($durasi_produk) || empty($harga_produk) || empty($deskripsi_produk) || empty($product_image)) {
-//         $message[] = 'Data produk tidak boleh kosong';
-//     }
-// }
-
 ?>
 
 <html>
@@ -102,10 +88,13 @@
                 <div class="title">
                     <i class="uil uil-box"></i>
                     <span class="text">Semua produk</span>
-                    <button class="btntambah" data-toggle="modal" data-target="#exampleModal">+ Tambah produk</button>
+
+                    <a href="addproduct.php">
+                        <button href="addproduct.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">+ Tambah produk</button>
+                    </a>
                 </div>
 
-                <div action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div method="POST" action="tolaction.php" enctype="multipart/form-data" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -117,7 +106,7 @@
                             <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="durasi_produk">
                             <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="harga_produk">
                             <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1" required="">
-                            <button type="submit" class="btn btn-success mb-3" name="add_product">Simpan</button>
+                            <button type="submit" class="btn btn-success mb-3" name="simpan-btn">Simpan</button>
 
                             <div class="wrapper">
                                 <form action="#">
@@ -136,7 +125,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="activity-data">
 
@@ -214,8 +203,7 @@
 
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
-                            <a href="edit_barang.php?id_barang=<?php echo $siswa['id_jasa']; ?>" name="bupdate" class="btn btn-warning mb-3">Edit</a>
-                            <a href="hapus_barang.php?id_barang=<?php echo $siswa['id_jasa']; ?>" name="bhapus" class="btn btn-danger mb-3">Hapus</a>
+                            <a href="edit_barang.php?id_barang=<?php echo $siswa['id_jasa']; ?>" name="bupdate" class="btn btn-warning mb-3">Manage</a> 
                         <?php
                         }
                         ?>
@@ -227,7 +215,7 @@
     </section>
 
     <script src="script.js"></script>
-    <script src="product.js"></script>
+    <!-- <script src="product.js"></script> -->
 </body>
 
 </html>

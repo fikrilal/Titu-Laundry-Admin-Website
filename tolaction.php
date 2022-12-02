@@ -1,5 +1,6 @@
 <?php
 require "koneksi.php";
+require "product.php";
 $nama_produk = htmlspecialchars($_POST['nama_produk']);
 $deskripsi_produk = htmlspecialchars($_POST['deskripsi_produk']);
 $durasi_produk = htmlspecialchars($_POST['durasi_produk']);

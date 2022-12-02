@@ -615,6 +615,15 @@ nav.close~.dashboard .top {
   overflow: hidden;
 }
 
+.activity-data .data .data-edit {
+  display: flex;
+  white-space: nowrap;
+  font-size: 24px;
+  color: #2F80ED;
+  position: relative;
+  justify-content: space-around;
+}
+
 /* .activity .activity-data .data-gambar img {
   width: 40px;
   height: 40px;
