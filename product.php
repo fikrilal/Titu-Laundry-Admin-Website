@@ -204,8 +204,8 @@
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                         
-                        <span class="data-action"> <a href="addproduct.php">
-                                <button href="addproduct.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Manage</button>
+                        <span class="data-action"> <a href="edit_barang.php?id_jasa=<?php echo $siswa['id_jasa']; ?>">
+                                <button type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Manage</button>
                             </a> </span>
                         <?php
                         }
