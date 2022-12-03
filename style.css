@@ -615,8 +615,19 @@ nav.close~.dashboard .top {
   overflow: hidden;
 }
 
+.activity-data .data .data-action {
+  display: flex;
+  white-space: nowrap;
+  border-top: 1px solid #E0E0E0;
+  padding-top: 23px;
+  padding-bottom: 23px;
+  padding-right: 24px;
+  overflow: hidden;
+}
+
 .activity-data .data .btntambah {
-  margin-top: 32px;
+  /* margin-top: 24px;
+  margin-bottom: 23px; */
   font-size: 16px;
   font-weight: 400;
   color: #FFFFFF;
@@ -624,9 +635,9 @@ nav.close~.dashboard .top {
   height: 42px;
   outline: none;
   border: none;
-  background: #333333;
+  background: #2F80ED;
   border-radius: 6px;
-  /* border-: 8px solid #E0E0E0; */
+  /* border-top: 8px solid #E0E0E0; */
 }
 
 /* .activity .activity-data .data-gambar img {
