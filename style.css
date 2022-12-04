@@ -481,6 +481,7 @@ nav.close~.dashboard .top {
   border: none;
   background: #2F80ED;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .dash-content .title .btntambah:hover {
@@ -626,8 +627,6 @@ nav.close~.dashboard .top {
 }
 
 .activity-data .data .btntambah {
-  /* margin-top: 24px;
-  margin-bottom: 23px; */
   font-size: 16px;
   font-weight: 400;
   color: #FFFFFF;
@@ -637,7 +636,12 @@ nav.close~.dashboard .top {
   border: none;
   background: #2F80ED;
   border-radius: 6px;
-  /* border-top: 8px solid #E0E0E0; */
+  cursor: pointer;
+}
+
+.activity-data .data .btntambah:hover {
+  background-color: #1366D6;
+  transition: 0.4s;
 }
 
 /* .activity .activity-data .data-gambar img {

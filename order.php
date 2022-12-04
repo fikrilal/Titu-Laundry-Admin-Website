@@ -257,6 +257,21 @@ require "koneksi.php";
                         }
                         ?>
                     </div>
+                    <div class="data status">
+                        <span class="data-title">Status</span>
+                        <?php
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-action"> <a href="edit_pesanan.php?id_pasanan=<?php echo $siswa['id_pesanan']; ?>">
+                                    <button type="button" class="btnmanage" data-toggle="modal" data-target="#exampleModal">Manage</button>
+                                </a> </span>
+                        <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
 

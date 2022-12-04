@@ -575,6 +575,34 @@ nav.close~.dashboard .top {
   width: 100%;
 }
 
+.activity-data .data .data-action {
+  display: flex;
+  white-space: nowrap;
+  border-top: 1px solid #E0E0E0;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  padding-right: 24px;
+  overflow: hidden;
+}
+
+.activity-data .data .btnmanage {
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  width: 160px;
+  height: 42px;
+  outline: none;
+  border: none;
+  background: #2F80ED;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.activity-data .data .btnmanage:hover {
+  background-color: #1366D6;
+  transition: 0.4s;
+}
+
 /* .dash-content .activity {
     display: none;
 } */
