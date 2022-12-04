@@ -1,5 +1,6 @@
 <?php
 require ('koneksi.php');
+// require ('edit_barang.php');
 
 if (isset($_POST['bupdate'])){
   $id_jasa = $_POST['txt_id_jasa'];
@@ -17,11 +18,11 @@ if (isset($_POST['bupdate'])){
           deskripsi='$deskripsi_produk', durasi='$durasi_produk', harga='$harga_produk' WHERE id_jasa ='$id_jasa'");
   if($update){
     echo "<script> alert('berhasil diupdate');
-    document.location='data_barang.php';
+    document.location='product.php';
     </script>";
     } else{
     echo "<script> alert('gagal');
-    document.location='data_barang.php';
+    document.location='product.php';
     </script>";
     }
 }

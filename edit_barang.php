@@ -1,17 +1,17 @@
 <?php
 require('koneksi.php');
-require('update_jasa.php');
+// require('update_jasa.php');
 
-$id = $_GET['id_jasa'];
-$ambilData = "SELECT * FROM jasa WHERE id_jasa='$id'";
+$id_jasa = $_GET['id_jasa'];
+$ambilData = "SELECT * FROM jasa WHERE id_jasa='$id_jasa'";
 $result = mysqli_query($koneksi, $ambilData) or die();
 while ($data = mysqli_fetch_array($result)) {
-    $id_jasa = $data['id_jasa'];
-    $nama_produk = $data['jenis_jasa'];
-    $deskripsi_produk = $data['deskripsi'];
-    $durasi_produk = $data['durasi'];
-    $harga_produk = $data['harga'];
-    $product_image = $data['image'];
+    $id_jasa = isset($data['id_jasa']) ? $data['id_jasa'] : '';
+    $nama_produk = isset($data['jenis_jasa']) ? $data['jenis_jasa'] : '';
+    $deskripsi_produk = isset($data['deskripsi']) ? $data['deskripsi'] : '';
+    $durasi_produk = isset($data['durasi']) ? $data['durasi'] : '';
+    $harga_produk = isset($data['harga']) ? $data['harga'] : '';
+    $product_image = isset($data['image']) ? $data['image'] : '';
 }
 ?>
 
@@ -39,29 +39,31 @@ while ($data = mysqli_fetch_array($result)) {
                     <div class="container-fluid">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Ubah Gambar</label>
-                            <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1" required="" value="<?php echo $data['image']; ?>">
+                            <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1" required="" value="<?php echo $product_image; ?>">
                             <section class="upload.php"></section>
                         </div>
 
-                        <input type="hidden" class="form-control" name="txt_id_jasa" value="<?php echo $data['id_jasa']; ?>">
+                        <input type="hidden" class="form-control" name="txt_id_jasa" value="<?php echo $id_jasa; ?>">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama Barang</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_jenis_jasa" value="<?php echo $data['jenis_jasa']; ?>" placeholder="Masukkan nama barang...">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_jenis_jasa" value="<?php echo $nama_produk; ?>" placeholder="Masukkan nama barang...">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Warna</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_deskripsi" value="<?php echo $data['deskripsi']; ?>" placeholder="Masukkan warna...">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_deskripsi" value="<?php echo $deskripsi_produk; ?>" placeholder="Masukkan warna...">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama Barang</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_durasi" value="<?php echo $data['durasi']; ?>" placeholder="Masukkan nama barang...">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_durasi" value="<?php echo $durasi_produk; ?>" placeholder="Masukkan nama barang...">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Warna</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_harga" value="<?php echo $data['harga']; ?>" placeholder="Masukkan warna...">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_harga" value="<?php echo $harga_produk; ?>" placeholder="Masukkan warna...">
                         </div>
                         <div class="col-4">
-                            <a href="data_barang.php" class="btn btn-danger mb-3">Batal</a>
+                        <span class="data-action"> <a href="hapus_produk.php?id_jasa=<?php echo $id_jasa; ?>">
+                                    <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Manage</button>
+                                </a> </span><a href="product.php" class="btn btn-danger mb-3">Batal</a>
                             <button type="submit" class="btn btn-success mb-3" name="bupdate">Update</button>
                         </div>
                     </div>
