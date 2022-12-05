@@ -49,7 +49,9 @@
                         header("location:reset-new-password.php");
                     }
                     else{
-                        echo "Kode verfikasi salah";
+                        ?>
+                        <span class="text">Kode verfikasi salah</span>
+                        <?php
                     }
                 }
                 ?>

@@ -50,7 +50,9 @@
                             header("location:verfikaasi-kode.php");
                         }
                         else{
-                            echo "Email tidak terdaftar";
+                            ?>
+                            <span class="text">Email tidak terdaftar</span>
+                            <?php
                         }
                     }
                     ?>
