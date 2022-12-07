@@ -5,7 +5,8 @@
 ?>
 
 <html>
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
@@ -15,9 +16,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    </head>
+</head>
 
-    <body>
+<body>
 
     <nav>
         <div class="logo-name">
@@ -67,93 +68,93 @@
     </nav>
 
     <section class="dashboard">
-    <div class="top">
+        <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
             <img src="./img/profile.jpg" alt="">
         </div>
 
         <div class="dash-content">
 
-            <div class="activity">
+            <div class="overview">
                 <div class="title">
-                    <!-- <i class="uil uil-box"></i> -->
                     <span class="text">Detail pesanan nomor #583</span>
+                    <span class="subtext">Pembayaran melalui transfer Bank BRI</span>
                 </div>
 
-                <div class="activity-data">
-
-                    <div class="data order-id">
-                        <span class="data-title">Gambar</span>
-                        <?php
-                        $sql = "SELECT image FROM `jasa`";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-thumb"><img src="img/<?php echo $siswa['image'] ?>" style="height: 56; width: 56; object-fit: cover; border-radius: 5px;"></span>
-                        <?php
-                        }
-                        ?>
+                <div class="dropdown">
+                    <div class="selectbtn">
+                        <span class="selected">Menunggu pembayaran</span>
+                        <div class="caret"></div>
                     </div>
-                    <div class="data date">
-                        <span class="data-title">Pesanan</span>
-                        <?php
-                        $sql = "SELECT jenis_jasa FROM `jasa`";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="data desc">
-                        <span class="data-title">Deskripsi</span>
-                        <?php
-                        $sql = "SELECT deskripsi FROM `jasa`";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-list"><?php echo $siswa['deskripsi'] ?></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="data order">
-                        <span class="data-title">Durasi</span>
-                        <?php
-                        $sql = "SELECT durasi FROM `jasa`";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-list"><?php echo $siswa['durasi'] ?></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="data order">
-                        <span class="data-title">Durasi</span>
-                        <?php
-                        $sql = "SELECT durasi FROM `jasa`";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-list"><?php echo $siswa['durasi'] ?></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
-
+                    <ul class="menuoption">
+                        <li>Menunggu pembayaran</li>
+                        <li class="activeoption">Menunggu diproses</li>
+                        <li>Sedang diproses</li>
+                        <li>Sedang dikirim</li>
+                        <li>Pesanan selesai</li>
+                        <li>Pesanan dibatalkan</li>
+                    </ul>
                 </div>
 
+                <div class="boxes">
+                    <div class="box box1">
+                    <i class="uil uil-plane-arrival"></i>   
+                        <span class="text">Waktu penjemputan</span>
+                        <span class="number">08:00 - 8 Desember 2022</span>
+                        <span class="text2">Alamat penjemputan</span>
+                        <span class="number">Ahmad Fikril Al Muzakki</span>
+                        <span class="number">Jln. Suparjan Mangun Wijaya, Ds. Bujel, Kec. Mojororoto, RT 02 RW 03, Gang 3</span>
+                        <span class="number">085156023639</span>
+                    </div>
+                    <div class="box box2">
+                    <i class="uil uil-plane-departure"></i>
+                        <span class="text">Waktu pengiriman</span>
+                        <span class="number">13:00 - 12 Desember 2022</span>
+                        <span class="text2">Alamat penjemputan</span>
+                        <span class="number">Ahmad Fikril Al Muzakki</span>
+                        <span class="number">Jln. Suparjan Mangun Wijaya, Ds. Bujel, Kec. Mojororoto, RT 02 RW 03, Gang 3</span>
+                        <span class="number">085156023639</span>
+                    </div>
                 </div>
             </div>
-    </section>
 
-        
-    </body>
+            <div class="activity">
+                <div class="activity-data">
+                    <div class="data date">
+                        <span class="data-title">Pesanan</span>
+                        <span class="data-list">Cuci kering</span>
+                    </div>
+                    <div class="data desc">
+                        <span class="data-title">Harga</span>
+                        <span class="data-list">4000</span>
+                    </div>
+                    <div class="data order">
+                        <span class="data-title">Berat cucian</span>
+                        <span class="data-list">3 KG</span>
+                    </div>
+                    <div class="data order">
+                        <span class="data-title">Total</span>
+                        <span class="data-list">12000</span>
+                    </div>  
+                </div>
+
+                <div class="rincian">
+                    <div class="placeholder">
+                    <span class="subtotal">Subtotal</span>
+                    <span class="pengiriman">Ongkos kirim</span>
+                    <span class="total">Total</span>
+                    </div>
+                    
+                    <div class="data">
+                    <span class="subtotal">Rp12.000</span>
+                    <span class="pengiriman">Rp0</span>
+                    <span class="total">Rp12.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
 </html>
