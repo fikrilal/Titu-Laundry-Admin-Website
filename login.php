@@ -62,7 +62,9 @@
                             header("location:index.php");
                         }
                         else{
-                            echo "Password atau Email salah";
+                            ?>
+                            <span class="text">Password atau Email salah</span>
+                            <?php
                         }
                     }
                     ?>

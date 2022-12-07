@@ -83,14 +83,15 @@ require "koneksi.php";
             <div class="overview">
 
                 <?php
-                $tgl='date("Y-m-d")';
-                $query4 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE tanggal ='$tgl'");
-                $count = mysqli_num_rows($query4);
+                $tgl=date("Y-m-d");
+                $query4 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE tanggal ='$tgl' AND status_pesanan='Sedang diproses'");
+                $row4 = mysqli_fetch_array($query4);
+                $jmlpengguna4 = $row4['COUNT(id_pesanan)'];
                 ?>
 
                 <div class="notification">
                     <i class="uil uil-bell"></i>
-                    <span class="text"><?php echo $count?> Pesanan hari ini menunggu diproses</span>
+                    <span class="text"><?php echo $jmlpengguna4?> Pesanan hari ini menunggu diproses</span>
                 </div>
 
                 <?php

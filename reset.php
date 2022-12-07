@@ -43,18 +43,16 @@
                         $emailres = htmlspecialchars($_POST['emailres']);
                         $query = mysqli_query($koneksi, "SELECT email from user WHERE email='$emailres'");
                         $count = mysqli_num_rows($query);
-                        $digits = 5;
-                        $verifNumber =  rand(pow(10, $digits - 1), pow(10, $digits) - 1); 
 
                         if( $count > 0){
                             $_SESSION['emailres'] = $emailres;
-                            $_SESSION['verifNumber'] = $verifNumber;
-                            $query1 = mysqli_query($koneksi, "INSERT INTO `register`(`kode_verifikasi`, `verify_status`, `id_user`) VALUES ('$verifNumber','verifikasi','1')");
 
                             header("location:verfikaasi-kode.php");
                         }
                         else{
-                            echo "Email tidak terdaftar";
+                            ?>
+                            <span class="text">Email tidak terdaftar</span>
+                            <?php
                         }
                     }
                     ?>

@@ -8,15 +8,15 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require "koneksi.php";
+session_start();
 
-        $query = mysqli_query($koneksi, "SELECT `kode_verifikasi` FROM `register` WHERE id_user='1' ORDER BY kode_verifikasi DESC LIMIT 1");
-        $row = mysqli_fetch_array($query);
-        $jmlpengguna = $row['kode_verifikasi'];
+        $verifNumber =  rand(pow(10, 5 - 1), pow(10, 5) - 1); 
+        $query = mysqli_query($koneksi, "INSERT INTO `register`(`kode_verifikasi`, `verify_status`, `id_user`) VALUES ('$verifNumber','verifikasi','1')");
 
         //sesuaikan name dengan di form nya ya 
         $email = $_SESSION['emailres'];
         $judul = "Kode verifikasi password";
-        $pesan = "Kode verifikasi : $jmlpengguna";
+        $pesan = "Kode verifikasi : $verifNumber";
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -34,7 +34,7 @@ try {
 
     //pengirim
     $mail->setFrom('email@gmail.com', 'ROMUS2AH.com');
-    $mail->addAddress('diphaandimorgan@gmail.com');     //Add a recipient
+    $mail->addAddress($email);     //Add a recipient
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
@@ -50,7 +50,7 @@ try {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 
 }
-          //redirect ke halaman index.php
+        //redirect ke halaman index.php
         echo "<script>alert('Email berhasil terkirim!');window.location='reset-password.php';</script>";
         
         ?>
