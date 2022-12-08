@@ -581,6 +581,11 @@ nav.close~.dashboard .top {
 
 .dash-content .dropdown .select-btn i {
   font-size: 31px;
+  transition: tranform 0.3s linear;
+}
+
+.dropdown.active .select-btn i {
+  transform: rotate(-180deg);
 }
 
 .dash-content .dropdown .content {
@@ -589,6 +594,11 @@ nav.close~.dashboard .top {
   border-radius: 7px;
   background: #FFFFFF;
   border: 1px solid #E0E0E0;
+  display: none;
+}
+
+.dropdown.active .content {
+  display: block;
 }
 
 .dash-content .dropdown .content .search {
@@ -620,6 +630,7 @@ nav.close~.dashboard .top {
   margin-top: 10px;
   max-height: 150px;
   overflow-y: auto;
+  padding-right: 6px;
 }
 
 .dash-content .dropdown .content .options::-webkit-scrollbar {
@@ -643,7 +654,7 @@ nav.close~.dashboard .top {
   border-radius: 5px;
 }
 
-.dash-content .dropdown .content .options li:hover {
+.dash-content .dropdown .content .options li:hover, li.selected {
   background: #f2f2f2;
 }
 

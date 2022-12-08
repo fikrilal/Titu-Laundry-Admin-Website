@@ -91,14 +91,7 @@
                         <i class="uil uil-search"></i>
                         <input type="text" placeholder="Search">
                         </div>
-                        <ul class="options">
-                        <li>Menunggu pembayaran</li>
-                        <li>Menunggu diproses</li>
-                        <li>Sedang diproses</li>
-                        <li>Sedang dikirim</li>
-                        <li>Pesanan selesai</li>
-                        <li>Pesanan dibatalkan</li>
-                    </ul>
+                        <ul class="options"></ul>
                     </div>
                 </div>
 

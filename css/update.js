@@ -1,28 +1,38 @@
-const dropdowns = document.querySelectorAll('.dropdown');
+const dropdown = document.querySelector(".dropdown"),
+    selectBtn = dropdown.querySelector(".select-btn"),
+    searchInp = dropdown.querySelector("input"),
+    options = dropdown.querySelector(".options");
 
-dropdowns.forEach(dropdown => {
-    const select = dropdown.querySelector('.selectbtn');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menuoption');
-    const options = dropdown.querySelector('.menuoption li');
-    const selected = dropdown.querySelector('.selected');
+let statusPesanan = ["Menunggu pembayaran", "Menunggu diproses", "Sedang diproses",
+    "Sedang dikirim", "Pesanan selesai", "Pesanan dibatalkan"];
 
-    select.addEventListener('click', () => {
-        select.classList.toggle('selectbtn-clicked');
-        caret.classList.toggle('caret-rotate');
-        menu.classList.toggle('menuoption-open');
-    });
-
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            selected.innerText = option.innerText;
-            select.classList.remove('selectbtn-clicked');
-            caret.classList.remove('caret-rotate');
-            menu.classList.remove('menuoption-open');
-            options.forEach(option => {
-                option.classList.remove('active');
-            });
-            option.classList.add('active');
+    function addPesanan(selectedPesanan) {
+        options.innerHTML = "";
+        statusPesanan.forEach(pesanan => {
+            let isSelected = pesanan == selectedPesanan ? "selected" : "";
+            let li = `<li onclick="updateName(this)" class="${isSelected}">${pesanan}</li>`;
+            options.insertAdjacentHTML("beforeend", li);
         });
+    }
+
+    addPesanan();
+
+    function updateName(selectedLi) {
+        searchInp.value = "";
+        addPesanan(selectedLi.innerText);
+        dropdown.classList.remove("active");
+        selectBtn.firstElementChild.innerText = selectedLi.innerText;
+    }
+
+    searchInp.addEventListener("keyup", () => {
+        let arr = [];
+        let searchedVal = searchInp.value.toLowerCase();
+        arr = statusPesanan.filter(data => {
+            return data.toLowerCase().startsWith(searchedVal);
+        }).map(data => `<li onclick="updateName(this)">${data}</li>`).join("");
+        options.innerHTML = arr ? arr : `<p>Oops! Status tidak ditemukan</p>`;
     });
+
+selectBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("active");
 });
