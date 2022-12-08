@@ -51,7 +51,7 @@
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href="login.php">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a>
@@ -75,10 +75,19 @@
 
             <div class="search-box">
                 <i class="uil uil-search"></i>
-                <input type="text" placeholder="Cari disini..">
+                <form action="" method="post">
+                <input type="text" name="search-box" placeholder="Cari disini..">
+                </from>
             </div>
             <img src="./img/profile.jpg" alt="">
         </div>
+        <?php
+            $searchbox = "";
+            if(isset($_POST['search-box'])){
+                $searchbox = htmlspecialchars($_POST['search-box']);
+            }
+        ?>
+
 
         <div class="dash-content">
 
@@ -130,7 +139,7 @@
                     <div class="data order-id">
                         <span class="data-title">Gambar</span>
                         <?php
-                        $sql = "SELECT image FROM `jasa`";
+                        $sql = "SELECT image FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -143,7 +152,7 @@
                     <div class="data date">
                         <span class="data-title">Nama</span>
                         <?php
-                        $sql = "SELECT jenis_jasa FROM `jasa`";
+                        $sql = "SELECT jenis_jasa FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -156,7 +165,7 @@
                     <div class="data desc">
                         <span class="data-title">Deskripsi</span>
                         <?php
-                        $sql = "SELECT deskripsi FROM `jasa`";
+                        $sql = "SELECT deskripsi FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -169,7 +178,7 @@
                     <div class="data order">
                         <span class="data-title">Durasi</span>
                         <?php
-                        $sql = "SELECT durasi FROM `jasa`";
+                        $sql = "SELECT durasi FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -183,7 +192,7 @@
                     <div class="data price">
                         <span class="data-title">Harga</span>
                         <?php
-                        $sql = "SELECT harga FROM `jasa`";
+                        $sql = "SELECT harga FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -196,7 +205,7 @@
                     <div class="data status">
                         <span class="data-title">Action</span>
                         <?php
-                        $sql = "SELECT id_jasa FROM `jasa`";
+                        $sql = "SELECT id_jasa FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
