@@ -596,9 +596,12 @@ nav.close~.dashboard .top {
 }
 
 .dash-content .dropdown .content .search i {
+  top: 50%;
   left: 15px;
-  line-height: 53px;
+  color: #999;
   font-size: 20px;
+  pointer-events: none;
+  transform: translateY(-50%);
   position: absolute;
 }
 
