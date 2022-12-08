@@ -32,7 +32,7 @@
         </div>
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="index.php">
+            <li><a href="index.php">
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Dashboard</span>
                     </a></li>
@@ -40,11 +40,19 @@
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
+                <li><a href="voucher/voucher.php">
+                        <i class="uil uil-pricetag-alt"></i>
+                        <span class="link-name">Voucher</span>
+                    </a></li>
+                <li><a href="adsbanner/adsbanner.php">
+                        <i class="uil uil-layer-group"></i>
+                        <span class="link-name">Ads banner</span>
+                    </a></li>
                 <li><a href="order.php">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="link-name">Order</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="performance.php">
                         <i class="uil uil-tachometer-fast-alt"></i>
                         <span class="link-name">Performance</span>
                     </a></li>

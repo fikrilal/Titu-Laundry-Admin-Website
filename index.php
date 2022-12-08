@@ -29,7 +29,7 @@ require "koneksi.php";
         </div>
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="index.php">
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Dashboard</span>
                     </a></li>
@@ -37,11 +37,19 @@ require "koneksi.php";
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
+                <li><a href="voucher/voucher.php">
+                        <i class="uil uil-pricetag-alt"></i>
+                        <span class="link-name">Voucher</span>
+                    </a></li>
+                <li><a href="adsbanner/adsbanner.php">
+                        <i class="uil uil-layer-group"></i>
+                        <span class="link-name">Ads banner</span>
+                    </a></li>
                 <li><a href="order.php">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="link-name">Order</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="performance.php">
                         <i class="uil uil-tachometer-fast-alt"></i>
                         <span class="link-name">Performance</span>
                     </a></li>
@@ -73,17 +81,17 @@ require "koneksi.php";
             <div class="search-box">
                 <i class="uil uil-search"></i>
                 <form action="" method="post">
-                <input type="text" name="search-box" placeholder="Cari disini..">
-                </from>
+                    <input type="text" name="search-box" placeholder="Cari disini..">
+                    </from>
             </div>
             <img src="./img/profile.jpg" alt="">
         </div>
         <?php
-            $searchbox = "";
-            $tgl=date("Y-m-d");
-            if(isset($_POST['search-box'])){
-                $searchbox = htmlspecialchars($_POST['search-box']);
-            }
+        $searchbox = "";
+        $tgl = date("Y-m-d");
+        if (isset($_POST['search-box'])) {
+            $searchbox = htmlspecialchars($_POST['search-box']);
+        }
         ?>
 
         <div class="dash-content">
@@ -102,8 +110,8 @@ require "koneksi.php";
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpesanan = $row1['COUNT(id_pesanan)'];
                 $jmlharga = $row1['SUM(total_harga)'];
-                if($jmlharga='NULL'){
-                    $jmlharga='0';
+                if ($jmlharga = 'NULL') {
+                    $jmlharga = '0';
                 }
 
                 $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan WHERE status_pesanan='Sedang diproses'");
@@ -162,7 +170,7 @@ require "koneksi.php";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
+                        ?>
                             <span class="data-list"><?php echo $siswa['tanggal'] ?></span>
                         <?php
                         }
@@ -175,7 +183,7 @@ require "koneksi.php";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
+                        ?>
                             <span class="data-list"><?php echo $siswa['nama'] ?></span>
                         <?php
                         }
@@ -188,7 +196,7 @@ require "koneksi.php";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
+                        ?>
                             <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
                         <?php
                         }
@@ -201,7 +209,7 @@ require "koneksi.php";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
+                        ?>
                             <span class="data-list"><?php echo $siswa['total_berat'] ?> KG</span>
                         <?php
                         }
@@ -214,7 +222,7 @@ require "koneksi.php";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
+                        ?>
                             <span class="data-list"><?php echo $siswa['total_harga'] ?></span>
                         <?php
                         }
@@ -227,7 +235,7 @@ require "koneksi.php";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
+                        ?>
                             <span class="data-list"><?php echo $siswa['status_pesanan'] ?></span>
                         <?php
                         }

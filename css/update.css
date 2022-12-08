@@ -19,6 +19,10 @@ body {
   /* background-color: #2F80ED; */
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body.dark {
   background-color: #333333;
 }
@@ -900,3 +904,25 @@ input[type="radio"] {
   }
 }
 
+.dash-content .overview .btnsimpan {
+  margin: auto; 
+  position: absolute; 
+  left: auto; 
+  right: 24px; 
+  top: 104px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+  width: 180px;
+  height: 52px;
+  outline: none;
+  border: none;
+  background: #2F80ED;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dash-content .overview .btnsimpan:hover {
+  background-color: #1366D6;
+  transition: 0.4s;
+}

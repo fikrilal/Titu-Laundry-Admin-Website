@@ -37,11 +37,19 @@ require "koneksi.php";
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="voucher/voucher.php">
+                        <i class="uil uil-pricetag-alt"></i>
+                        <span class="link-name">Voucher</span>
+                    </a></li>
+                <li><a href="adsbanner/adsbanner.php">
+                        <i class="uil uil-layer-group"></i>
+                        <span class="link-name">Ads banner</span>
+                    </a></li>
+                <li><a href="order.php">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="link-name">Order</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="performance.php">
                         <i class="uil uil-tachometer-fast-alt"></i>
                         <span class="link-name">Performance</span>
                     </a></li>
@@ -73,23 +81,23 @@ require "koneksi.php";
             <div class="search-box">
                 <i class="uil uil-search"></i>
                 <form action="" method="post">
-                <input type="text" name="search-box" placeholder="Cari disini..">
-                </from>
+                    <input type="text" name="search-box" placeholder="Cari disini..">
+                    </from>
             </div>
             <img src="./img/profile.jpg" alt="">
         </div>
         <?php
-            $searchbox = "";
-            if(isset($_POST['search-box'])){
-                $searchbox = htmlspecialchars($_POST['search-box']);
-            }
+        $searchbox = "";
+        if (isset($_POST['search-box'])) {
+            $searchbox = htmlspecialchars($_POST['search-box']);
+        }
         ?>
 
         <div class="dash-content">
             <div class="overview">
 
                 <?php
-                $tgl=date("Y-m-d");
+                $tgl = date("Y-m-d");
                 $query4 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE tanggal ='$tgl' AND status_pesanan='Sedang diproses'");
                 $row4 = mysqli_fetch_array($query4);
                 $jmlpengguna4 = $row4['COUNT(id_pesanan)'];
@@ -97,7 +105,7 @@ require "koneksi.php";
 
                 <div class="notification">
                     <i class="uil uil-bell"></i>
-                    <span class="text"><?php echo $jmlpengguna4?> Pesanan hari ini menunggu diproses</span>
+                    <span class="text"><?php echo $jmlpengguna4 ?> Pesanan hari ini menunggu diproses</span>
                 </div>
 
                 <?php
@@ -148,11 +156,11 @@ require "koneksi.php";
                 <input type="radio" name="select" id="option-3">
                 <input type="radio" name="select" id="option-4">
                 <label for="option-1" class="option option-1" onclick="opsiMenu(event, 'Semua')" id="defaultOpen">
-                <script>
-                    // Untuk autoclick kategori "Diproses" saat halaman diload
-                    window.onload = function() {
-                    document.getElementById("defaultOpen").click();
-                    }
+                    <script>
+                        // Untuk autoclick kategori "Diproses" saat halaman diload
+                        window.onload = function() {
+                            document.getElementById("defaultOpen").click();
+                        }
                     </script>
                     <div class="dot"></div>
                     <span>Semua</span>

@@ -38,11 +38,19 @@
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
+                <li><a href="voucher/voucher.php">
+                        <i class="uil uil-pricetag-alt"></i>
+                        <span class="link-name">Voucher</span>
+                    </a></li>
+                <li><a href="adsbanner/adsbanner.php">
+                        <i class="uil uil-layer-group"></i>
+                        <span class="link-name">Ads banner</span>
+                    </a></li>
                 <li><a href="order.php">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="link-name">Order</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="performance.php">
                         <i class="uil uil-tachometer-fast-alt"></i>
                         <span class="link-name">Performance</span>
                     </a></li>
@@ -74,13 +82,17 @@
         </div>
 
         <div class="dash-content">
-
             <div class="overview">
+            <a href="addproduct.php">
+                    <button href="addproduct.php" type="button" class="btnsimpan" data-toggle="modal" data-target="#exampleModal">Simpan</button>
+                </a>
+
                 <div class="title">
                     <span class="text">Detail pesanan nomor #583</span>
                     <span class="subtext">Pembayaran melalui transfer Bank BRI</span>
                 </div>
 
+                
                 <div class="dropdown">
                     <div class="select-btn">
                         <span>Status</span>
@@ -88,8 +100,8 @@
                     </div>
                     <div class="content">
                         <div class="search">
-                        <i class="uil uil-search"></i>
-                        <input type="text" placeholder="Search">
+                            <i class="uil uil-search"></i>
+                            <input type="text" placeholder="Search">
                         </div>
                         <ul class="options"></ul>
                     </div>
@@ -97,7 +109,7 @@
 
                 <div class="boxes">
                     <div class="box box1">
-                    <i class="uil uil-plane-arrival"></i>   
+                        <i class="uil uil-plane-arrival"></i>
                         <span class="text">Waktu penjemputan</span>
                         <span class="number">08:00 - 8 Desember 2022</span>
                         <span class="text2">Alamat penjemputan</span>
@@ -106,7 +118,7 @@
                         <span class="number">085156023639</span>
                     </div>
                     <div class="box box2">
-                    <i class="uil uil-plane-departure"></i>
+                        <i class="uil uil-plane-departure"></i>
                         <span class="text">Waktu pengiriman</span>
                         <span class="number">13:00 - 12 Desember 2022</span>
                         <span class="text2">Alamat penjemputan</span>
@@ -134,26 +146,27 @@
                     <div class="data order">
                         <span class="data-title">Total</span>
                         <span class="data-list">12000</span>
-                    </div>  
+                    </div>
                 </div>
 
                 <div class="rincian">
                     <div class="placeholder">
-                    <span class="subtotal">Subtotal</span>
-                    <span class="pengiriman">Ongkos kirim</span>
-                    <span class="total">Total</span>
+                        <span class="subtotal">Subtotal</span>
+                        <span class="pengiriman">Ongkos kirim</span>
+                        <span class="total">Total</span>
                     </div>
-                    
+
                     <div class="data">
-                    <span class="subtotal">Rp12.000</span>
-                    <span class="pengiriman">Rp0</span>
-                    <span class="total">Rp12.000</span>
+                        <span class="subtotal">Rp12.000</span>
+                        <span class="pengiriman">Rp0</span>
+                        <span class="total">Rp12.000</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <script src="css/update.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
