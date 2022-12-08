@@ -556,6 +556,95 @@ nav.close~.dashboard .top {
 }
 
 .dash-content .dropdown {
+  width: 370px;
+  margin: 130px auto 0;
+}
+
+.select-btn, .options li {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.dash-content .dropdown .select-btn {
+  height: 65px;
+  font-size: 16px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 7px;
+  background: #FFFFFF;
+  justify-content: space-between;
+  border: 1px solid #E0E0E0;
+}
+
+.dash-content .dropdown .select-btn i {
+  font-size: 31px;
+}
+
+.dash-content .dropdown .content {
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 7px;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+}
+
+.dash-content .dropdown .content .search {
+  position: relative;
+}
+
+.dash-content .dropdown .content .search i {
+  left: 15px;
+  line-height: 53px;
+  font-size: 20px;
+  position: absolute;
+}
+
+.dash-content .dropdown .content .search input {
+  height: 53px;
+  width: 100%;
+  font-size: 17px;
+  outline: none;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 0 15px 0 43px;
+  border: 1px solid #E0E0E0;
+}
+
+.dash-content .dropdown .content .options {
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.dash-content .dropdown .content .options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dash-content .dropdown .content .options::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+
+.dash-content .dropdown .content .options::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+
+.dash-content .dropdown .content .options li {
+  height: 50px;
+  padding: 0 13px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.dash-content .dropdown .content .options li:hover {
+  background: #f2f2f2;
+}
+
+/* .dash-content .dropdown {
   min-width: 15em;
   position: relative;
   max-width: 120px;
@@ -629,14 +718,14 @@ nav.close~.dashboard .top {
   background: yellow;
 }
 
-.dash-content .dropdown .menuoption .activeoption {
+.dash-content .dropdown .menuoption .active {
   background: #1366D6;
 }
 
 .dash-content .dropdown .menuoption-open {
   display: block;
   opacity: 1;
-}
+} */
 
 /* CSS ORDER BEGAN HERE */
 

@@ -82,18 +82,24 @@
                 </div>
 
                 <div class="dropdown">
-                    <div class="selectbtn">
-                        <span class="selected">Menunggu pembayaran</span>
-                        <div class="caret"></div>
+                    <div class="select-btn">
+                        <span>Status</span>
+                        <i class="uil uil-angle-down"></i>
                     </div>
-                    <ul class="menuoption">
+                    <div class="content">
+                        <div class="search">
+                        <i class="uil uil-search"></i>
+                        <input type="text" placeholder="Search">
+                        </div>
+                        <ul class="options">
                         <li>Menunggu pembayaran</li>
-                        <li class="activeoption">Menunggu diproses</li>
+                        <li>Menunggu diproses</li>
                         <li>Sedang diproses</li>
                         <li>Sedang dikirim</li>
                         <li>Pesanan selesai</li>
                         <li>Pesanan dibatalkan</li>
                     </ul>
+                    </div>
                 </div>
 
                 <div class="boxes">
@@ -154,7 +160,7 @@
             </div>
         </div>
     </section>
-    
+    <script src="css/update.js"></script>
 </body>
 
 </html>
