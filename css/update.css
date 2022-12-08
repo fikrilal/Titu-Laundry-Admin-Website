@@ -557,7 +557,7 @@ nav.close~.dashboard .top {
 
 .dash-content .dropdown {
   width: 370px;
-  margin: 130px auto 0;
+  margin-bottom: 24px;
 }
 
 .select-btn, .options li {
