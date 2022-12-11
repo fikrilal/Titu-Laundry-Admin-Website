@@ -83,20 +83,33 @@
 
         <div class="dash-content">
             <div class="overview">
-            <a href="addproduct.php">
-                    <button href="addproduct.php" type="button" class="btnsimpan" data-toggle="modal" data-target="#exampleModal">Simpan</button>
+            <a href="">
+            <form action="" method="post">
+                    <button href="" name="update" type="button" class="btnsimpan" data-toggle="modal" data-target="#exampleModal">Simpan</button>
+            </form>
                 </a>
 
+                <?php
+                    $id_pesanan = $_GET['id_pesanan'];
+                ?>
+
                 <div class="title">
-                    <span class="text">Detail pesanan nomor #583</span>
+                    <span class="text">Detail pesanan nomor #<?php echo $id_pesanan;?></span>
                     <span class="subtext">Pembayaran melalui transfer Bank BRI</span>
                 </div>
 
-                
+                <?php
+                    $query = mysqli_query($koneksi, "SELECT status_pesanan FROM pesanan WHERE id_pesanan = '$id_pesanan'");
+                    $row = mysqli_fetch_array($query);
+                    $status_pesanan = $row['status_pesanan'];
+                ?>
+
                 <div class="dropdown">
-                    <div class="select-btn">
-                        <span>Status</span>
-                        <i class="uil uil-angle-down"></i>
+                <form action="" method="post">
+                    <div class="select-btn" >
+                        <span><?php echo $status_pesanan;?></span>
+                        <i class="uil uil-angle-down" name="select"></i>
+                    </form>
                     </div>
                     <div class="content">
                         <div class="search">
@@ -106,25 +119,45 @@
                         <ul class="options"></ul>
                     </div>
                 </div>
+                <?php
+                    if (isset($_POST['update'])) {
+                        $select = htmlspecialchars($_POST['select']);
+                        echo $select;
+                        $query = mysqli_query($koneksi, "UPDATE `pesanan` SET status_pesanan='$select' WHERE id_pesanan='$id_pesanan'");
+                    }
+                ?>
+
+                <?php
+                    $query = mysqli_query($koneksi, "SELECT `alamat_penjemputan`, DATE_FORMAT(waktu_penjemputan, '%d %M %Y'), DATE_FORMAT(waktu_penjemputan, '%k:%i'), `alamat_pengiriman`, DATE_FORMAT(waktu_antar, '%d %M %Y'), DATE_FORMAT(waktu_antar, '%k:%i'), user.nama, user.no_telpon FROM `pesanan` JOIN user ON pesanan.id_user = user.id_user WHERE id_pesanan='$id_pesanan'");
+                    $row = mysqli_fetch_array($query);
+                    $alamat_penjemputan = $row['alamat_penjemputan'];
+                    $waktu_penjemputan = $row["DATE_FORMAT(waktu_penjemputan, '%d %M %Y')"];
+                    $jam_penjemputan = $row["DATE_FORMAT(waktu_penjemputan, '%k:%i')"];
+                    $alamat_pengiriman = $row['alamat_pengiriman'];
+                    $waktu_antar = $row["DATE_FORMAT(waktu_antar, '%d %M %Y')"];
+                    $jam_antar = $row["DATE_FORMAT(waktu_antar, '%k:%i')"];
+                    $nama = $row["nama"];
+                    $no_telpon = $row["no_telpon"];
+                ?>
 
                 <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-plane-arrival"></i>
                         <span class="text">Waktu penjemputan</span>
-                        <span class="number">08:00 - 8 Desember 2022</span>
+                        <span class="number"><?php echo $jam_penjemputan;?> - <?php echo $waktu_penjemputan;?></span>
                         <span class="text2">Alamat penjemputan</span>
-                        <span class="number">Ahmad Fikril Al Muzakki</span>
-                        <span class="number">Jln. Suparjan Mangun Wijaya, Ds. Bujel, Kec. Mojororoto, RT 02 RW 03, Gang 3</span>
-                        <span class="number">085156023639</span>
+                        <span class="number"><?php echo $nama;?></span>
+                        <span class="number"><?php echo $alamat_penjemputan;?></span>
+                        <span class="number"><?php echo $no_telpon;?></span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-plane-departure"></i>
                         <span class="text">Waktu pengiriman</span>
-                        <span class="number">13:00 - 12 Desember 2022</span>
-                        <span class="text2">Alamat penjemputan</span>
-                        <span class="number">Ahmad Fikril Al Muzakki</span>
-                        <span class="number">Jln. Suparjan Mangun Wijaya, Ds. Bujel, Kec. Mojororoto, RT 02 RW 03, Gang 3</span>
-                        <span class="number">085156023639</span>
+                        <span class="number"><?php echo $jam_antar;?> - <?php echo $waktu_antar;?></span>
+                        <span class="text2">Alamat pengiriman</span>
+                        <span class="number"><?php echo $nama;?></span>
+                        <span class="number"><?php echo $alamat_pengiriman;?></span>
+                        <span class="number"><?php echo $no_telpon;?></span>
                     </div>
                 </div>
             </div>

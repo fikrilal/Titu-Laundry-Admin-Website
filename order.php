@@ -280,7 +280,7 @@ require "koneksi.php";
 
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-action"> <a href="edit_pesanan.php?id_pasanan=<?php echo $siswa['id_pesanan']; ?>">
+                            <span class="data-action"> <a href="update_pesanan.php?id_pesanan=<?php echo $siswa['id_pesanan']; ?>">
                                     <button type="button" class="btnmanage" data-toggle="modal" data-target="#exampleModal">Manage</button>
                                 </a> </span>
                         <?php
@@ -391,7 +391,7 @@ require "koneksi.php";
 
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-action"> <a href="edit_pesanan.php?id_pasanan=<?php echo $siswa['id_pesanan']; ?>">
+                            <span class="data-action"> <a href="update_pesanan.php?id_pesanan=<?php echo $siswa['id_pesanan']; ?>">
                                     <button type="button" class="btnmanage" data-toggle="modal" data-target="#exampleModal">Manage</button>
                                 </a> </span>
                         <?php
@@ -502,7 +502,7 @@ require "koneksi.php";
 
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-action"> <a href="edit_pesanan.php?id_pasanan=<?php echo $siswa['id_pesanan']; ?>">
+                            <span class="data-action"> <a href="update_pesanan.php?id_pesanan=<?php echo $siswa['id_pesanan']; ?>">
                                     <button type="button" class="btnmanage" data-toggle="modal" data-target="#exampleModal">Manage</button>
                                 </a> </span>
                         <?php
@@ -613,7 +613,7 @@ require "koneksi.php";
 
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-action"> <a href="edit_pesanan.php?id_pasanan=<?php echo $siswa['id_pesanan']; ?>">
+                            <span class="data-action"> <a href="update_pesanan.php?id_pesanan=<?php echo $siswa['id_pesanan']; ?>">
                                     <button type="button" class="btnmanage" data-toggle="modal" data-target="#exampleModal">Manage</button>
                                 </a> </span>
                         <?php
