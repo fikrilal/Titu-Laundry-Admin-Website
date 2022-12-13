@@ -23,54 +23,37 @@ while ($data = mysqli_fetch_array($result)) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="bootstrap-5.2.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/addproduct.css">
     <title>Edit Data Barang</title>
 </head>
 
 <body>
-    <div class="container-fluid mt-4">
-        <div class="card" style="width: 50rem;">
-            <div class="card-body">
-                <h5 class="card-title"><a href="product.php">
-                        <i class="uil uil-step-backward-circle"></i>
-                    </a>Edit Data Barang</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Ubahlah data barang kamu pada kolom-kolom dibawah ini</h6>
-                <form method="POST" action="update_jasa.php" enctype="multipart/form-data">
-                    <div class="container-fluid">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Ubah Gambar</label>
-                            <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1" required="" value="<?php echo $product_image; ?>">
-                            <section class="upload.php"></section>
-                        </div>
-
-                        <input type="hidden" class="form-control" name="txt_id_jasa" value="<?php echo $id_jasa; ?>">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nama Barang</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_jenis_jasa" value="<?php echo $nama_produk; ?>" placeholder="Masukkan nama barang...">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Warna</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_deskripsi" value="<?php echo $deskripsi_produk; ?>" placeholder="Masukkan warna...">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nama Barang</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_durasi" value="<?php echo $durasi_produk; ?>" placeholder="Masukkan nama barang...">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Warna</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="txt_harga" value="<?php echo $harga_produk; ?>" placeholder="Masukkan warna...">
-                        </div>
-                        <div class="col-4">
-                        <span class="data-action"> <a href="hapus_produk.php?id_jasa=<?php echo $id_jasa; ?>">
-                                    <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Manage</button>
-                                </a> </span><a href="product.php" class="btn btn-danger mb-3">Batal</a>
-                            <button type="submit" class="btn btn-success mb-3" name="bupdate">Update</button>
-                        </div>
-                    </div>
+    <div class="form-input">
+        <form method="POST" action="update_jasa.php" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah produk baru</h5>
             </div>
-        </div>
+
+            <input type="hidden" class="form-control" name="txt_id_jasa" value="<?php echo $id_jasa; ?>">
+            <input type="text" class="form-control" id="nama_produk" placeholder="Nama produk"  name="txt_jenis_jasa" value="<?php echo $nama_produk; ?>">
+            <input rows="5" cols="200" id="deskripsi_produk" placeholder="Deskripsi (max: 200 kata)" name="txt_deskripsi" value="<?php echo $deskripsi_produk; ?>">
+            <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="txt_durasi" value="<?php echo $durasi_produk; ?>">
+            <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="txt_harga" value="<?php echo $harga_produk; ?>">
+            <input class="file-input" type="file" id="exampleFormControlInput1" required="" name="product_image" value="<?php echo $product_image; ?>">
+            <label for="img">tested</label>
+
+            <button type="submit" class="simpan-btn" name="bupdate">Simpan</button>
+            <span class="data-action">
+                <a href="hapus_produk.php?id_jasa=<?php echo $id_jasa; ?>">
+                    <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
+                </a></span>
+            <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">Kembali</span>
+            </button>
         </form>
-        <script type="text/javascript" src="js/bootstrap.bundle.min.js>"></script>
+    </div>
+
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js>"></script>
 </body>
 
 </html>
