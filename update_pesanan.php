@@ -1,6 +1,7 @@
 <?php
 
 @include 'koneksi.php';
+$id_pesanan = $_GET['id_pesanan'];
 
 ?>
 
@@ -83,15 +84,9 @@
 
         <div class="dash-content">
             <div class="overview">
-            <a href="">
-            <form action="" method="post">
-                    <button href="" name="update" type="button" class="btnsimpan" data-toggle="modal" data-target="#exampleModal">Simpan</button>
-            </form>
+            <a href="testt.php?id_pesanan=<?php echo $id_pesanan?>">
+                    <button href="testt.php?id_pesanan=<?php echo $id_pesanan?>" name="update" type="button" class="btnsimpan" data-toggle="modal" data-target="#exampleModal">Simpan</button>
                 </a>
-
-                <?php
-                    $id_pesanan = $_GET['id_pesanan'];
-                ?>
 
                 <div class="title">
                     <span class="text">Detail pesanan nomor #<?php echo $id_pesanan;?></span>
@@ -105,11 +100,9 @@
                 ?>
 
                 <div class="dropdown">
-                <form action="" method="post">
-                    <div class="select-btn" >
+                    <div class="select-btn">
                         <span><?php echo $status_pesanan;?></span>
-                        <i class="uil uil-angle-down" name="select"></i>
-                    </form>
+                        <i class="uil uil-angle-down"></i>
                     </div>
                     <div class="content">
                         <div class="search">
@@ -119,13 +112,6 @@
                         <ul class="options"></ul>
                     </div>
                 </div>
-                <?php
-                    if (isset($_POST['update'])) {
-                        $select = htmlspecialchars($_POST['select']);
-                        echo $select;
-                        $query = mysqli_query($koneksi, "UPDATE `pesanan` SET status_pesanan='$select' WHERE id_pesanan='$id_pesanan'");
-                    }
-                ?>
 
                 <?php
                     $query = mysqli_query($koneksi, "SELECT `alamat_penjemputan`, DATE_FORMAT(waktu_penjemputan, '%d %M %Y'), DATE_FORMAT(waktu_penjemputan, '%k:%i'), `alamat_pengiriman`, DATE_FORMAT(waktu_antar, '%d %M %Y'), DATE_FORMAT(waktu_antar, '%k:%i'), user.nama, user.no_telpon FROM `pesanan` JOIN user ON pesanan.id_user = user.id_user WHERE id_pesanan='$id_pesanan'");
@@ -162,37 +148,48 @@
                 </div>
             </div>
 
+            <?php
+            $query1 = mysqli_query($koneksi, "SELECT jasa.jenis_jasa, jasa.harga, SUM(total_berat*jasa.harga), total_berat, harga_diskon, total_harga FROM pesanan JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan = '$id_pesanan'");
+            $row1 = mysqli_fetch_array($query1);
+            $jenis_jasa = $row1['jenis_jasa'];
+            $jasaharga = $row1['harga'];
+            $total_berat = $row1['total_berat'];
+            $total_harga = $row1['total_harga'];
+            $total_harga1 = $row1['SUM(total_berat*jasa.harga)'];
+            $harga_diskon = $row1['harga_diskon'];
+            ?>
+
             <div class="activity">
                 <div class="activity-data">
                     <div class="data date">
                         <span class="data-title">Pesanan</span>
-                        <span class="data-list">Cuci kering</span>
+                        <span class="data-list"><?php echo $jenis_jasa?></span>
                     </div>
                     <div class="data desc">
                         <span class="data-title">Harga</span>
-                        <span class="data-list">4000</span>
+                        <span class="data-list"><?php echo $jasaharga?></span>
                     </div>
                     <div class="data order">
                         <span class="data-title">Berat cucian</span>
-                        <span class="data-list">3 KG</span>
+                        <span class="data-list"><?php echo $total_berat?></span>
                     </div>
                     <div class="data order">
                         <span class="data-title">Total</span>
-                        <span class="data-list">12000</span>
+                        <span class="data-list"><?php echo $total_harga1?></span>
                     </div>
                 </div>
 
                 <div class="rincian">
                     <div class="placeholder">
                         <span class="subtotal">Subtotal</span>
-                        <span class="pengiriman">Ongkos kirim</span>
+                        <span class="pengiriman">Harga diskon</span>
                         <span class="total">Total</span>
                     </div>
 
                     <div class="data">
-                        <span class="subtotal">Rp12.000</span>
-                        <span class="pengiriman">Rp0</span>
-                        <span class="total">Rp12.000</span>
+                        <span class="subtotal"><?php echo $total_harga1?></span>
+                        <span class="pengiriman"><?php echo $harga_diskon ?></span>
+                        <span class="total"><?php echo $total_harga?></span>
                     </div>
                 </div>
             </div>
