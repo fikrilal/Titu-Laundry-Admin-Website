@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/voucher.css">
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -40,11 +40,11 @@
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
-                <li><a href="voucher/voucher.php">
+                <li><a href="voucher.php">
                         <i class="uil uil-pricetag-alt"></i>
                         <span class="link-name">Voucher</span>
                     </a></li>
-                <li><a href="adsbanner/adsbanner.php">
+                <li><a href="adsbanner.php">
                         <i class="uil uil-layer-group"></i>
                         <span class="link-name">Ads banner</span>
                     </a></li>
@@ -101,121 +101,90 @@
 
             <div class="activity">
                 <div class="title">
-                    <i class="uil uil-pricetag-alt"></i>
-                    <span class="text">Voucher diskon</span>
+                    <i class="uil uil-layer-group"></i>
+                    <span class="text">Semua banner</span>
 
-                    <!-- <a href="addproduct.php"> -->
-                    <button href="addproduct.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Buat voucher baru</button>
-                    <!-- </a> -->
-                </div>
-
-                <div method="POST" action="uploadvoucher.php" enctype="multipart/form-data" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Buat voucher baru</h5>
-                            </div>
-
-                            <form method="POST" action="tolaction.php" enctype="multipart/form-data">
-                                <div class="container-fluid">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Tambah Gambar</label>
-                                        <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1" required="">
-                                        <section class="upload.php"></section>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Nama Barang</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama_produk" placeholder="masukan nama barang...">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Deskripsi Barang</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="deskripsi_produk" placeholder="masukan nama barang...">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Durasi Barang</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="durasi_produk" placeholder="masukan nama barang...">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Harga Barang</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="harga_produk" placeholder="masukan nama barang...">
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="reset" class="btn btn-danger mb-3">Kosongkan</button>
-                                        <button type="submit" class="btn btn-success mb-3" name="simpan-btn">Simpan</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
+                    <a href="addvoucher.php">
+                        <button href="addvoucher.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Buat voucher baru</button>
+                    </a>
                 </div>
 
                 <div class="activity-data">
 
-                    <div class="data order-id">
-                        <span class="data-title">Gambar</span>
-                        <?php
-                        $sql = "SELECT image FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-thumb"><img src="img/<?php echo $siswa['image'] ?>" style="height: 56; width: 56; object-fit: cover; border-radius: 5px;"></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
                     <div class="data date">
                         <span class="data-title">Nama</span>
                         <?php
-                        $sql = "SELECT jenis_jasa FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT nama FROM `voucher` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlvoucher = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
+                            <span class="data-list"><?php echo $sqlvoucher['nama'] ?></span>
                         <?php
                         }
                         ?>
                     </div>
                     <div class="data desc">
-                        <span class="data-title">Deskripsi</span>
+                        <span class="data-title">Potongan harga</span>
                         <?php
-                        $sql = "SELECT deskripsi FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT potongan_harga FROM `voucher` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlvoucher = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-list"><?php echo $siswa['deskripsi'] ?></span>
+                            <span class="data-list"><?php echo $sqlvoucher['potongan_harga'] ?></span>
                         <?php
                         }
                         ?>
                     </div>
-                    <div class="data order">
-                        <span class="data-title">Durasi</span>
+                    <div class="data date">
+                        <span class="data-title">Slot voucher</span>
                         <?php
-                        $sql = "SELECT durasi FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT slot_voucher FROM `voucher` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlvoucher = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-list"><?php echo $siswa['durasi'] ?></span>
+                            <span class="data-list"><?php echo $sqlvoucher['slot_voucher'] ?></span>
                         <?php
                         }
                         ?>
                     </div>
-
-                    <div class="data price">
-                        <span class="data-title">Harga</span>
+                    <div class="data desc">
+                        <span class="data-title">Tanggal terbit</span>
                         <?php
-                        $sql = "SELECT harga FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT 	tgl_terbit FROM `voucher` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlvoucher = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-list"><?php echo $siswa['harga'] ?></span>
+                            <span class="data-list"><?php echo $sqlvoucher['tgl_terbit'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data desc">
+                        <span class="data-title">Tanggal expired</span>
+                        <?php
+                        $sql = "SELECT 	tgl_expired FROM `voucher` WHERE nama LIKE '%$searchbox%'";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($sqlvoucher = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $sqlvoucher['tgl_expired'] ?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="data date">
+                        <span class="data-title">Status</span>
+                        <?php
+                        $sql = "SELECT status FROM `voucher` WHERE nama LIKE '%$searchbox%'";
+                        $query = mysqli_query($koneksi, $sql);
+
+                        while ($sqlvoucher = mysqli_fetch_array($query)) {
+                        ?>
+                            <span class="data-list"><?php echo $sqlvoucher['status'] ?></span>
                         <?php
                         }
                         ?>
@@ -223,12 +192,12 @@
                     <div class="data status">
                         <span class="data-title">Action</span>
                         <?php
-                        $sql = "SELECT id_jasa FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT id_voucher  FROM `voucher` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlvoucher = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-action"> <a href="edit_barang.php?id_jasa=<?php echo $siswa['id_jasa']; ?>">
+                            <span class="data-action"> <a href="edit_voucher.php?id_voucher=<?php echo $sqlvoucher['id_voucher']; ?>">
                                     <button type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Manage</button>
                                 </a> </span>
 

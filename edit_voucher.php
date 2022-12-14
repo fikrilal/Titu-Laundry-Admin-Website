@@ -1,7 +1,17 @@
 <?php
+require('koneksi.php');
+// require('update_jasa.php');
 
-@include 'koneksi.php';
-
+$id_voucher = $_GET['id_voucher'];
+$ambilData = "SELECT * FROM voucher WHERE id_voucher='$id_voucher'";
+$result = mysqli_query($koneksi, $ambilData) or die();
+while ($data = mysqli_fetch_array($result)) {
+    $id_voucher = isset($data['id_voucher']) ? $data['id_voucher'] : '';
+    $nama_voucher = isset($data['nama']) ? $data['nama'] : '';
+    $potongan_harga = isset($data['potongan_harga']) ? $data['potongan_harga'] : '';
+    $slot_voucher = isset($data['slot_voucher']) ? $data['slot_voucher'] : '';
+    $tgl_expired = isset($data['tgl_expired']) ? $data['tgl_expired'] : '';
+}
 ?>
 
 <html>
@@ -40,11 +50,11 @@
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
-                <li><a href="voucher/voucher.php">
+                <li><a href="voucher.php">
                         <i class="uil uil-pricetag-alt"></i>
                         <span class="link-name">Voucher</span>
                     </a></li>
-                <li><a href="adsbanner/adsbanner.php">
+                <li><a href="adsbanner.php">
                         <i class="uil uil-layer-group"></i>
                         <span class="link-name">Ads banner</span>
                     </a></li>
@@ -90,30 +100,33 @@
         ?>
 
         <div class="form-input">
-            <form method="POST" action="action_banner.php" enctype="multipart/form-data">
+            <form method="POST" action="update_voucher.php" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Buat iklan banner baru</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit voucher promo</h5>
                 </div>
 
-                <input type="text" class="form-control" id="nama_banner" placeholder="Nama banner" name="nama_banner">
-                <input type="text" class="form-control" id="keterangan" placeholder="Keterangan" name="keterangan">
-                <input class="file-input" type="file" id="img" name="banner_image">
+                <input type="hidden" class="form-control" name="txt_id_voucher" value="<?php echo $id_voucher; ?>">
+                <input type="text" class="form-control" id="nama_voucher" placeholder="Nama voucher" name="txt_nama_voucher" value="<?php echo $nama_voucher; ?>">
+                <input rows="5" cols="200" id="potongan_harga" placeholder="Potongan harga" name="txt_potongan_harga" value="<?php echo $potongan_harga; ?>">
+                <input type="text" class="form-control" id="slot_voucher" placeholder="Slot voucher" name="txt_slot_voucher" value="<?php echo $slot_voucher; ?>">
+                <input type="date" class="form-control" id="tgl_expired" placeholder="Tanggal expired" name="txt_tgl_expired" value="<?php echo $tgl_expired; ?>">
 
-                <div class="tombol">
-                <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
-                <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">Kembali</span>
-                </button>
+                <div class="tomboledit">
+                    <button type="submit" class="simpan-btn" name="bupdate">Simpan</button>
+                    <span class="data-action"> <a href="hapus_voucher.php?id_voucher=<?php echo $id_voucher; ?>">
+                            <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
+                        </a></span>
+                    <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">Kembali</span>
+                    </button>
                 </div>
-                
+
             </form>
         </div>
+
     </section>
 
-
-
-    <script src="script.js"></script>
-    <!-- <script src="product.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js>"></script>
 </body>
 
 </html>

@@ -90,15 +90,16 @@
         ?>
 
         <div class="form-input">
-            <form method="POST" action="action_banner.php" enctype="multipart/form-data">
+            <form method="POST" action="action_voucher.php" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Buat iklan banner baru</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Buat voucher baru</h5>
                 </div>
 
-                <input type="text" class="form-control" id="nama_banner" placeholder="Nama banner" name="nama_banner">
-                <input type="text" class="form-control" id="keterangan" placeholder="Keterangan" name="keterangan">
-                <input class="file-input" type="file" id="img" name="banner_image">
-
+                <input type="text" class="form-control" id="nama_voucher" placeholder="Nama voucher" name="nama_voucher">
+                <input type="text" class="form-control" id="potongan_harga" placeholder="Potongan harga" name="potongan_harga">
+                <input type="text" class="form-control" id="slot_voucher" placeholder="Slot voucher" name="slot_voucher">
+                <input type="date" class="form-control" id="tgl_expired" placeholder="Tanggal expired" name="tgl_expired">
+               
                 <div class="tombol">
                 <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
                 <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">

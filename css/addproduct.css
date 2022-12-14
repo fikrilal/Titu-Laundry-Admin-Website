@@ -178,3 +178,11 @@
     border: 1.8px dashed #E0E0E0;
     cursor: pointer;
 }
+
+.form-input input[type="date"]::-webkit-calendar-picker-indicator {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-right: 16px;
+}

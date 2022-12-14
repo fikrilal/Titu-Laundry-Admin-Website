@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -32,7 +32,7 @@
         </div>
         <div class="menu-items">
             <ul class="nav-links">
-            <li><a href="index.php">
+                <li><a href="index.php">
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Dashboard</span>
                     </a></li>
@@ -84,16 +84,16 @@
             <div class="search-box">
                 <i class="uil uil-search"></i>
                 <form action="" method="post">
-                <input type="text" name="search-box" placeholder="Cari disini..">
-                </from>
+                    <input type="text" name="search-box" placeholder="Cari disini..">
+                    </from>
             </div>
             <img src="./img/profile.jpg" alt="">
         </div>
         <?php
-            $searchbox = "";
-            if(isset($_POST['search-box'])){
-                $searchbox = htmlspecialchars($_POST['search-box']);
-            }
+        $searchbox = "";
+        if (isset($_POST['search-box'])) {
+            $searchbox = htmlspecialchars($_POST['search-box']);
+        }
         ?>
 
 
@@ -101,58 +101,25 @@
 
             <div class="activity">
                 <div class="title">
-                    <i class="uil uil-box"></i>
-                    <span class="text">Semua produk</span>
+                    <i class="uil uil-layer-group"></i>
+                    <span class="text">Semua banner</span>
 
                     <a href="addbanner.php">
-                        <button href="addproduct.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">+ Tambah produk</button>
+                        <button href="addproduct.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">+ Tambah banner</button>
                     </a>
                 </div>
-
-                <!-- <div method="POST" action="tolaction.php" enctype="multipart/form-data" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah produk baru</h5>
-                            </div>
-
-                            <input type="text" class="form-control" id="nama_produk" placeholder="Nama produk" name="nama_produk">
-                            <input type="text" class="form-control" id="deskripsi_produk" placeholder="Deskripsi (max: 200 kata)" name="deskripsi_produk">
-                            <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="durasi_produk">
-                            <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="harga_produk">
-                            <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1" required="">
-                            <button type="submit" class="btn btn-success mb-3" name="simpan-btn">Simpan</button>
-
-                            <div class="wrapper">
-                                <form action="#">
-                                    <input class="file-input" type="file" name="file" hidden>
-                                    <i class="uil uil-image-plus"></i>
-                                    <p>Tambahkan foto produk</p>
-                                </form>
-                                <section class="progress-area"></section>
-                                <section class="uploaded-area"></section>
-                            </div>
-
-                            <button class="simpan-btn" name="simpan-btn">Simpan</button>
-                            <button class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">Kembali</span>
-                            </button>
-
-                        </div>
-                    </div>
-                </div> -->
 
                 <div class="activity-data">
 
                     <div class="data order-id">
-                        <span class="data-title">Gambar</span>
+                        <span class="data-title">Banner</span>
                         <?php
-                        $sql = "SELECT image FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT image FROM `banner` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlbanner = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-thumb"><img src="img/<?php echo $siswa['image'] ?>" style="height: 56; width: 100; object-fit: cover; border-radius: 5px;"></span>
+                            <span class="data-thumb"><img src="banner/<?php echo $sqlbanner['image'] ?>" style="height: 56; width: 100; object-fit: cover; border-radius: 5px;"></span>
                         <?php
                         }
                         ?>
@@ -160,12 +127,12 @@
                     <div class="data date">
                         <span class="data-title">Nama</span>
                         <?php
-                        $sql = "SELECT jenis_jasa FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT nama FROM `banner` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlbanner = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-list"><?php echo $siswa['jenis_jasa'] ?></span>
+                            <span class="data-list"><?php echo $sqlbanner['nama'] ?></span>
                         <?php
                         }
                         ?>
@@ -173,39 +140,12 @@
                     <div class="data desc">
                         <span class="data-title">Deskripsi</span>
                         <?php
-                        $sql = "SELECT deskripsi FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT keterangan FROM `banner` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlbanner = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-list"><?php echo $siswa['deskripsi'] ?></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="data order">
-                        <span class="data-title">Durasi</span>
-                        <?php
-                        $sql = "SELECT durasi FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-list"><?php echo $siswa['durasi'] ?></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
-
-                    <div class="data price">
-                        <span class="data-title">Harga</span>
-                        <?php
-                        $sql = "SELECT harga FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
-                        $query = mysqli_query($koneksi, $sql);
-
-                        while ($siswa = mysqli_fetch_array($query)) {
-                        ?>
-                            <span class="data-list"><?php echo $siswa['harga'] ?></span>
+                            <span class="data-list"><?php echo $sqlbanner['keterangan'] ?></span>
                         <?php
                         }
                         ?>
@@ -213,12 +153,12 @@
                     <div class="data status">
                         <span class="data-title">Action</span>
                         <?php
-                        $sql = "SELECT id_jasa FROM `jasa` WHERE jenis_jasa LIKE '%$searchbox%'";
+                        $sql = "SELECT id_banner FROM `banner` WHERE nama LIKE '%$searchbox%'";
                         $query = mysqli_query($koneksi, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
+                        while ($sqlbanner = mysqli_fetch_array($query)) {
                         ?>
-                            <span class="data-action"> <a href="edit_barang.php?id_jasa=<?php echo $siswa['id_jasa']; ?>">
+                            <span class="data-action"> <a href="edit_banner.php?id_banner=<?php echo $sqlbanner['id_banner']; ?>">
                                     <button type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Manage</button>
                                 </a> </span>
 

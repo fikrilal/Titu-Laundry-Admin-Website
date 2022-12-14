@@ -1,7 +1,16 @@
 <?php
+require('koneksi.php');
+// require('update_jasa.php');
 
-@include 'koneksi.php';
-
+$id_banner = $_GET['id_banner'];
+$ambilData = "SELECT * FROM banner WHERE id_banner='$id_banner'";
+$result = mysqli_query($koneksi, $ambilData) or die();
+while ($data = mysqli_fetch_array($result)) {
+    $id_banner = isset($data['id_banner']) ? $data['id_banner'] : '';
+    $nama_banner = isset($data['nama']) ? $data['nama'] : '';
+    $keterangan = isset($data['keterangan']) ? $data['keterangan'] : '';
+    $banner_image = isset($data['image']) ? $data['image'] : '';
+}
 ?>
 
 <html>
@@ -90,30 +99,32 @@
         ?>
 
         <div class="form-input">
-            <form method="POST" action="action_banner.php" enctype="multipart/form-data">
+            <form method="POST" action="update_banner.php" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Buat iklan banner baru</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit iklan banner</h5>
                 </div>
 
-                <input type="text" class="form-control" id="nama_banner" placeholder="Nama banner" name="nama_banner">
-                <input type="text" class="form-control" id="keterangan" placeholder="Keterangan" name="keterangan">
-                <input class="file-input" type="file" id="img" name="banner_image">
+                <input type="hidden" class="form-control" name="txt_id_banner" value="<?php echo $id_banner; ?>">
+                <input type="text" class="form-control" id="nama_banner" placeholder="Nama produk" name="txt_nama_banner" value="<?php echo $nama_banner; ?>">
+                <input rows="5" cols="200" id="keterangan" placeholder="Deskripsi (max: 200 kata)" name="txt_keterangan" value="<?php echo $keterangan; ?>">
+                <input class="file-input" type="file" id="exampleFormControlInput1" required="" name="banner_image" value="<?php echo $banner_image; ?>">
 
-                <div class="tombol">
-                <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
-                <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">Kembali</span>
-                </button>
+                <div class="tomboledit">
+                    <button type="submit" class="simpan-btn" name="bupdate">Simpan</button>
+                    <span class="data-action"> <a href="hapus_banner.php?id_banner=<?php echo $id_banner; ?>">
+                            <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
+                        </a></span>
+                    <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">Kembali</span>
+                    </button>
                 </div>
-                
+
             </form>
         </div>
+
     </section>
 
-
-
-    <script src="script.js"></script>
-    <!-- <script src="product.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js>"></script>
 </body>
 
 </html>
