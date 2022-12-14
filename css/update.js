@@ -12,6 +12,7 @@ let statusPesanan = ["Menunggu pembayaran", "Menunggu diproses", "Sedang diprose
             let isSelected = pesanan == selectedPesanan ? "selected" : "";
             let li = `<li onclick="updateName(this)" class="${isSelected}">${pesanan}</li>`;
             options.insertAdjacentHTML("beforeend", li);
+            console.log(selectedPesanan);
         });
     }
 
@@ -31,6 +32,7 @@ let statusPesanan = ["Menunggu pembayaran", "Menunggu diproses", "Sedang diprose
             return data.toLowerCase().startsWith(searchedVal);
         }).map(data => `<li onclick="updateName(this)">${data}</li>`).join("");
         options.innerHTML = arr ? arr : `<p>Oops! Status tidak ditemukan</p>`;
+        console.log(arr);
     });
 
 selectBtn.addEventListener("click", () => {

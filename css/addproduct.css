@@ -9,27 +9,26 @@
 
 .form-input {
     margin: auto;
-    width: 520px;
-    padding: 80px 30px;
-    border-radius: 8px;
+    width: 100%;
+
     /* border: 1px solid #333333; */
 }
 
 .form-input .modal-header h5 {
+    margin: auto;
+    width: 100%;
+
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
-    line-height: 29px;
-    display: flex;
     color: #333333;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    margin-top: 68px;
 }
 
 .form-input .simpan-btn {
     width: 100%;
     height: 52px;
-    margin-top: 24px;
-    margin-bottom: 16px;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -39,6 +38,8 @@
     outline: none;
     color: #FFFFFF;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-input .simpan-btn:hover {
@@ -59,7 +60,6 @@
 .form-input .kembali-btn {
     width: 100%;
     height: 52px;
-    margin-bottom: 16px;
     background: #FFFFFF;
     font-style: normal;
     font-weight: 700;
@@ -68,12 +68,43 @@
     border: 1px solid #2F80ED;
     outline: none;
     color: #2F80ED;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.form-input .tombol {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-input .tomboledit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-input .tomboledit button, .data-action {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    width: calc(100% / 3 - 10px);
+    margin-top: 24px;
+}
+
+.form-input .tombol button {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    width: calc(100% / 2 - 10px);
+    margin-top: 24px;
 }
 
 .form-input .data-action .btnhapus {
+    margin-top: auto;
     width: 100%;
     height: 52px;
-    margin-bottom: 16px;
     background: #FFFFFF;
     font-style: normal;
     font-weight: 700;
@@ -82,6 +113,9 @@
     border: 1px solid #EB5757;
     outline: none;
     color: #EB5757;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .form-input input {
@@ -110,20 +144,23 @@
     padding-top: 16px;
 }
 
-.form-input textarea::-webkit-scrollbar{
+.form-input textarea::-webkit-scrollbar {
     width: 5px;
-  }
-  .form-input textarea::-webkit-scrollbar-track{
+}
+
+.form-input textarea::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 25px;
-  }
-  .form-input textarea::-webkit-scrollbar-thumb{
+}
+
+.form-input textarea::-webkit-scrollbar-thumb {
     background: #ccc;
     border-radius: 25px;
-  }
-  .form-input textarea::-webkit-scrollbar-thumb:hover{
+}
+
+.form-input textarea::-webkit-scrollbar-thumb:hover {
     background: #b3b3b3;
-  }
+}
 
 .form-input .file-input {
     display: flex;
