@@ -46,13 +46,23 @@
                         $konfirmasi_password = htmlspecialchars($_POST['konfirmasi_password']);
                         $emailres = $_SESSION['emailres'];
 
-                        if($new_password==$konfirmasi_password){
-                            $query =  mysqli_query($koneksi, "UPDATE `user` SET `password`='$new_password' WHERE email='$emailres'");
-                            header("location:login.php");
+                        if(strlen($new_password)<6 & strlen($konfirmasi_password)<6){
+                            ?>
+                            <span class="text">Password Harus Lebih Dari 6 Karakter</span>
+                            <?php
+                        }else{
+                            if($new_password==$konfirmasi_password){
+                                $query =  mysqli_query($koneksi, "UPDATE `user` SET `password`='$new_password' WHERE email='$emailres'");
+                                header("location:login.php");
+                            }
+                            else{
+                            ?>
+                            <span class="text">Password Tidak Sama</span>
+                            <?php
+                            }
                         }
-                        else{
-                            header("location:reset-new-password.php");
-                        }
+
+
                     }
                 ?>
                 </div>
