@@ -39,11 +39,11 @@ $id_pesanan = $_GET['id_pesanan'];
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
-                <li><a href="voucher/voucher.php">
+                <li><a href="voucher.php">
                         <i class="uil uil-pricetag-alt"></i>
                         <span class="link-name">Voucher</span>
                     </a></li>
-                <li><a href="adsbanner/adsbanner.php">
+                <li><a href="adsbanner.php">
                         <i class="uil uil-layer-group"></i>
                         <span class="link-name">Ads banner</span>
                     </a></li>
