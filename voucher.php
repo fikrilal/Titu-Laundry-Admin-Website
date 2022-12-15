@@ -102,7 +102,7 @@
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-layer-group"></i>
-                    <span class="text">Semua banner</span>
+                    <span class="text">Semua voucher</span>
 
                     <a href="addvoucher.php">
                         <button href="addvoucher.php" type="button" class="btntambah" data-toggle="modal" data-target="#exampleModal">Buat voucher baru</button>
