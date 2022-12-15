@@ -124,22 +124,22 @@ require "koneksi.php";
                 <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-shopping-cart"></i>
-                        <span class="text">Pesanan masuk</span>
+                        <span class="text">Pendapatan</span>
                         <span class="number"><?php echo $jmlpengguna ?></span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-clock"></i>
-                        <span class="text">Menunggu diproses</span>
+                        <span class="text">Pesanan</span>
                         <span class="number"><?php echo $jmlpengguna1 ?></span>
                     </div>
                     <div class="box box3">
                         <i class="uil uil-plane-arrival"></i>
-                        <span class="text">Perlu dijemput</span>
+                        <span class="text">Pengguna</span>
                         <span class="number"><?php echo $jmlpengguna3 ?></span>
                     </div>
                     <div class="box box4">
                         <i class="uil uil-plane-departure"></i>
-                        <span class="text">Perlu dikirim</span>
+                        <span class="text">Total cucian (Kg)</span>
                         <span class="number"><?php echo $jmlpengguna2 ?></span>
                     </div>
                 </div>
