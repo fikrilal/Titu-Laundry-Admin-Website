@@ -99,6 +99,7 @@
     border-radius: 8px;
     width: calc(100% / 2 - 10px);
     margin-top: 24px;
+    margin-bottom: 32px;
 }
 
 .form-input .data-action .btnhapus {
@@ -185,4 +186,22 @@
     cursor: pointer;
     border-radius: 2px;
     margin-right: 16px;
+}
+
+.form-input .image-preview {
+    width: 300px;
+    min-height: 300px;
+    border: 1px solid #b3b3b3;
+    margin-top: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #333333;
+}
+
+.form-input .image-preview .image-preview__image {
+    display: none;
+    width: 100%;
 }

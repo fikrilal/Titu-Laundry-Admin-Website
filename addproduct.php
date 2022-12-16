@@ -100,7 +100,36 @@
         <textarea rows="5" cols="200" name="deskripsi_produk" placeholder="Deskripsi (max: 200 kata)"></textarea>
         <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="durasi_produk">
         <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="harga_produk">
-        <input class="file-input" type="file" id="img" name="product_image">
+        <input type="file" class="file-input" id="product_image" name="product_image">
+        <div class="image-preview" id="imagePreview">
+          <img src="" alt="Image Preview" class="image-preview__image">
+          <span class="image-preview__default-text">Image Preview</span>
+        </div>
+
+        <script>
+          const inpFile = document.getElementById("product_image");
+          const previewContainer = document.getElementById("imagePreview");
+          const previewImage = previewContainer.querySelector(".image-preview__image");
+          const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+          inpFile.addEventListener("change", function() {
+            const file = this.files[0];
+
+            if (file) {
+              const reader = new FileReader();
+
+              previewDefaultText.style.display = "none";
+              previewImage.style.display = "block";
+
+              reader.addEventListener("load", function() {
+                console.log(this);
+                previewImage.setAttribute("src", this.result);
+              });
+
+              reader.readAsDataURL(file);
+            }
+          });
+        </script>
 
         <div class="tombol">
           <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
@@ -112,8 +141,6 @@
       </form>
     </div>
   </section>
-
-
 
   <script src="script.js"></script>
   <!-- <script src="product.js"></script> -->
