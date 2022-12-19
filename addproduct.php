@@ -101,8 +101,31 @@
         <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="durasi_produk">
         <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="harga_produk">
         <input type="file" class="file-input" id="product_image" name="product_image">
+
+        <style>
+          .form-input .image-preview {
+            width: 300px;
+            min-height: 300px;
+            border: 1px solid #b3b3b3;
+            margin-top: 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #333333;
+            border-radius: 6px;
+          }
+
+          .form-input .image-preview .image-preview__image {
+            display: none;
+            width: 100%;
+            object-fit: cover;
+          }
+        </style>
+
         <div class="image-preview" id="imagePreview">
-          <img src="" alt="Image Preview" class="image-preview__image">
+          <img src="" alt="Image Preview" class="image-preview__image" style="object-fit: cover;">
           <span class="image-preview__default-text">Image Preview</span>
         </div>
 

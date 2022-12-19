@@ -98,43 +98,64 @@
                 <input type="text" class="form-control" id="nama_banner" placeholder="Nama banner" name="nama_banner">
                 <input type="text" class="form-control" id="keterangan" placeholder="Keterangan" name="keterangan">
                 <input class="file-input" type="file" id="img" name="banner_image">
+
+                <style>
+                    .form-input .image-preview {
+                        width: auto;
+                        min-height: 200px;
+                        border: 1px solid #b3b3b3;
+                        margin-top: 16px;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 500;
+                        color: #333333;
+                    }
+
+                    .form-input .image-preview .image-preview__image {
+                        display: none;
+                        width: 100%;
+                    }
+                    
+                </style>
                 <div class="image-preview" id="imagePreview">
-          <img src="" alt="Image Preview" class="image-preview__image">
-          <span class="image-preview__default-text">Image Preview</span>
-        </div>
+                    <img src="" alt="Image Preview" class="image-preview__image">
+                    <span class="image-preview__default-text">Image Preview</span>
+                </div>
 
-        <script>
-          const inpFile = document.getElementById("img");
-          const previewContainer = document.getElementById("imagePreview");
-          const previewImage = previewContainer.querySelector(".image-preview__image");
-          const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+                <script>
+                    const inpFile = document.getElementById("img");
+                    const previewContainer = document.getElementById("imagePreview");
+                    const previewImage = previewContainer.querySelector(".image-preview__image");
+                    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
 
-          inpFile.addEventListener("change", function() {
-            const file = this.files[0];
+                    inpFile.addEventListener("change", function() {
+                        const file = this.files[0];
 
-            if (file) {
-              const reader = new FileReader();
+                        if (file) {
+                            const reader = new FileReader();
 
-              previewDefaultText.style.display = "none";
-              previewImage.style.display = "block";
+                            previewDefaultText.style.display = "none";
+                            previewImage.style.display = "block";
 
-              reader.addEventListener("load", function() {
-                console.log(this);
-                previewImage.setAttribute("src", this.result);
-              });
+                            reader.addEventListener("load", function() {
+                                console.log(this);
+                                previewImage.setAttribute("src", this.result);
+                            });
 
-              reader.readAsDataURL(file);
-            }
-          });
-        </script>
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                </script>
 
                 <div class="tombol">
-                <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
-                <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">Kembali</span>
-                </button>
+                    <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
+                    <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">Kembali</span>
+                    </button>
                 </div>
-                
+
             </form>
         </div>
     </section>
