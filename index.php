@@ -1,13 +1,9 @@
 <?php
-
 use LDAP\Result;
-
 session_start();
 require "koneksi.php";
 ?>
-
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,16 +13,12 @@ require "koneksi.php";
 
     <title> Admin Dashboard Panel </title>
 </head>
-
-<body>
-    <nav>
+<body> <nav>
         <div class="logo-name">
             <div class="logo-image">
                 <img src="./img/vmware.svg" alt="">
             </div>
-
-            <span class="logo_name">Titu Laundry</span>
-        </div>
+            <span class="logo_name">Titu Laundry</span> </div>
         <div class="menu-items">
             <ul class="nav-links">
                 <li><a href="index.php">
@@ -39,8 +31,7 @@ require "koneksi.php";
                     </a></li>
                 <li><a href="voucher.php">
                         <i class="uil uil-pricetag-alt"></i>
-                        <span class="link-name">Voucher</span>
-                    </a></li>
+                        <span class="link-name">Voucher</span>   </a></li>
                 <li><a href="adsbanner.php">
                         <i class="uil uil-layer-group"></i>
                         <span class="link-name">Ads banner</span>
@@ -85,23 +76,18 @@ require "koneksi.php";
                     </from>
             </div>
             <img src="./img/profile.jpg" alt="">
-        </div>
-        <?php
+        </div>  <?php
         $searchbox = "";
         $tgl = date("Y-m-d");
         if (isset($_POST['search-box'])) {
             $searchbox = htmlspecialchars($_POST['search-box']);
-        }
-        ?>
-
+        }  ?>
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-arrow-circle-up"></i>
                     <span class="text">Dashboard</span>
-                </div>
-
-                <?php
+                </div>  <?php
                 $query = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user");
                 $row = mysqli_fetch_array($query);
                 $jmlpengguna = $row['COUNT(id_user)'];
@@ -139,16 +125,13 @@ require "koneksi.php";
                         <i class="uil uil-shopping-cart"></i>
                         <span class="text">Pesanan berjalan</span>
                         <span class="number"><?php echo $jmlstatus ?></span>
-                    </div>
-                </div>
-            </div>
+                    </div></div> </div>
 
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-shopping-cart"></i>
                     <span class="text">Pesanan terbaru</span>
                 </div>
-
                 <div class="activity-data">
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
@@ -159,8 +142,7 @@ require "koneksi.php";
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                             <span class="data-list">#<?php echo $siswa['id_pesanan'] ?></span>
-                        <?php
-                        }
+                        <?php  }
                         ?>
                     </div>
                     <div class="data date">
@@ -172,8 +154,7 @@ require "koneksi.php";
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                             <span class="data-list"><?php echo $siswa['tanggal'] ?></span>
-                        <?php
-                        }
+                        <?php  }
                         ?>
                     </div>
                     <div class="data name">
@@ -181,7 +162,6 @@ require "koneksi.php";
                         <?php
                         $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE (id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%') AND tanggal = '$tgl'";
                         $query = mysqli_query($koneksi, $sql);
-
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                             <span class="data-list"><?php echo $siswa['nama'] ?></span>
@@ -211,10 +191,7 @@ require "koneksi.php";
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                             <span class="data-list"><?php echo $siswa['total_berat'] ?> KG</span>
-                        <?php
-                        }
-                        ?>
-                    </div>
+                        <?php  }  ?> </div>
                     <div class="data price">
                         <span class="data-title">Harga</span>
                         <?php
@@ -237,14 +214,7 @@ require "koneksi.php";
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                             <span class="data-list"><?php echo $siswa['status_pesanan'] ?></span>
-                        <?php
-                        }
-                        ?>
-                    </div>
-
-                </div>
-
-
+                        <?php }  ?>  </div>  </div>
             </div>
     </section>
     <script src="script.js"></script>
