@@ -528,6 +528,7 @@ nav.close~.dashboard .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 40px;
 }
 
 .dash-content .boxes .box {
@@ -579,8 +580,8 @@ nav.close~.dashboard .top {
   display: flex;
   white-space: nowrap;
   border-top: 1px solid #E0E0E0;
-  padding-top: 20.7px;
-  padding-bottom: 20.7px;
+  padding-top: 21px;
+  padding-bottom: 21px;
   padding-right: 24px;
   overflow: hidden;
 }
@@ -624,7 +625,7 @@ nav.close~.dashboard .top {
 .activity-data .data {
   display: flex;
   flex-direction: column;
-  width: calc(100% / 7 - 16px);
+  width: calc(100% / 5 - 16px);
   /* margin: 0 4px; */
 }
 
@@ -816,3 +817,6 @@ input[type="radio"] {
   }
 }
 
+.dash-content .chart {
+  margin-top: 32px;
+}

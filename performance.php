@@ -12,7 +12,8 @@ require "koneksi.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
-    <link rel="stylesheet" href="css/order.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/performance.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title> Admin Dashboard Panel </title>
@@ -97,28 +98,21 @@ require "koneksi.php";
             <div class="overview">
 
                 <?php
-                $tgl = date("Y-m-d");
-                $query4 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE tanggal ='$tgl' AND status_pesanan='Sedang diproses'");
-                $row4 = mysqli_fetch_array($query4);
-                $jmlpengguna4 = $row4['COUNT(id_pesanan)'];
-                ?>
-
-                <?php
-                $query = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan");
+                $query = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE year(curdate())");
                 $row = mysqli_fetch_array($query);
-                $jmlpengguna = $row['COUNT(id_pesanan)'];
+                $jmlpengguna = $row['SUM(total_harga)'];
 
-                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Sedang diproses'");
+                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE year(curdate())");
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpengguna1 = $row1['COUNT(id_pesanan)'];
 
-                $query2 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Sedang diantar'");
+                $query2 = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user WHERE year(curdate())");
                 $row2 = mysqli_fetch_array($query2);
-                $jmlpengguna2 = $row2['COUNT(id_pesanan)'];
+                $jmlpengguna2 = $row2['COUNT(id_user)'];
 
-                $query3 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Sedang dijemput'");
+                $query3 = mysqli_query($koneksi, "SELECT SUM(total_berat) FROM pesanan WHERE year(curdate())");
                 $row3 = mysqli_fetch_array($query3);
-                $jmlpengguna3 = $row3['COUNT(id_pesanan)'];
+                $jmlpengguna3 = $row3['SUM(total_berat)'];
                 ?>
 
                 <div class="boxes">
@@ -135,20 +129,59 @@ require "koneksi.php";
                     <div class="box box3">
                         <i class="uil uil-plane-arrival"></i>
                         <span class="text">Pengguna</span>
-                        <span class="number"><?php echo $jmlpengguna3 ?></span>
+                        <span class="number"><?php echo $jmlpengguna2 ?></span>
                     </div>
                     <div class="box box4">
                         <i class="uil uil-plane-departure"></i>
-                        <span class="text">Total cucian (Kg)</span>
-                        <span class="number"><?php echo $jmlpengguna2 ?></span>
+                        <span class="text">Total cucian</span>
+                        <span class="number"><?php echo $jmlpengguna3 ?> Kg</span>
                     </div>
                 </div>
             </div>
 
+            <?php
+            $query =  mysqli_query($koneksi, "SELECT monthname(tanggal) AS bulan, SUM(total_harga) AS amount FROM pesanan GROUP BY MONTH(tanggal)");
+
+            foreach ($query as $data) {
+                $month[] = $data['bulan'];
+                $amount[] = $data['amount'];
+            }
+            ?>
+
+            <div class="chart" style="height: auto; width: auto;">
+                <canvas id="barchart"></canvas>
+            </div>
+
+            <script>
+                const ctx = document.getElementById('barchart');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: <?php echo json_encode($month) ?>,
+                        datasets: [{
+                            label: 'Pedapatan',
+                            data: <?php echo json_encode($amount) ?>,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+
         </div>
 
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="order.js"></script>
+    <script src="css/chart.js"></script>
     <script src="script.js"></script>
 </body>
 

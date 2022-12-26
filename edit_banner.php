@@ -108,7 +108,7 @@ while ($data = mysqli_fetch_array($result)) {
                 <input type="text" class="form-control" id="nama_banner" placeholder="Nama produk" name="txt_nama_banner" value="<?php echo $nama_banner; ?>">
                 <input rows="5" cols="200" id="keterangan" placeholder="Deskripsi (max: 200 kata)" name="txt_keterangan" value="<?php echo $keterangan; ?>">
                 <input class="file-input" type="file" id="banner_image" required="" name="banner_image" value="<?php echo $banner_image; ?>">
-                <img src="banner/<?php echo $banner_image; ?>" alt="" id="imgedit"style="height: 300; width: 600; object-fit: cover; border-radius: 5px;">
+                <img src="banner/<?php echo $banner_image; ?>" alt="" id="imgedit"style=" min-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;">
 
                 <script>
                     document.getElementById("banner_image").onchange = function() {
