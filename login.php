@@ -2,10 +2,8 @@
     session_start();
     require "koneksi.php";
 ?>
-
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,20 +20,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 </head>
-
 <body>
-
     <section class="login d-flex">
-
         <div class="login-left w-50 h-100">
-
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-8">
                     <div class="header">
                         <h1>Hello, Welcome Back!</h1>
                         <p>Let’s Sign In and enjoy our services</p>
                     </div>
-
                     <div class="login-form">
                     <form action="" method="post">
                         <label for="email" class="form-label">Email address</label>
@@ -60,18 +53,12 @@
                             $_SESSION['logged_in'] = true;
 
                             header("location:index.php");
-                        }
-                        else{
+                        } else{
                             ?>
                             <span class="text">Password atau Email salah</span>
                             <?php
-                        }
-                    }
-                    ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        } }
+                    ?> </div> </div> </div>  </div>
         <div class="login-right w-50 h-100">
             <img src="img/image-right.jpg" class="img-fluid h-100 w-100" alt="Responsive image">
         </div>
