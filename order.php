@@ -1,14 +1,8 @@
 <?php
-
 use LDAP\Result;
-
 session_start();
-require "koneksi.php";
-?>
-
-<html>
-
-<head>
+require "koneksi.php";?>
+<html><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
@@ -17,14 +11,10 @@ require "koneksi.php";
 
     <title> Admin Dashboard Panel </title>
 </head>
-
-<body>
-    <nav>
-        <div class="logo-name">
-            <div class="logo-image">
+<body> <nav>
+        <div class="logo-name"> <div class="logo-image">
                 <img src="./img/vmware.svg" alt="">
             </div>
-
             <span class="logo_name">Titu Laundry</span>
         </div>
         <div class="menu-items">
@@ -67,13 +57,7 @@ require "koneksi.php";
                         <span class="link-name">Dark mode</span>
                     </a>
                     <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+                        <span class="switch"></span> </div>  </li> </ul> </div> </nav>
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>

@@ -5,9 +5,7 @@ use LDAP\Result;
 session_start();
 require "koneksi.php";
 ?>
-
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,14 +16,9 @@ require "koneksi.php";
 
     <title> Admin Dashboard Panel </title>
 </head>
-
-<body>
-    <nav>
-        <div class="logo-name">
-            <div class="logo-image">
+<body>  <nav>  <div class="logo-name">   <div class="logo-image">
                 <img src="./img/vmware.svg" alt="">
             </div>
-
             <span class="logo_name">Titu Laundry</span>
         </div>
         <div class="menu-items">
@@ -53,69 +46,47 @@ require "koneksi.php";
                 <li><a href="performance.php">
                         <i class="uil uil-tachometer-fast-alt"></i>
                         <span class="link-name">Performance</span>
-                    </a></li>
-            </ul>
-
+                    </a></li>   </ul>
             <ul class="logout-mode">
                 <li><a href="login.php">
                         <i class="uil uil-signout"></i>
-                        <span class="link-name">Logout</span>
-                    </a>
-                </li>
-                <li class="mode">
+                        <span class="link-name">Logout</span> </a>  </li> <li class="mode">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
                     </a>
                     <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+                        <span class="switch"></span>  </div>   </li> </ul> </div>  </nav>
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-
             <div class="search-box">
                 <i class="uil uil-search"></i>
                 <form action="" method="post">
                     <input type="text" name="search-box" placeholder="Cari disini..">
-                    </from>
-            </div>
+                    </from>   </div>
             <img src="./img/profile.jpg" alt="">
         </div>
         <?php
         $searchbox = "";
         if (isset($_POST['search-box'])) {
-            $searchbox = htmlspecialchars($_POST['search-box']);
-        }
-        ?>
-
+            $searchbox = htmlspecialchars($_POST['search-box']);  }  ?>
         <div class="dash-content">
             <div class="overview">
-
                 <?php
                 $query = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE year(curdate())");
                 $row = mysqli_fetch_array($query);
                 $jmlpengguna = $row['SUM(total_harga)'];
-
                 $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE year(curdate())");
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpengguna1 = $row1['COUNT(id_pesanan)'];
-
                 $query2 = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user WHERE year(curdate())");
                 $row2 = mysqli_fetch_array($query2);
                 $jmlpengguna2 = $row2['COUNT(id_user)'];
-
                 $query3 = mysqli_query($koneksi, "SELECT SUM(total_berat) FROM pesanan WHERE year(curdate())");
                 $row3 = mysqli_fetch_array($query3);
                 $jmlpengguna3 = $row3['SUM(total_berat)'];
-                ?>
-
-                <div class="boxes">
+                ?>  <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-shopping-cart"></i>
                         <span class="text">Pendapatan</span>
@@ -138,23 +109,17 @@ require "koneksi.php";
                     </div>
                 </div>
             </div>
-
             <?php
             $query =  mysqli_query($koneksi, "SELECT monthname(tanggal) AS bulan, SUM(total_harga) AS amount FROM pesanan GROUP BY MONTH(tanggal)");
 
             foreach ($query as $data) {
                 $month[] = $data['bulan'];
-                $amount[] = $data['amount'];
-            }
-            ?>
-
+                $amount[] = $data['amount'];   }  ?>
             <div class="chart" style="height: auto; width: auto;">
                 <canvas id="barchart"></canvas>
             </div>
-
             <script>
                 const ctx = document.getElementById('barchart');
-
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
@@ -162,19 +127,12 @@ require "koneksi.php";
                         datasets: [{
                             label: 'Pedapatan',
                             data: <?php echo json_encode($amount) ?>,
-                            borderWidth: 1
-                        }]
-                    },
+                            borderWidth: 1  }]  },
                     options: {
                         scales: {
                             y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
+                                beginAtZero: true  }   }  }   });
             </script>
-
         </div>
 
     </section>
