@@ -15,8 +15,8 @@ session_start();
         $query1 = mysqli_query($koneksi, "SELECT `id_user` FROM `user` WHERE `email` ='$email'");
         $row = mysqli_fetch_array($query1);
         $id_user = $row['id_user'];
-        $query = mysqli_query($koneksi, "INSERT INTO `register`(`kode_verifikasi`, `verify_status`, `id_user`) VALUES ('$verifNumber','','$id_user')");
-
+        $query = mysqli_query($koneksi, "INSERT INTO `register`(`kode_verifikasi`, `verify_status`, `id_user`)
+         VALUES ('$verifNumber','','$id_user')");
         //sesuaikan name dengan di form nya ya 
         $judul = "Kode verifikasi password";
         $pesan = "Kode verifikasi : $verifNumber";
