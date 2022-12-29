@@ -1,4 +1,7 @@
 <?php
+use LDAP\Result;
+session_start();
+require "session.php";
 require "koneksi.php";
 $nama_banner = htmlspecialchars($_POST['nama_banner']);
 $keterangan = htmlspecialchars($_POST['keterangan']);

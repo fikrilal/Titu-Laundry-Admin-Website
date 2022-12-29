@@ -1,7 +1,9 @@
 <?php
 use LDAP\Result;
 session_start();
-require "koneksi.php";?>
+require "session.php";
+require "koneksi.php";
+?>
 <html><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

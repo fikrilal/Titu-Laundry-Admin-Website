@@ -1,4 +1,7 @@
 <?php
+use LDAP\Result;
+session_start();
+require "session.php";
 require "koneksi.php";
 require "voucher.php";
 $product_image = $_FILES['product_image']['name'];

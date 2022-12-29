@@ -1,4 +1,7 @@
 <?php
+use LDAP\Result;
+session_start();
+require "session.php";
 require ('koneksi.php');
 
 $id_banner = $_GET['id_banner'];

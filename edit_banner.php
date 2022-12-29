@@ -1,5 +1,8 @@
 <?php
-require('koneksi.php');
+use LDAP\Result;
+session_start();
+require "session.php";
+require "koneksi.php";
 // require('update_jasa.php');
 
 $id_banner = $_GET['id_banner'];

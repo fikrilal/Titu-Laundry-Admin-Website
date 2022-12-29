@@ -1,5 +1,7 @@
 <?php
-
+use LDAP\Result;
+session_start();
+require "session.php";
 @include 'koneksi.php';
 $id_pesanan = $_GET['id_pesanan'];
 

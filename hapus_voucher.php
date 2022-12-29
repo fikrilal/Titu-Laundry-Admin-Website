@@ -1,4 +1,7 @@
 <?php
+use LDAP\Result;
+session_start();
+require "session.php";
 require ('koneksi.php');
 
 $id_voucher = $_GET['id_voucher'];

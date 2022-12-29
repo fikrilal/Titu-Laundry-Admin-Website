@@ -1,4 +1,7 @@
 <?php
+use LDAP\Result;
+session_start();
+require "session.php";
 require "koneksi.php";
 $nama_voucher = htmlspecialchars($_POST['nama_voucher']);
 $potongan_harga = htmlspecialchars($_POST['potongan_harga']);
