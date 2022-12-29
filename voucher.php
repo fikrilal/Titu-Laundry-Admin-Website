@@ -67,7 +67,7 @@ require "session.php";
                     </a>
                 </li>
                 <li class="mode">
-                    <a href="#">
+                    <a <a href="login.php" onclick="return confirm('Apakah anda yakin ingin keluar?')">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
                     </a>
@@ -89,7 +89,7 @@ require "session.php";
                     <input type="text" name="search-box" placeholder="Cari disini..">
                     </from>
             </div>
-            <img src="./img/profile.jpg" alt="">
+            <img src="./img/profile.svg" alt="">
         </div>
         <?php
         $searchbox = "";

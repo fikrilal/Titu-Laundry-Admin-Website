@@ -47,7 +47,7 @@ require "koneksi.php";
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="login.php">
+                <li><a href="login.php" onclick="return confirm('Apakah anda yakin ingin keluar?')">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a>
@@ -75,7 +75,7 @@ require "koneksi.php";
                     <input type="text" name="search-box" placeholder="Cari disini..">
                     </from>
             </div>
-            <img src="./img/profile.jpg" alt="">
+            <img src="./img/profile.svg" alt="">
         </div>  <?php
         $searchbox = "";
         $tgl = date("Y-m-d");

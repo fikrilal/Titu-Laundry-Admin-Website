@@ -47,7 +47,7 @@ require "koneksi.php";
                         <span class="link-name">Performance</span>
                     </a></li>   </ul>
             <ul class="logout-mode">
-                <li><a href="login.php">
+                <li><a href="login.php" onclick="return confirm('Apakah anda yakin ingin keluar?')">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span> </a>  </li> <li class="mode">
                     <a href="#">
@@ -64,7 +64,7 @@ require "koneksi.php";
                 <form action="" method="post">
                     <input type="text" name="search-box" placeholder="Cari disini..">
                     </from>   </div>
-            <img src="./img/profile.jpg" alt="">
+            <img src="./img/profile.svg" alt="">
         </div>
         <?php
         $searchbox = "";
