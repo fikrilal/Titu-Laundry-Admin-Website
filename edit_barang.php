@@ -126,7 +126,7 @@ while ($data = mysqli_fetch_array($result)) {
 
                 <div class="tomboledit">
                     <button type="submit" class="simpan-btn" name="bupdate">Simpan</button>
-                    <span class="data-action"> <a href="hapus_produk.php?id_jasa=<?php echo $id_jasa; ?>">
+                    <span class="data-action"> <a href="hapus_produk.php?id_jasa=<?php echo $id_jasa; ?>" onclick="return confirm('Apakah anda yakin mau menghapus item ini?')">
                             <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
                         </a></span>
                     <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">

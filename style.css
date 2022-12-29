@@ -98,6 +98,28 @@
   color: #4F4F4F;
 }
 
+.login-form .passalah {
+  display: flex;
+  position: relative;
+  margin-top: 24px;
+  background-color: rgba(235, 87, 87, 0.2);;
+  padding: 12px;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.login-form .passalah i {
+  margin-left: 8px;
+  font-size: 24px;
+  color: #EB5757;
+}
+
+.login-form .text {
+  margin-left: 6px;
+  color: #EB5757;
+  font-weight: 500;
+}
+
 .new-password-form label {
   font-style: normal;
   font-weight: 500;
@@ -149,6 +171,7 @@ a:hover {
   border: none;
   outline: none;
   color: #FFFFFF;
+  font-weight: 600;
 }
 
 .signin:hover {
