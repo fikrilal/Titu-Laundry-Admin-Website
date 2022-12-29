@@ -361,6 +361,7 @@ nav.close~.dashboard .top {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
+  margin-top: 0px;
 }
 
 .dash-content .boxes .box {
@@ -925,4 +926,42 @@ input[type="radio"] {
 .dash-content .overview .btnsimpan:hover {
   background-color: #1366D6;
   transition: 0.4s;
+}
+
+select {
+  outline:0;
+  box-shadow:none;
+  border: 1px solid #E0E0E0;
+  background: #FFFFFF;
+  background-image: none;
+  padding: 0 1em;
+  color:#333333;
+  cursor:pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+select {
+
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #FFFFFF;
+  border-radius: .25em;
+}
+select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #2b2e2e;
+  cursor:pointer;
+  pointer-events:none;
+  transition:.25s all ease;
+}
+
+select:hover::after {
+  color: #23b499;
 }

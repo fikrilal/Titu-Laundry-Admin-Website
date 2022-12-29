@@ -147,19 +147,19 @@ require "koneksi.php";?>
                         }
                     </script>
                     <div class="dot"></div>
-                    <span>Semua</span>
+                    <span>Semua pesanan</span>
                 </label>
                 <label for="option-2" class="option option-2" onclick="opsiMenu(event, 'Diproses')">
                     <div class="dot"></div>
-                    <span>Diproses</span>
+                    <span>Pembayaran</span>
                 </label>
                 <label for="option-3" class="option option-3" onclick="opsiMenu(event, 'Dijemput')">
                     <div class="dot"></div>
-                    <span>Dijemput</span>
+                    <span>Sedang diproses</span>
                 </label>
                 <label for="option-4" class="option option-4" onclick="opsiMenu(event, 'Diantar')">
                     <div class="dot"></div>
-                    <span>Diantar</span>
+                    <span>Dalam pengiriman</span>
                 </label>
             </div>
 

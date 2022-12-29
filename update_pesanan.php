@@ -84,66 +84,80 @@ $id_pesanan = $_GET['id_pesanan'];
 
         <div class="dash-content">
             <div class="overview">
-            <a href="testt.php?id_pesanan=<?php echo $id_pesanan?>">
-                    <button href="testt.php?id_pesanan=<?php echo $id_pesanan?>" name="update" type="button" class="btnsimpan" data-toggle="modal" data-target="#exampleModal">Simpan</button>
-                </a>
+                <form action="" method="POST">
+                    <input type="submit" name="simpan" value="Simpan" type="button" class="btnsimpan">
 
-                <div class="title">
-                    <span class="text">Detail pesanan nomor #<?php echo $id_pesanan;?></span>
-                    <span class="subtext">Pembayaran melalui transfer Bank BRI</span>
-                </div>
 
-                <?php
+                    <div class="title">
+                        <span class="text">Detail pesanan nomor #<?php echo $id_pesanan; ?></span>
+                        <span class="subtext">Pembayaran melalui transfer Bank BRI</span>
+                    </div>
+
+                    <?php
                     $query = mysqli_query($koneksi, "SELECT status_pesanan FROM pesanan WHERE id_pesanan = '$id_pesanan'");
                     $row = mysqli_fetch_array($query);
                     $status_pesanan = $row['status_pesanan'];
+                    ?>
+
+                    <select name="cars" id="cars">
+                        <option value="anjay" hidden><?php echo $status_pesanan; ?></option>
+                        <option value="Menunggu pembayaran">Menunggu pembayaran</option>
+                        <option value="Sedang diproses">Sedang diproses</option>
+                        <option value="Sedang dalam pengiriman">Sedang dalam pengiriman</option>
+                        <option value="Pesanan dibatalkan">Pesanan dibatalkan</option>
+                        <option value="Pesanan selesai">Pesanan selesai</option>
+                    </select>
+                    <br><br>
+                    </method=>
+                </form>
+                <?php
+                if (isset($_POST['simpan'])) {
+                    $pilih = htmlspecialchars($_POST['cars']);
+
+                    $query = mysqli_query($koneksi, "UPDATE pesanan SET status_pesanan='$pilih' WHERE id_pesanan='$id_pesanan'");
+                    if ($update) {
+                        echo "<script> alert('Data gagal diupdate');
+                        document.location='order.php';
+                        </script>";
+                    } else {
+                        echo "<script> alert('Data berhasil diupdate');
+                        document.location='order.php';
+                        </script>";
+                    }
+                }
                 ?>
 
-                <div class="dropdown">
-                    <div class="select-btn">
-                        <span><?php echo $status_pesanan;?></span>
-                        <i class="uil uil-angle-down"></i>
-                    </div>
-                    <div class="content">
-                        <div class="search">
-                            <i class="uil uil-search"></i>
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <ul class="options"></ul>
-                    </div>
-                </div>
-
                 <?php
-                    $query = mysqli_query($koneksi, "SELECT `alamat_penjemputan`, DATE_FORMAT(waktu_penjemputan, '%d %M %Y'), DATE_FORMAT(waktu_penjemputan, '%k:%i'), `alamat_pengiriman`, DATE_FORMAT(waktu_antar, '%d %M %Y'), DATE_FORMAT(waktu_antar, '%k:%i'), user.nama, user.no_telpon FROM `pesanan` JOIN user ON pesanan.id_user = user.id_user WHERE id_pesanan='$id_pesanan'");
-                    $row = mysqli_fetch_array($query);
-                    $alamat_penjemputan = $row['alamat_penjemputan'];
-                    $waktu_penjemputan = $row["DATE_FORMAT(waktu_penjemputan, '%d %M %Y')"];
-                    $jam_penjemputan = $row["DATE_FORMAT(waktu_penjemputan, '%k:%i')"];
-                    $alamat_pengiriman = $row['alamat_pengiriman'];
-                    $waktu_antar = $row["DATE_FORMAT(waktu_antar, '%d %M %Y')"];
-                    $jam_antar = $row["DATE_FORMAT(waktu_antar, '%k:%i')"];
-                    $nama = $row["nama"];
-                    $no_telpon = $row["no_telpon"];
+                $query = mysqli_query($koneksi, "SELECT `alamat_penjemputan`, DATE_FORMAT(waktu_penjemputan, '%d %M %Y'), DATE_FORMAT(waktu_penjemputan, '%k:%i'), `alamat_pengiriman`, DATE_FORMAT(waktu_antar, '%d %M %Y'), DATE_FORMAT(waktu_antar, '%k:%i'), user.nama, user.no_telpon FROM `pesanan` JOIN user ON pesanan.id_user = user.id_user WHERE id_pesanan='$id_pesanan'");
+                $row = mysqli_fetch_array($query);
+                $alamat_penjemputan = $row['alamat_penjemputan'];
+                $waktu_penjemputan = $row["DATE_FORMAT(waktu_penjemputan, '%d %M %Y')"];
+                $jam_penjemputan = $row["DATE_FORMAT(waktu_penjemputan, '%k:%i')"];
+                $alamat_pengiriman = $row['alamat_pengiriman'];
+                $waktu_antar = $row["DATE_FORMAT(waktu_antar, '%d %M %Y')"];
+                $jam_antar = $row["DATE_FORMAT(waktu_antar, '%k:%i')"];
+                $nama = $row["nama"];
+                $no_telpon = $row["no_telpon"];
                 ?>
 
                 <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-plane-arrival"></i>
                         <span class="text">Waktu penjemputan</span>
-                        <span class="number"><?php echo $jam_penjemputan;?> - <?php echo $waktu_penjemputan;?></span>
+                        <span class="number"><?php echo $jam_penjemputan; ?> - <?php echo $waktu_penjemputan; ?></span>
                         <span class="text2">Alamat penjemputan</span>
-                        <span class="number"><?php echo $nama;?></span>
-                        <span class="number"><?php echo $alamat_penjemputan;?></span>
-                        <span class="number"><?php echo $no_telpon;?></span>
+                        <span class="number"><?php echo $nama; ?></span>
+                        <span class="number"><?php echo $alamat_penjemputan; ?></span>
+                        <span class="number"><?php echo $no_telpon; ?></span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-plane-departure"></i>
                         <span class="text">Waktu pengiriman</span>
-                        <span class="number"><?php echo $jam_antar;?> - <?php echo $waktu_antar;?></span>
+                        <span class="number"><?php echo $jam_antar; ?> - <?php echo $waktu_antar; ?></span>
                         <span class="text2">Alamat pengiriman</span>
-                        <span class="number"><?php echo $nama;?></span>
-                        <span class="number"><?php echo $alamat_pengiriman;?></span>
-                        <span class="number"><?php echo $no_telpon;?></span>
+                        <span class="number"><?php echo $nama; ?></span>
+                        <span class="number"><?php echo $alamat_pengiriman; ?></span>
+                        <span class="number"><?php echo $no_telpon; ?></span>
                     </div>
                 </div>
             </div>
@@ -163,19 +177,19 @@ $id_pesanan = $_GET['id_pesanan'];
                 <div class="activity-data">
                     <div class="data date">
                         <span class="data-title">Pesanan</span>
-                        <span class="data-list"><?php echo $jenis_jasa?></span>
+                        <span class="data-list"><?php echo $jenis_jasa ?></span>
                     </div>
                     <div class="data desc">
                         <span class="data-title">Harga</span>
-                        <span class="data-list"><?php echo $jasaharga?></span>
+                        <span class="data-list"><?php echo $jasaharga ?></span>
                     </div>
                     <div class="data order">
                         <span class="data-title">Berat cucian</span>
-                        <span class="data-list"><?php echo $total_berat?></span>
+                        <span class="data-list"><?php echo $total_berat ?></span>
                     </div>
                     <div class="data order">
                         <span class="data-title">Total</span>
-                        <span class="data-list"><?php echo $total_harga1?></span>
+                        <span class="data-list"><?php echo $total_harga1 ?></span>
                     </div>
                 </div>
 
@@ -187,9 +201,9 @@ $id_pesanan = $_GET['id_pesanan'];
                     </div>
 
                     <div class="data">
-                        <span class="subtotal"><?php echo $total_harga1?></span>
+                        <span class="subtotal"><?php echo $total_harga1 ?></span>
                         <span class="pengiriman"><?php echo $harga_diskon ?></span>
-                        <span class="total"><?php echo $total_harga?></span>
+                        <span class="total"><?php echo $total_harga ?></span>
                     </div>
                 </div>
             </div>
