@@ -1,6 +1,9 @@
 <?php
-require "koneksi.php";
+    session_start();
+    require "koneksi.php";
+    $_SESSION['logged_in'] = false;
 ?>
+
 <!doctype html>
 <html lang="en">
 

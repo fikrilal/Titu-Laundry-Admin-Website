@@ -1,5 +1,4 @@
 <?php
-use LDAP\Result;
 session_start();
 require "session.php";
 require "koneksi.php";
