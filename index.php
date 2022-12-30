@@ -21,9 +21,9 @@ require "koneksi.php";
             <span class="logo_name">Titu Laundry</span> </div>
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="index.php">
-                        <i class="uil uil-estate"></i>
-                        <span class="link-name">Dashboard</span>
+                <li><a href="index.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                        <i class="uil uil-estate" style="color: #2F80ED;"></i>
+                        <span class="link-name" style="color: #2F80ED; font-weight: 500;">Dashboard</span>
                     </a></li>
                 <li><a href="product.php">
                         <i class="uil uil-box"></i>

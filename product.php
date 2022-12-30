@@ -33,13 +33,13 @@ require "session.php";
         </div>
         <div class="menu-items">
             <ul class="nav-links">
-            <li><a href="index.php">
+                <li><a href="index.php">
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Dashboard</span>
                     </a></li>
-                <li><a href="product.php">
-                        <i class="uil uil-box"></i>
-                        <span class="link-name">Product</span>
+                <li><a href="product.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                        <i class="uil uil-box" style="color: #2F80ED;"></i>
+                        <span class="link-name" style="color: #2F80ED; font-weight: 500;">Product</span>
                     </a></li>
                 <li><a href="voucher.php">
                         <i class="uil uil-pricetag-alt"></i>
@@ -85,16 +85,16 @@ require "session.php";
             <div class="search-box">
                 <i class="uil uil-search"></i>
                 <form action="" method="post">
-                <input type="text" name="search-box" placeholder="Cari disini..">
-                </from>
+                    <input type="text" name="search-box" placeholder="Cari disini..">
+                    </from>
             </div>
             <img src="./img/profile.svg" alt="">
         </div>
         <?php
-            $searchbox = "";
-            if(isset($_POST['search-box'])){
-                $searchbox = htmlspecialchars($_POST['search-box']);
-            }
+        $searchbox = "";
+        if (isset($_POST['search-box'])) {
+            $searchbox = htmlspecialchars($_POST['search-box']);
+        }
         ?>
 
 

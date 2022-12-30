@@ -1,5 +1,7 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 require('koneksi.php');
@@ -50,9 +52,9 @@ while ($data = mysqli_fetch_array($result)) {
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Dashboard</span>
                     </a></li>
-                <li><a href="product.php">
-                        <i class="uil uil-box"></i>
-                        <span class="link-name">Product</span>
+                <li><a href="product.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                        <i class="uil uil-box" style="color: #2F80ED;"></i>
+                        <span class="link-name" style="color: #2F80ED; font-weight: 500;">Product</span>
                     </a></li>
                 <li><a href="voucher.php">
                         <i class="uil uil-pricetag-alt"></i>
@@ -105,7 +107,7 @@ while ($data = mysqli_fetch_array($result)) {
 
         <div class="form-input">
             <form method="POST" action="update_jasa.php" enctype="multipart/form-data">
-               <h5>Edit produk</h5>
+                <h5>Edit produk</h5>
                 <input type="hidden" class="form-control" name="txt_id_jasa" value="<?php echo $id_jasa; ?>">
                 <span>Nama produk</span>
                 <input type="text" class="form-control" id="nama_produk" placeholder="Nama produk" name="txt_jenis_jasa" value="<?php echo $nama_produk; ?>">
@@ -117,12 +119,13 @@ while ($data = mysqli_fetch_array($result)) {
                 <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="txt_harga" value="<?php echo $harga_produk; ?>">
                 <span>Photo produk</span>
                 <input class="file-input" type="file" id="product_image" required="" name="product_image" value="<?php echo $product_image; ?>">
-                <img src="img/<?php echo $product_image; ?>" alt="" id="imgedit" style="height: 300; width: 300; object-fit: cover; border-radius: 5px;">
+                <script></script>
+                <img src="img/<?php echo $product_image; ?>" alt="" id="imgedit" name="txt_valuehidden" style="height: 300; width: 300; object-fit: cover; border-radius: 5px;">
+                <span name="oldfile" hidden value="<?php echo $product_image; ?>"><?php echo $product_image; ?></span>
 
                 <script>
                     document.getElementById("product_image").onchange = function() {
                         document.getElementById("imgedit").src = URL.createObjectURL(product_image.files[0]);
-                        
                     }
                 </script>
 
@@ -131,7 +134,7 @@ while ($data = mysqli_fetch_array($result)) {
                     <span class="data-action"> <a href="hapus_produk.php?id_jasa=<?php echo $id_jasa; ?>" onclick="return confirm('Apakah anda yakin mau menghapus item ini?')">
                             <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
                         </a></span>
-                    <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="kembali-btn" data-dismiss="modal" aria-label="Close" onclick="history.back()">
                         <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                     </button>
                 </div>

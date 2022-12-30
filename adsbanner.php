@@ -46,9 +46,9 @@ require "session.php";
                         <i class="uil uil-pricetag-alt"></i>
                         <span class="link-name">Voucher</span>
                     </a></li>
-                <li><a href="adsbanner.php">
-                        <i class="uil uil-layer-group"></i>
-                        <span class="link-name">Ads banner</span>
+                    <li><a href="adsbanner.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                        <i class="uil uil-layer-group" style="color: #2F80ED;"></i>
+                        <span class="link-name" style="color: #2F80ED; font-weight: 500;">Ads banner</span>
                     </a></li>
                 <li><a href="order.php">
                         <i class="uil uil-shopping-cart"></i>

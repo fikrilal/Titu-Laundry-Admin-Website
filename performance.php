@@ -42,9 +42,9 @@ require "koneksi.php";
                         <i class="uil uil-shopping-cart"></i>
                         <span class="link-name">Order</span>
                     </a></li>
-                <li><a href="performance.php">
-                        <i class="uil uil-tachometer-fast-alt"></i>
-                        <span class="link-name">Performance</span>
+                <li><a href="performance.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                        <i class="uil uil-tachometer-fast-alt" style="color: #2F80ED;"></i>
+                        <span class="link-name" style="color: #2F80ED; font-weight: 500;">Performance</span>
                     </a></li>   </ul>
             <ul class="logout-mode">
                 <li><a href="login.php" onclick="return confirm('Apakah anda yakin ingin keluar?')">

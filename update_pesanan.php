@@ -49,9 +49,9 @@ $id_pesanan = $_GET['id_pesanan'];
                         <i class="uil uil-layer-group"></i>
                         <span class="link-name">Ads banner</span>
                     </a></li>
-                <li><a href="order.php">
-                        <i class="uil uil-shopping-cart"></i>
-                        <span class="link-name">Order</span>
+                    <li><a href="order.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                        <i class="uil uil-shopping-cart" style="color: #2F80ED;"></i>
+                        <span class="link-name" style="color: #2F80ED; font-weight: 500;">Order</span>
                     </a></li>
                 <li><a href="performance.php">
                         <i class="uil uil-tachometer-fast-alt"></i>
