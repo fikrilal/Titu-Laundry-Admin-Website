@@ -94,11 +94,10 @@
   display: flex;
   align-items: center;
   margin-top: 24px;
-
   color: #4F4F4F;
 }
 
-.new-password-form .paskurang {
+.reset-password .paskurang {
   display: flex;
   position: relative;
   margin-top: 24px;
@@ -108,13 +107,13 @@
   align-items: center;
 }
 
-.new-password-form .paskurang i {
+.reset-password .paskurang i {
   margin-left: 8px;
   font-size: 24px;
   color: #EB5757;
 }
 
-.new-password-form .text {
+.reset-password .text {
   margin-left: 6px;
   color: #EB5757;
   font-weight: 500;
@@ -238,6 +237,99 @@ a:hover {
   justify-content: center;
   align-items: center;
 } */
+
+.reset-password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reset-password .form-input h1 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 39px;
+  display: flex;
+  align-items: center;
+  color: #333333;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.reset-password .form-input p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 42px;
+  text-align: center;
+  color: #828282;
+  width: 700px;
+}
+
+.reset-password .form-input input {
+  width: 100%;
+    height: 56px;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    border: 1px solid #D2D2D2;
+    outline: none;
+    padding-left: 16px;
+}
+
+.reset-password .form-input label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  color: #4F4F4F;
+}
+
+.reset-password .form-input .tombol button {
+  width: 100%;
+  height: 52px;
+  margin-top: 32px;
+  background: #2F80ED;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-password .form-input button {
+  width: 100%;
+  height: 52px;
+  margin-top: 32px;
+  background: #2F80ED;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-password .form-input button:hover {
+  background-color: #1366D6;
+  transition: 0.4s;
+}
+
+/* .reset-password .form-input input:focus {
+  border-color: #a3c4bc;
+  box-shadow: 0 0 0 0.1rem #8ebdb1;
+} */
+
+.reset-password .form-input .tombol button:hover {
+  background-color: #1366D6;
+  transition: 0.4s;
+}
 
 body {
   min-height: 100vh;

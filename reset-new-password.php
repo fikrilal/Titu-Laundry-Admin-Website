@@ -25,16 +25,13 @@ require "koneksi.php";
 </head>
 
 <body>
-    <section class="new-password">
-        <div class="row justify-content-center align-items-center ">
-            <div class="col-5">
-                <div class="new-password">
-                    <h1>Buat password baru</h1>
-                    <p>Email kamu berhasil diverifikasi. Selanjutnya kamu dapat menentukan password baru</p>
-                </div>
+    <section class="reset-password">
 
-                <div class="new-password-form">
+                <div class="form-input">
                     <form action="" method="post">
+
+                    <h1>OTP Verification</h1>
+                <p>Masukkan kode OTP yang telah dikirim ke alamat email milikmu</p>
                         <label for="password" class="form-label">Password baru</label>
                         <input type="password" name="new_password" class="form-control" id="password" placeholder="Enter your password">
 
@@ -72,8 +69,6 @@ require "koneksi.php";
                     }
                     ?>
                 </div>
-            </div>
-        </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
