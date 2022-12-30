@@ -93,15 +93,17 @@ require "session.php";
 
     <div class="form-input">
       <form method="POST" action="tolaction.php" enctype="multipart/form-data">
-        <div class="modal-header">
-          <i class="uil uil-box"></i>
-          <h5 class="modal-title" id="exampleModalLabel">Tambah produk baru</h5>
-        </div>
+        <h5>Tambah produk baru</h5>
 
+        <span>Nama produk</span>
         <input type="text" class="form-control" id="nama_produk" placeholder="Nama produk" name="nama_produk">
+        <span>Deskripsi</span>
         <textarea rows="5" cols="200" name="deskripsi_produk" placeholder="Deskripsi (max: 200 kata)"></textarea>
+        <span>Durasi produk</span>
         <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="durasi_produk">
+        <span>Harga produk</span>
         <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="harga_produk">
+        <span>Photo produk</span>
         <input type="file" class="file-input" id="product_image" name="product_image">
 
         <style>
@@ -127,7 +129,7 @@ require "session.php";
         </style>
 
         <div class="image-preview" id="imagePreview">
-          <img src="" alt="Image Preview" class="image-preview__image" style="object-fit: cover;">
+          <img src="" alt="Image Preview" class="image-preview__image" style="height: 300; width: 300; object-fit: cover; border-radius: 8px;">
           <span class="image-preview__default-text">Image Preview</span>
         </div>
 
@@ -159,7 +161,7 @@ require "session.php";
         <div class="tombol">
           <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
           <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">Kembali</span>
+            <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
           </button>
         </div>
 

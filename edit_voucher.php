@@ -104,14 +104,16 @@ while ($data = mysqli_fetch_array($result)) {
 
         <div class="form-input">
             <form method="POST" action="update_voucher.php" enctype="multipart/form-data">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit voucher promo</h5>
-                </div>
+                <h5>Edit voucher diskon</h5>
 
                 <input type="hidden" class="form-control" name="txt_id_voucher" value="<?php echo $id_voucher; ?>">
+                <span>Nama voucher</span>
                 <input type="text" class="form-control" id="nama_voucher" placeholder="Nama voucher" name="txt_nama_voucher" value="<?php echo $nama_voucher; ?>">
-                <input rows="5" cols="200" id="potongan_harga" placeholder="Potongan harga" name="txt_potongan_harga" value="<?php echo $potongan_harga; ?>">
+                <span>Potongan harga</span>
+                <input type="text" class="form-control" id="potongan_harga" placeholder="Potongan harga" name="txt_potongan_harga" value="<?php echo $potongan_harga; ?>">
+                <span>Slot voucher</span>
                 <input type="text" class="form-control" id="slot_voucher" placeholder="Slot voucher" name="txt_slot_voucher" value="<?php echo $slot_voucher; ?>">
+                <span>Tanggal expired</span>
                 <input type="date" class="form-control" id="tgl_expired" placeholder="Tanggal expired" name="txt_tgl_expired" value="<?php echo $tgl_expired; ?>">
 
                 <div class="tomboledit">
@@ -120,7 +122,7 @@ while ($data = mysqli_fetch_array($result)) {
                             <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
                         </a></span>
                     <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Kembali</span>
+                        <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                     </button>
                 </div>
 

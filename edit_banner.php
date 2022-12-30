@@ -103,13 +103,14 @@ while ($data = mysqli_fetch_array($result)) {
 
         <div class="form-input">
             <form method="POST" action="update_banner.php" enctype="multipart/form-data">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit iklan banner</h5>
-                </div>
+                <h5>Edit iklan banner</h5>
 
                 <input type="hidden" class="form-control" name="txt_id_banner" value="<?php echo $id_banner; ?>">
+                <span>Nama banner</span>
                 <input type="text" class="form-control" id="nama_banner" placeholder="Nama produk" name="txt_nama_banner" value="<?php echo $nama_banner; ?>">
+                <span>Keterangan</span>
                 <input rows="5" cols="200" id="keterangan" placeholder="Deskripsi (max: 200 kata)" name="txt_keterangan" value="<?php echo $keterangan; ?>">
+                <span>Gambar banner</span>
                 <input class="file-input" type="file" id="banner_image" required="" name="banner_image" value="<?php echo $banner_image; ?>">
                 <img src="banner/<?php echo $banner_image; ?>" alt="" id="imgedit"style=" min-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;">
 
@@ -126,7 +127,7 @@ while ($data = mysqli_fetch_array($result)) {
                             <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
                         </a></span>
                     <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Kembali</span>
+                        <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                     </button>
                 </div>
 

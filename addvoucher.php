@@ -93,19 +93,21 @@ require "session.php";
 
         <div class="form-input">
             <form method="POST" action="action_voucher.php" enctype="multipart/form-data">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Buat voucher baru</h5>
-                </div>
+                <h5>Buat vooucher diskon baru</h5>
 
+                <span>Nama voucher</span>
                 <input type="text" class="form-control" id="nama_voucher" placeholder="Nama voucher" name="nama_voucher">
+                <span>Potongan harga</span>
                 <input type="text" class="form-control" id="potongan_harga" placeholder="Potongan harga" name="potongan_harga">
+                <span>Slot voucher</span>
                 <input type="text" class="form-control" id="slot_voucher" placeholder="Slot voucher" name="slot_voucher">
+                <span>Tanggal expired voucher</span>
                 <input type="date" class="form-control" id="tgl_expired" placeholder="Tanggal expired" name="tgl_expired">
                
                 <div class="tombol">
                 <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
                 <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">Kembali</span>
+                    <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                 </button>
                 </div>
                 

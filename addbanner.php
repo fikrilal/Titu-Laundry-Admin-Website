@@ -1,5 +1,7 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 @include 'koneksi.php';
@@ -93,12 +95,13 @@ require "session.php";
 
         <div class="form-input">
             <form method="POST" action="action_banner.php" enctype="multipart/form-data">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Buat iklan banner baru</h5>
-                </div>
+                <h5>Buat banner baru</h5>
 
+                <span>Nama banner</span>
                 <input type="text" class="form-control" id="nama_banner" placeholder="Nama banner" name="nama_banner">
+                <span>Keterangan</span>
                 <input type="text" class="form-control" id="keterangan" placeholder="Keterangan" name="keterangan">
+                <span>Gambar banner</span>
                 <input class="file-input" type="file" id="img" name="banner_image">
 
                 <style>
@@ -107,7 +110,7 @@ require "session.php";
                         min-height: 200px;
                         border: 1px solid #b3b3b3;
                         margin-top: 16px;
-
+                        border-radius: 8px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -119,10 +122,9 @@ require "session.php";
                         display: none;
                         width: 100%;
                     }
-                    
                 </style>
                 <div class="image-preview" id="imagePreview">
-                    <img src="" alt="Image Preview" class="image-preview__image">
+                    <img src="" alt="Image Preview" class="image-preview__image" style="border-radius: 8px;">
                     <span class="image-preview__default-text">Image Preview</span>
                 </div>
 
@@ -154,7 +156,7 @@ require "session.php";
                 <div class="tombol">
                     <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
                     <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Kembali</span>
+                        <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                     </button>
                 </div>
 

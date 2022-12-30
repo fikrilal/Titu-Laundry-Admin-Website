@@ -777,6 +777,24 @@ input[type="radio"] {
   display: none;
 }
 
+.form-input textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.form-input textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+
+.form-input textarea::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+
+.form-input textarea::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
+
 @media (max-width: 1000px) {
   nav {
     width: 73px;

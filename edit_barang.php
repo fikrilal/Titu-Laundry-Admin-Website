@@ -105,15 +105,17 @@ while ($data = mysqli_fetch_array($result)) {
 
         <div class="form-input">
             <form method="POST" action="update_jasa.php" enctype="multipart/form-data">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah produk baru</h5>
-                </div>
-
+               <h5>Edit produk</h5>
                 <input type="hidden" class="form-control" name="txt_id_jasa" value="<?php echo $id_jasa; ?>">
+                <span>Nama produk</span>
                 <input type="text" class="form-control" id="nama_produk" placeholder="Nama produk" name="txt_jenis_jasa" value="<?php echo $nama_produk; ?>">
-                <input rows="5" cols="200" id="deskripsi_produk" placeholder="Deskripsi (max: 200 kata)" name="txt_deskripsi" value="<?php echo $deskripsi_produk; ?>">
+                <span>Deskripsi produk</span>
+                <input type="text" class="form-control" id="deskripsi_produk" placeholder="Deskripsi (max: 200 kata)" name="txt_deskripsi" value="<?php echo $deskripsi_produk; ?>">
+                <span>Durasi produk</span>
                 <input type="text" class="form-control" id="durasi_produk" placeholder="Durasi (hari)" name="txt_durasi" value="<?php echo $durasi_produk; ?>">
+                <span>Harga produk</span>
                 <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="txt_harga" value="<?php echo $harga_produk; ?>">
+                <span>Photo produk</span>
                 <input class="file-input" type="file" id="product_image" required="" name="product_image" value="<?php echo $product_image; ?>">
                 <img src="img/<?php echo $product_image; ?>" alt="" id="imgedit" style="height: 300; width: 300; object-fit: cover; border-radius: 5px;">
 
@@ -130,7 +132,7 @@ while ($data = mysqli_fetch_array($result)) {
                             <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
                         </a></span>
                     <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Kembali</span>
+                        <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                     </button>
                 </div>
 
