@@ -18,7 +18,7 @@ require "koneksi.php";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@ require "koneksi.php";
 
 <body>
     <section class="new-password">
-        <div class="row justify-content-center align-items-center h-100">
+        <div class="row justify-content-center align-items-center ">
             <div class="col-5">
                 <div class="new-password">
                     <h1>Buat password baru</h1>
@@ -51,7 +51,11 @@ require "koneksi.php";
 
                         if (strlen($new_password) < 6 & strlen($konfirmasi_password) < 6) {
                     ?>
-                            <span class="text">Password Harus Lebih Dari 6 Karakter</span>
+                            <div class="paskurang">
+                                <i class="uil uil-exclamation-octagon"></i>
+                                <span class="text">Password Harus Lebih Dari 6 Karakter</span>
+                            </div>
+
                             <?php
                         } else {
                             if ($new_password == $konfirmasi_password) {
@@ -59,7 +63,10 @@ require "koneksi.php";
                                 header("location:login.php");
                             } else {
                             ?>
-                                <span class="text">Password Tidak Sama</span>
+                                <div class="paskurang">
+                                    <i class="uil uil-exclamation-octagon"></i>
+                                    <span class="text">Password tidak sama</span>
+                                </div>
                     <?php }
                         }
                     }

@@ -98,6 +98,28 @@
   color: #4F4F4F;
 }
 
+.new-password-form .paskurang {
+  display: flex;
+  position: relative;
+  margin-top: 24px;
+  background-color: rgba(235, 87, 87, 0.2);;
+  padding: 12px;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.new-password-form .paskurang i {
+  margin-left: 8px;
+  font-size: 24px;
+  color: #EB5757;
+}
+
+.new-password-form .text {
+  margin-left: 6px;
+  color: #EB5757;
+  font-weight: 500;
+}
+
 .login-form .passalah {
   display: flex;
   position: relative;
@@ -211,10 +233,11 @@ a:hover {
   transition: 0.4s;
 }
 
-.new-password {
+/* .new-password {
+  margin-top: auto;
   justify-content: center;
   align-items: center;
-}
+} */
 
 body {
   min-height: 100vh;
