@@ -92,12 +92,18 @@ require "koneksi.php";
                 $row = mysqli_fetch_array($query);
                 $jmlpengguna = $row['COUNT(id_user)'];
 
-                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan), SUM(total_harga) FROM pesanan");
+                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpesanan = $row1['COUNT(id_pesanan)'];
+
+
+                $query3 = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
+                $row1 = mysqli_fetch_array($query3);
                 $jmlharga = $row1['SUM(total_harga)'];
-                if ($jmlharga = 'NULL') {
-                    $jmlharga = '0';
+                if ($jmlharga != "") {
+                    $jmlharga = $row1['SUM(total_harga)']; 
+                } else {
+                    $jmlharga = "0";
                 }
 
                 $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan WHERE status_pesanan='Sedang diproses'");
@@ -119,7 +125,7 @@ require "koneksi.php";
                     <div class="box box3">
                         <i class="uil uil-money-bill"></i>
                         <span class="text">Pendapatan</span>
-                        <span class="number"><?php echo $jmlharga ?></span>
+                        <span class="number">Rp. <?php echo $jmlharga ?></span>
                     </div>
                     <div class="box box4">
                         <i class="uil uil-shopping-cart"></i>

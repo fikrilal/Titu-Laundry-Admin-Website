@@ -95,7 +95,7 @@ require "koneksi.php";
                 </div>
 
                 <?php
-                $query = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan");
+                $query = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Menunggu pembayaran'");
                 $row = mysqli_fetch_array($query);
                 $jmlpengguna = $row['COUNT(id_pesanan)'];
 
@@ -103,7 +103,7 @@ require "koneksi.php";
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpengguna1 = $row1['COUNT(id_pesanan)'];
 
-                $query2 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Sedang diantar'");
+                $query2 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Sedang dalam pengiriman'");
                 $row2 = mysqli_fetch_array($query2);
                 $jmlpengguna2 = $row2['COUNT(id_pesanan)'];
 
@@ -125,7 +125,7 @@ require "koneksi.php";
                     </div>
                     <div class="box box3">
                         <i class="uil uil-plane-arrival"></i>
-                        <span class="text">Perlu dijemput</span>
+                        <span class="text">Sedang/perlu dijemput</span>
                         <span class="number"><?php echo $jmlpengguna3 ?></span>
                     </div>
                     <div class="box box4">

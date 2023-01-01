@@ -368,10 +368,10 @@ nav.close~.dashboard .top {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 12px;
+  border-radius: 8px;
   width: calc(100% / 2 - 12px);
   padding: 15px 20px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #BDBDBD;
 }
 
 .boxes .box i {
@@ -437,18 +437,21 @@ nav.close~.dashboard .top {
   font-weight: 500;
   margin-bottom: 24px;
   color: #828282;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #BDBDBD;
 }
 
 .activity-data .data .data-list {
   font-size: 16px;
   font-weight: 500;
   white-space: nowrap;
-  border-top: 1px solid #E0E0E0;
-  padding: 32px 0px;
+  border-bottom: 1.5px dashed #BDBDBD;
+  padding-bottom: 24px;
   padding-right: 24px;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #333333;
+  margin-bottom: 32px;
 }
 
 .activity-data .data .data-thumb {
@@ -489,6 +492,12 @@ nav.close~.dashboard .top {
   transition: 0.4s;
 }
 
+.dash-content .activity {
+  border: 1px solid #BDBDBD;
+  border-radius: 8px;
+  padding: 16px;
+}
+
 .dash-content .activity .rincian .placeholder{
   display: grid;
  align-items: flex-start;
@@ -505,13 +514,16 @@ nav.close~.dashboard .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% / 3 - 30px);
+  width:30%;
+  /* background-color: #F7F9FB; */
+  
+  border-radius: 8px;
+
   /* margin-left: auto; 
   margin-right: 0; */
 }
 
 .dash-content .activity .placeholder .subtotal {
-  margin-top: 16px;
   white-space: nowrap;
   font-size: 16px;
   font-weight: 400;
@@ -536,7 +548,6 @@ nav.close~.dashboard .top {
 }
 
 .dash-content .activity .data .subtotal {
-  margin-top: 16px;
   white-space: nowrap;
   font-size: 16px;
   font-weight: 400;
@@ -931,10 +942,11 @@ input[type="radio"] {
 select {
   outline:0;
   box-shadow:none;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #BDBDBD;
   background: #FFFFFF;
   background-image: none;
-  padding: 0 1em;
+  padding: 12px;
+  padding-right: 12px;
   color:#333333;
   cursor:pointer;
 }
@@ -955,7 +967,7 @@ select::after {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0 1em;
+  padding: 12px;
   background: #2b2e2e;
   cursor:pointer;
   pointer-events:none;

@@ -59,11 +59,6 @@ require "koneksi.php";
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <form action="" method="post">
-                    <input type="text" name="search-box" placeholder="Cari disini..">
-                    </from>   </div>
             <img src="./img/profile.svg" alt="">
         </div>
         <?php
@@ -73,38 +68,38 @@ require "koneksi.php";
         <div class="dash-content">
             <div class="overview">
                 <?php
-                $query = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE year(curdate())");
+                $query = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row = mysqli_fetch_array($query);
                 $jmlpengguna = $row['SUM(total_harga)'];
-                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE year(curdate())");
+                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpengguna1 = $row1['COUNT(id_pesanan)'];
-                $query2 = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user WHERE year(curdate())");
+                $query2 = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user WHERE month(curdate())");
                 $row2 = mysqli_fetch_array($query2);
                 $jmlpengguna2 = $row2['COUNT(id_user)'];
-                $query3 = mysqli_query($koneksi, "SELECT SUM(total_berat) FROM pesanan WHERE year(curdate())");
+                $query3 = mysqli_query($koneksi, "SELECT SUM(total_berat) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row3 = mysqli_fetch_array($query3);
                 $jmlpengguna3 = $row3['SUM(total_berat)'];
                 ?>  <div class="boxes">
                     <div class="box box1">
-                        <i class="uil uil-shopping-cart"></i>
+                    <i class="uil uil-money-withdraw"></i>
                         <span class="text">Pendapatan</span>
                         <span class="number"><?php echo $jmlpengguna ?></span>
                     </div>
                     <div class="box box2">
-                        <i class="uil uil-clock"></i>
-                        <span class="text">Pesanan</span>
+                    <i class="uil uil-shopping-cart"></i>
+                        <span class="text">Pesanan berhasil</span>
                         <span class="number"><?php echo $jmlpengguna1 ?></span>
-                    </div>
+                    </div>    
                     <div class="box box3">
-                        <i class="uil uil-plane-arrival"></i>
-                        <span class="text">Pengguna</span>
-                        <span class="number"><?php echo $jmlpengguna2 ?></span>
-                    </div>
-                    <div class="box box4">
-                        <i class="uil uil-plane-departure"></i>
+                    <i class="uil uil-weight"></i>
                         <span class="text">Total cucian</span>
                         <span class="number"><?php echo $jmlpengguna3 ?> Kg</span>
+                    </div>
+                    <div class="box box4">
+                    <i class="uil uil-user"></i>
+                        <span class="text">Pengguna</span>
+                        <span class="number"><?php echo $jmlpengguna2 ?></span>
                     </div>
                 </div>
             </div>
@@ -138,7 +133,7 @@ require "koneksi.php";
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="order.js"></script>
-    <script src="css/chart.js"></script>
+    <!-- <script src="css/chart.js"></script> -->
     <script src="script.js"></script>
 </body>
 

@@ -104,6 +104,7 @@ $id_pesanan = $_GET['id_pesanan'];
                     <select name="cars" id="cars">
                         <option value="anjay" hidden><?php echo $status_pesanan; ?></option>
                         <option value="Menunggu pembayaran">Menunggu pembayaran</option>
+                        <option value="Sedang dijemput">Sedang dijemput</option>
                         <option value="Sedang diproses">Sedang diproses</option>
                         <option value="Sedang dalam pengiriman">Sedang dalam pengiriman</option>
                         <option value="Pesanan dibatalkan">Pesanan dibatalkan</option>
@@ -183,15 +184,15 @@ $id_pesanan = $_GET['id_pesanan'];
                     </div>
                     <div class="data desc">
                         <span class="data-title">Harga</span>
-                        <span class="data-list"><?php echo $jasaharga ?></span>
+                        <span class="data-list">Rp. <?php echo $jasaharga ?></span>
                     </div>
                     <div class="data order">
                         <span class="data-title">Berat cucian</span>
-                        <span class="data-list"><?php echo $total_berat ?></span>
+                        <span class="data-list"><?php echo $total_berat ?> Kg</span>
                     </div>
                     <div class="data order">
                         <span class="data-title">Total</span>
-                        <span class="data-list"><?php echo $total_harga1 ?></span>
+                        <span class="data-list">Rp. <?php echo $total_harga1 ?></span>
                     </div>
                 </div>
 
@@ -203,9 +204,9 @@ $id_pesanan = $_GET['id_pesanan'];
                     </div>
 
                     <div class="data">
-                        <span class="subtotal"><?php echo $total_harga1 ?></span>
-                        <span class="pengiriman"><?php echo $harga_diskon ?></span>
-                        <span class="total"><?php echo $total_harga ?></span>
+                        <span class="subtotal">Rp. <?php echo $total_harga1 ?></span>
+                        <span class="pengiriman">Rp. <?php echo $harga_diskon ?></span>
+                        <span class="total">Rp. <?php echo $total_harga ?></span>
                     </div>
                 </div>
             </div>

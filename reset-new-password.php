@@ -27,48 +27,48 @@ require "koneksi.php";
 <body>
     <section class="reset-password">
 
-                <div class="form-input">
-                    <form action="" method="post">
+        <div class="form-input">
+            <form action="" method="post">
 
-                    <h1>OTP Verification</h1>
-                <p>Masukkan kode OTP yang telah dikirim ke alamat email milikmu</p>
-                        <label for="password" class="form-label">Password baru</label>
-                        <input type="password" name="new_password" class="form-control" id="password" placeholder="Enter your password">
+                <h1>Buat password baru</h1>
+                <p>Email kamu sudah berhasil diverifikasi, sekarang kamu dapat membuat password baru</p>
+                <label for="password" class="form-label">Password baru</label>
+                <input type="password" name="new_password" class="form-control" id="password" placeholder="Enter your password">
 
-                        <label for="password" class="form-label">Ulangi password</label>
-                        <input type="password" name="konfirmasi_password" class="form-control" id="password" placeholder="Enter your password">
+                <label for="password" class="form-label">Ulangi password</label>
+                <input type="password" name="konfirmasi_password" class="form-control" id="password" placeholder="Enter your password">
 
-                        <button class="confirmBtn" name="confirmBtn">Confirm</button>
-                    </form>
+                <button class="confirmBtn" name="confirmBtn">Confirm</button>
+            </form>
+            <?php
+            if (isset($_POST['confirmBtn'])) {
+                $new_password = htmlspecialchars($_POST['new_password']);
+                $konfirmasi_password = htmlspecialchars($_POST['konfirmasi_password']);
+                $emailres = $_SESSION['emailres'];
+
+                if (strlen($new_password) < 6 & strlen($konfirmasi_password) < 6) {
+            ?>
+                    <div class="paskurang">
+                        <i class="uil uil-exclamation-octagon"></i>
+                        <span class="text">Password Harus Lebih Dari 6 Karakter</span>
+                    </div>
+
                     <?php
-                    if (isset($_POST['confirmBtn'])) {
-                        $new_password = htmlspecialchars($_POST['new_password']);
-                        $konfirmasi_password = htmlspecialchars($_POST['konfirmasi_password']);
-                        $emailres = $_SESSION['emailres'];
-
-                        if (strlen($new_password) < 6 & strlen($konfirmasi_password) < 6) {
+                } else {
+                    if ($new_password == $konfirmasi_password) {
+                        $query =  mysqli_query($koneksi, "UPDATE `user` SET `password`='$new_password' WHERE email='$emailres'");
+                        header("location:login.php");
+                    } else {
                     ?>
-                            <div class="paskurang">
-                                <i class="uil uil-exclamation-octagon"></i>
-                                <span class="text">Password Harus Lebih Dari 6 Karakter</span>
-                            </div>
-
-                            <?php
-                        } else {
-                            if ($new_password == $konfirmasi_password) {
-                                $query =  mysqli_query($koneksi, "UPDATE `user` SET `password`='$new_password' WHERE email='$emailres'");
-                                header("location:login.php");
-                            } else {
-                            ?>
-                                <div class="paskurang">
-                                    <i class="uil uil-exclamation-octagon"></i>
-                                    <span class="text">Password tidak sama</span>
-                                </div>
-                    <?php }
-                        }
-                    }
-                    ?>
-                </div>
+                        <div class="paskurang">
+                            <i class="uil uil-exclamation-octagon"></i>
+                            <span class="text">Password tidak sama</span>
+                        </div>
+            <?php }
+                }
+            }
+            ?>
+        </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

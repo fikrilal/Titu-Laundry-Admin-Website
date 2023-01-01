@@ -7,6 +7,24 @@
     font-family: 'Inter';
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 25px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 25px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+  }
+
 .dash-content .modal-content {
 
     top: 50%;
