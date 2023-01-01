@@ -118,10 +118,10 @@ while ($data = mysqli_fetch_array($result)) {
                 <span>Harga produk</span>
                 <input type="text" class="form-control" id="harga_produk" placeholder="Harga (per kg)" name="txt_harga" value="<?php echo $harga_produk; ?>">
                 <span>Photo produk</span>
-                <input class="file-input" type="file" id="product_image" required="" name="product_image" value="<?php echo $product_image; ?>">
+                <input class="file-input" type="file" id="product_image" name="product_image" value="<?php echo $product_image; ?>">
                 <script></script>
                 <img src="img/<?php echo $product_image; ?>" alt="" id="imgedit" name="txt_valuehidden" style="height: 300; width: 300; object-fit: cover; border-radius: 5px;">
-                <span name="oldfile" hidden value="<?php echo $product_image; ?>"><?php echo $product_image; ?></span>
+                <input type="text" hidden class="form-control" id="oldfile" placeholder="Harga (per kg)" name="oldfile" value="<?php echo $product_image; ?>">
 
                 <script>
                     document.getElementById("product_image").onchange = function() {

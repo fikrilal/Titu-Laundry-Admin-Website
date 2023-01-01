@@ -111,8 +111,9 @@ while ($data = mysqli_fetch_array($result)) {
                 <span>Keterangan</span>
                 <input rows="5" cols="200" id="keterangan" placeholder="Deskripsi (max: 200 kata)" name="txt_keterangan" value="<?php echo $keterangan; ?>">
                 <span>Gambar banner</span>
-                <input class="file-input" type="file" id="banner_image" required="" name="banner_image" value="<?php echo $banner_image; ?>">
+                <input class="file-input" type="file" id="banner_image" name="banner_image" value="<?php echo $banner_image; ?>">
                 <img src="banner/<?php echo $banner_image; ?>" alt="" id="imgedit"style=" min-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;">
+                <input type="text" hidden class="form-control" id="oldfile" name="oldfile" value="<?php echo $banner_image; ?>">
 
                 <script>
                     document.getElementById("banner_image").onchange = function() {
@@ -126,7 +127,7 @@ while ($data = mysqli_fetch_array($result)) {
                     <span class="data-action"> <a href="hapus_banner.php?id_banner=<?php echo $id_banner; ?>" onclick="return confirm('Apakah anda yakin mau menghapus banner ini?')">
                             <button type="button" class="btnhapus" data-toggle="modal" data-target="#exampleModal">Hapus produk</button>
                         </a></span>
-                    <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close" onclick="history.back()">
+                    <button type="button" class="kembali-btn" name="backbtn" data-dismiss="modal" aria-label="Close" onclick="history.back()">
                         <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                     </button>
                 </div>

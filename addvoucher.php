@@ -106,7 +106,7 @@ require "session.php";
                
                 <div class="tombol">
                 <button type="submit" class="simpan-btn" name="simpan-btn">Simpan</button>
-                <button type="submit" class="kembali-btn" data-dismiss="modal" aria-label="Close" onclick="history.back()">
+                <button type="button" class="kembali-btn" data-dismiss="modal" aria-label="Close" onclick="history.back()">
                     <span aria-hidden="true" style="color: #2F80ED;">Kembali</span>
                 </button>
                 </div>

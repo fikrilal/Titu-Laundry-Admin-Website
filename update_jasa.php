@@ -17,7 +17,7 @@ if (isset($_POST['bupdate'])){
   $folder = 'img/';
 
   if ($nama_file != "") {
-    move_uploaded_file($_FILES['product_image']['tmp_name'],'/img/'.$nama_file);
+    move_uploaded_file($_FILES['product_image']['tmp_name'],'img/'.$nama_file);
   } else {
     $nama_file = $oldfile;
     }
