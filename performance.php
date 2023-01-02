@@ -71,6 +71,13 @@ require "koneksi.php";
                 $query = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row = mysqli_fetch_array($query);
                 $jmlpengguna = $row['SUM(total_harga)'];
+                if ($jmlpengguna != "") {
+                    $jmlpengguna = $row1['SUM(total_harga)']; 
+                } else {
+                    $jmlpengguna = "0";
+                }
+
+
                 $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpengguna1 = $row1['COUNT(id_pesanan)'];
@@ -80,11 +87,17 @@ require "koneksi.php";
                 $query3 = mysqli_query($koneksi, "SELECT SUM(total_berat) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row3 = mysqli_fetch_array($query3);
                 $jmlpengguna3 = $row3['SUM(total_berat)'];
+                if ($jmlpengguna3 != "") {
+                    $jmlpengguna3 = $row1['SUM(total_harga)']; 
+                } else {
+                    $jmlpengguna3 = "0";
+                }
+
                 ?>  <div class="boxes">
                     <div class="box box1">
                     <i class="uil uil-money-withdraw"></i>
                         <span class="text">Pendapatan</span>
-                        <span class="number"><?php echo $jmlpengguna ?></span>
+                        <span class="number">Rp. <?php echo $jmlpengguna ?></span>
                     </div>
                     <div class="box box2">
                     <i class="uil uil-shopping-cart"></i>
