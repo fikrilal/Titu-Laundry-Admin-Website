@@ -77,7 +77,6 @@ require "koneksi.php";
                     $jmlpengguna = "0";
                 }
 
-
                 $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
                 $row1 = mysqli_fetch_array($query1);
                 $jmlpengguna1 = $row1['COUNT(id_pesanan)'];
