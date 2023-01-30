@@ -402,22 +402,22 @@ require "koneksi.php";
                     ?>
                     <div class="box box1">
                         <i class="uil uil-money-withdraw"></i>
-                        <span class="text">Pendapatan - Custom</span>
+                        <span class="text">Pendapatan</span>
                         <span class="number">Rp. <?php echo $pendapatanCustom ?></span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-shopping-cart"></i>
-                        <span class="text">Pesanan berhasil - Custom</span>
+                        <span class="text">Pesanan berhasil</span>
                         <span class="number"><?php echo $pesananCustom ?></span>
                     </div>
                     <div class="box box3">
                         <i class="uil uil-weight"></i>
-                        <span class="text">Total cucian - Custom</span>
+                        <span class="text">Total cucian</span>
                         <span class="number"><?php echo $cucianCustom ?> Kg</span>
                     </div>
                     <div class="box box4">
                         <i class="uil uil-user"></i>
-                        <span class="text">Pengguna baru - Custom</span>
+                        <span class="text">Pengguna baru</span>
                         <span class="number"><?php echo $userCustom ?></span>
                     </div>
                 </div>
