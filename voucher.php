@@ -66,15 +66,15 @@ require "session.php";
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <li class="mode">
-                    <a <a href="login.php" onclick="return confirm('Apakah anda yakin ingin keluar?')">
+                <!-- <li class="mode">
+                    <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
                     </a>
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>

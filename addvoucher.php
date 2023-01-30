@@ -66,7 +66,7 @@ require "session.php";
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <li class="mode">
+                <!-- <li class="mode">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
@@ -74,6 +74,7 @@ require "session.php";
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
+                </li> -->
                 </li>
             </ul>
         </div>

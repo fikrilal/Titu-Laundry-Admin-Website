@@ -28,8 +28,8 @@ $_SESSION['logged_in'] = false;
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-8">
                     <div class="header">
-                        <h1>Hello, Welcome Back!</h1>
-                        <p>Let’s Sign In and enjoy our services</p>
+                        <h1>Halo, Selamat datang kembali!</h1>
+                        <p>Masuk untuk menggunakan layanan kami</p>
                     </div>
                     <div class="login-form">
                         <form action="" method="post">

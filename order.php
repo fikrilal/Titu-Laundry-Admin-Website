@@ -1,10 +1,14 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 require "koneksi.php";
 ?>
-<html><head>
+<html>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
@@ -13,8 +17,11 @@ require "koneksi.php";
 
     <title> Admin Dashboard Panel </title>
 </head>
-<body> <nav>
-        <div class="logo-name"> <div class="logo-image">
+
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
                 <img src="./img/vmware.svg" alt="">
             </div>
             <span class="logo_name">Titu Laundry</span>
@@ -53,13 +60,18 @@ require "koneksi.php";
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <li class="mode">
+                <!-- <li class="mode">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
                     </a>
                     <div class="mode-toggle">
-                        <span class="switch"></span> </div>  </li> </ul> </div> </nav>
+                        <span class="switch"></span>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
@@ -170,7 +182,7 @@ require "koneksi.php";
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -183,7 +195,7 @@ require "koneksi.php";
                     <div class="data date">
                         <span class="data-title">Tanggal</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -196,7 +208,7 @@ require "koneksi.php";
                     <div class="data name">
                         <span class="data-title">Nama</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -209,7 +221,7 @@ require "koneksi.php";
                     <div class="data order">
                         <span class="data-title">Pesanan</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -222,7 +234,7 @@ require "koneksi.php";
                     <div class="data weight">
                         <span class="data-title">Berat</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -235,7 +247,7 @@ require "koneksi.php";
                     <div class="data price">
                         <span class="data-title">Harga</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -248,7 +260,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Status</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -261,7 +273,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Action</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE id_pesanan LIKE '%$searchbox%' OR nama LIKE '%$searchbox%' OR tanggal = '$searchbox%' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -281,7 +293,7 @@ require "koneksi.php";
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -294,7 +306,7 @@ require "koneksi.php";
                     <div class="data date">
                         <span class="data-title">Tanggal</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -307,7 +319,7 @@ require "koneksi.php";
                     <div class="data name">
                         <span class="data-title">Nama</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -320,7 +332,7 @@ require "koneksi.php";
                     <div class="data order">
                         <span class="data-title">Pesanan</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -333,7 +345,7 @@ require "koneksi.php";
                     <div class="data weight">
                         <span class="data-title">Berat</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -346,7 +358,7 @@ require "koneksi.php";
                     <div class="data price">
                         <span class="data-title">Harga</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -359,7 +371,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Status</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -372,7 +384,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Action</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Menunggu pembayaran' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -392,7 +404,7 @@ require "koneksi.php";
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -405,7 +417,7 @@ require "koneksi.php";
                     <div class="data date">
                         <span class="data-title">Tanggal</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -418,7 +430,7 @@ require "koneksi.php";
                     <div class="data name">
                         <span class="data-title">Nama</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -431,7 +443,7 @@ require "koneksi.php";
                     <div class="data order">
                         <span class="data-title">Pesanan</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -444,7 +456,7 @@ require "koneksi.php";
                     <div class="data weight">
                         <span class="data-title">Berat</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -457,7 +469,7 @@ require "koneksi.php";
                     <div class="data price">
                         <span class="data-title">Harga</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -470,7 +482,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Status</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -483,7 +495,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Action</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang diproses' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -503,7 +515,7 @@ require "koneksi.php";
                     <div class="data order-id">
                         <span class="data-title">Order ID</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -516,7 +528,7 @@ require "koneksi.php";
                     <div class="data date">
                         <span class="data-title">Tanggal</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -529,7 +541,7 @@ require "koneksi.php";
                     <div class="data name">
                         <span class="data-title">Nama</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -542,7 +554,7 @@ require "koneksi.php";
                     <div class="data order">
                         <span class="data-title">Pesanan</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -555,7 +567,7 @@ require "koneksi.php";
                     <div class="data weight">
                         <span class="data-title">Berat</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -568,7 +580,7 @@ require "koneksi.php";
                     <div class="data price">
                         <span class="data-title">Harga</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -581,7 +593,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Status</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -594,7 +606,7 @@ require "koneksi.php";
                     <div class="data status">
                         <span class="data-title">Action</span>
                         <?php
-                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman'";
+                        $sql = "SELECT id_pesanan, tanggal, user.nama, jasa.jenis_jasa, total_berat, total_harga, status_pesanan FROM `pesanan`  JOIN user ON pesanan.id_user = user.id_user JOIN jasa ON pesanan.id_jasa = jasa.id_jasa WHERE status_pesanan='Sedang dalam pengiriman' ORDER BY id_pesanan DESC;";
                         $query = mysqli_query($koneksi, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {

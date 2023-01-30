@@ -14,6 +14,16 @@
   --tran-03: all 0.2s ease;
 }
 
+input[type="date"] {
+  
+  padding: 10px;
+  color: #828282;
+  font-size: 16px;
+  border: 1px solid #E0E0E0;
+  outline: none;
+  border-radius: 30px;
+}
+
 .login {
   height: 100vh;
 }
@@ -528,7 +538,7 @@ nav.close~.dashboard .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
+  
 }
 
 .dash-content .boxes .box {
@@ -566,6 +576,92 @@ nav.close~.dashboard .top {
 }
 
 .boxes .box.box4 {
+  background-color: #F7F9FB;
+}
+
+.dash-content .pembanding {
+  height: 40px;
+  width: 600px;
+  background-color: rgba(39, 174, 96, 0.24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dash-content .pembanding span {
+  font-size: 16px;
+  color: #27AE60;
+  font-weight: 500;
+}
+
+.dash-content .dategroup .tampilkandata {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2F80ED;
+  width: auto;
+  height: 40px;
+background-color: transparent;
+  border: 1px solid #2F80ED;
+  border-radius: 40px;
+  margin-left: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  cursor: pointer;
+}
+
+.dash-content .dategroup .tampilkandata:hover {
+  color: #FFFFFF;
+  background-color: #1366D6;
+  transition: 0.4s;
+}
+
+/* ----------------------------------BOC CUSTOM------------------------------ */
+.dash-content .boxescstm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.dash-content .boxescstm .box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 12px;
+  width: calc(100% / 4 - 16px);
+  padding: 15px 20px;
+  background-color: #E3F5FF;
+}
+
+.boxescstm .box i {
+  font-size: 20px;
+  color: #828282;
+}
+
+.boxescstm .box .text {
+  margin-top: 8px;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 500;
+  color: #828282;
+}
+
+.boxescstm .box .number {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.boxescstm .box.box2 {
+  background-color: #F7F9FB;
+}
+
+.boxescstm .box.box4 {
   background-color: #F7F9FB;
 }
 
@@ -660,17 +756,37 @@ nav.close~.dashboard .top {
 
 /* CSS ORDER BEGAN HERE */
 
+.dashboard .dash-content .dategroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.dashboard .dash-content .dategroup .inputdate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard .dash-content .dategroup .inputdate .tglmulai {
+  margin-right: 16px;
+}
+
+.dashboard .dash-content .dategroup .inputdate span {
+  font-size: 16px;
+  color: #828282;
+  margin-right: 16px;
+}
+
 .dashboard .menu {
   height: 90px;
-  width: 560px;
+  width: 600px;
   border-radius: 5px;
   background: #FFFFFF;
   display: flex;
   padding: 24px 15px 24px 0px;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 8px;
-  margin-bottom: 30px;
 }
 
 .dashboard .menu .option {
