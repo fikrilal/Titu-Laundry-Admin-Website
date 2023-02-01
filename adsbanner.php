@@ -1,5 +1,7 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 @include 'koneksi.php';
@@ -46,7 +48,7 @@ require "session.php";
                         <i class="uil uil-pricetag-alt"></i>
                         <span class="link-name">Voucher</span>
                     </a></li>
-                    <li><a href="adsbanner.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                <li><a href="adsbanner.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
                         <i class="uil uil-layer-group" style="color: #2F80ED;"></i>
                         <span class="link-name" style="color: #2F80ED; font-weight: 500;">Ads banner</span>
                     </a></li>
@@ -66,7 +68,7 @@ require "session.php";
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <!-- <li class="mode">
+                <li class="mode" style="display: none;">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
@@ -74,7 +76,7 @@ require "session.php";
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>

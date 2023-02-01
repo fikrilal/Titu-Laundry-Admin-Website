@@ -1,5 +1,7 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 @include 'koneksi.php';
@@ -66,15 +68,15 @@ require "session.php";
             <span class="link-name">Logout</span>
           </a>
         </li>
-        <!-- <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Dark mode</span>
-                    </a>
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
+        <li class="mode" style="display: none;">
+          <a href="#">
+            <i class="uil uil-moon"></i>
+            <span class="link-name">Dark mode</span>
+          </a>
+          <div class="mode-toggle">
+            <span class="switch"></span>
+          </div>
+        </li>
       </ul>
     </div>
   </nav>

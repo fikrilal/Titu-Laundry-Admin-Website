@@ -4,6 +4,7 @@ require "session.php";
 require "koneksi.php";
 ?>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,12 +14,15 @@ require "koneksi.php";
 
     <title> Admin Dashboard Panel </title>
 </head>
-<body> <nav>
+
+<body>
+    <nav>
         <div class="logo-name">
             <div class="logo-image">
                 <img src="./img/vmware.svg" alt="">
             </div>
-            <span class="logo_name">Titu Laundry</span> </div>
+            <span class="logo_name">Titu Laundry</span>
+        </div>
         <div class="menu-items">
             <ul class="nav-links">
                 <li><a href="index.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
@@ -31,7 +35,7 @@ require "koneksi.php";
                     </a></li>
                 <li><a href="voucher.php">
                         <i class="uil uil-pricetag-alt"></i>
-                        <span class="link-name">Voucher</span>   </a></li>
+                        <span class="link-name">Voucher</span> </a></li>
                 <li><a href="adsbanner.php">
                         <i class="uil uil-layer-group"></i>
                         <span class="link-name">Ads banner</span>
@@ -52,7 +56,7 @@ require "koneksi.php";
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <!-- <li class="mode">
+                <li class="mode" style="display: none;">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
@@ -60,7 +64,7 @@ require "koneksi.php";
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>
@@ -76,40 +80,40 @@ require "koneksi.php";
                     </from>
             </div>
             <img src="./img/profile.svg" alt="">
-        </div>  <?php
-        $searchbox = "";
-        $tgl = date("Y-m-d");
-        if (isset($_POST['search-box'])) {
-            $searchbox = htmlspecialchars($_POST['search-box']);
-        }  ?>
+        </div> <?php
+                $searchbox = "";
+                $tgl = date("Y-m-d");
+                if (isset($_POST['search-box'])) {
+                    $searchbox = htmlspecialchars($_POST['search-box']);
+                }  ?>
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-arrow-circle-up"></i>
                     <span class="text">Dashboard</span>
-                </div>  <?php
-                $query = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user");
-                $row = mysqli_fetch_array($query);
-                $jmlpengguna = $row['COUNT(id_user)'];
+                </div> <?php
+                        $query = mysqli_query($koneksi, "SELECT COUNT(id_user) FROM user");
+                        $row = mysqli_fetch_array($query);
+                        $jmlpengguna = $row['COUNT(id_user)'];
 
-                $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE MONTH(tanggal) = MONTH(CURRENT_DATE())");
-                $row1 = mysqli_fetch_array($query1);
-                $jmlpesanan = $row1['COUNT(id_pesanan)'];
+                        $query1 = mysqli_query($koneksi, "SELECT COUNT(id_pesanan) FROM pesanan WHERE MONTH(tanggal) = MONTH(CURRENT_DATE())");
+                        $row1 = mysqli_fetch_array($query1);
+                        $jmlpesanan = $row1['COUNT(id_pesanan)'];
 
 
-                $query3 = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
-                $row1 = mysqli_fetch_array($query3);
-                $jmlharga = $row1['SUM(total_harga)'];
-                if ($jmlharga != "") {
-                    $jmlharga = $row1['SUM(total_harga)']; 
-                } else {
-                    $jmlharga = "0";
-                }
+                        $query3 = mysqli_query($koneksi, "SELECT SUM(total_harga) FROM pesanan WHERE status_pesanan='Pesanan selesai' AND MONTH(tanggal) = MONTH(CURRENT_DATE())");
+                        $row1 = mysqli_fetch_array($query3);
+                        $jmlharga = $row1['SUM(total_harga)'];
+                        if ($jmlharga != "") {
+                            $jmlharga = $row1['SUM(total_harga)'];
+                        } else {
+                            $jmlharga = "0";
+                        }
 
-                $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan WHERE status_pesanan='Sedang diproses'");
-                $row2 = mysqli_fetch_array($query2);
-                $jmlstatus = $row2['COUNT(status_pesanan)'];
-                ?>
+                        $query2 = mysqli_query($koneksi, "SELECT COUNT(status_pesanan) FROM pesanan WHERE status_pesanan='Sedang diproses'");
+                        $row2 = mysqli_fetch_array($query2);
+                        $jmlstatus = $row2['COUNT(status_pesanan)'];
+                        ?>
 
                 <div class="boxes">
                     <div class="box box1">
@@ -131,7 +135,9 @@ require "koneksi.php";
                         <i class="uil uil-shopping-cart"></i>
                         <span class="text">Pesanan berjalan</span>
                         <span class="number"><?php echo $jmlstatus ?></span>
-                    </div></div> </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="activity">
                 <div class="title">
@@ -197,7 +203,8 @@ require "koneksi.php";
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                             <span class="data-list"><?php echo $siswa['total_berat'] ?> KG</span>
-                        <?php  }  ?> </div>
+                        <?php  }  ?>
+                    </div>
                     <div class="data price">
                         <span class="data-title">Harga</span>
                         <?php
@@ -220,7 +227,9 @@ require "koneksi.php";
                         while ($siswa = mysqli_fetch_array($query)) {
                         ?>
                             <span class="data-list"><?php echo $siswa['status_pesanan'] ?></span>
-                        <?php }  ?>  </div>  </div>
+                        <?php }  ?>
+                    </div>
+                </div>
             </div>
     </section>
     <script src="script.js"></script>

@@ -1,5 +1,7 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 require "koneksi.php";
@@ -56,7 +58,7 @@ while ($data = mysqli_fetch_array($result)) {
                         <i class="uil uil-pricetag-alt"></i>
                         <span class="link-name">Voucher</span>
                     </a></li>
-                    <li><a href="adsbanner.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                <li><a href="adsbanner.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
                         <i class="uil uil-layer-group" style="color: #2F80ED;"></i>
                         <span class="link-name" style="color: #2F80ED; font-weight: 500;">Ads banner</span>
                     </a></li>
@@ -76,7 +78,7 @@ while ($data = mysqli_fetch_array($result)) {
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <!-- <li class="mode">
+                <li class="mode" style="display: none;">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
@@ -84,7 +86,7 @@ while ($data = mysqli_fetch_array($result)) {
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>
@@ -112,13 +114,13 @@ while ($data = mysqli_fetch_array($result)) {
                 <input rows="5" cols="200" id="keterangan" placeholder="Deskripsi (max: 200 kata)" name="txt_keterangan" value="<?php echo $keterangan; ?>">
                 <span>Gambar banner</span>
                 <input class="file-input" type="file" id="banner_image" name="banner_image" value="<?php echo $banner_image; ?>">
-                <img src="banner/<?php echo $banner_image; ?>" alt="" id="imgedit"style=" min-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;">
+                <img src="banner/<?php echo $banner_image; ?>" alt="" id="imgedit" style=" min-height: 200px; width: 100%; object-fit: cover; border-radius: 5px;">
                 <input type="text" hidden class="form-control" id="oldfile" name="oldfile" value="<?php echo $banner_image; ?>">
 
                 <script>
                     document.getElementById("banner_image").onchange = function() {
                         document.getElementById("imgedit").src = URL.createObjectURL(banner_image.files[0]);
-                        
+
                     }
                 </script>
 

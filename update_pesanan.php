@@ -1,5 +1,7 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 @include 'koneksi.php';
@@ -49,7 +51,7 @@ $id_pesanan = $_GET['id_pesanan'];
                         <i class="uil uil-layer-group"></i>
                         <span class="link-name">Ads banner</span>
                     </a></li>
-                    <li><a href="order.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                <li><a href="order.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
                         <i class="uil uil-shopping-cart" style="color: #2F80ED;"></i>
                         <span class="link-name" style="color: #2F80ED; font-weight: 500;">Order</span>
                     </a></li>
@@ -65,7 +67,7 @@ $id_pesanan = $_GET['id_pesanan'];
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <!-- <li class="mode">
+                <li class="mode" style="display: none;">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
@@ -73,7 +75,7 @@ $id_pesanan = $_GET['id_pesanan'];
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>

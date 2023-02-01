@@ -58,7 +58,7 @@ require "koneksi.php";
                 <li><a href="login.php" onclick="return confirm('Apakah anda yakin ingin keluar?')">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span> </a> </li>
-                <!-- <li class="mode">
+                <li class="mode" style="display: none;">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
@@ -66,7 +66,7 @@ require "koneksi.php";
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>
@@ -357,7 +357,7 @@ require "koneksi.php";
                         <span class="number"><?php echo $userInfinity ?></span>
                     </div>
                 </div>
-            
+
                 <div id="pembanding" class="pembanding"><span class="text">Dibandingkan dengan periode <?php
                                                                                                         $tgl_mulai = date_create($_GET['tgl_mulai']);
                                                                                                         $tgl_selesai = date_create($_GET['tgl_selesai']);

@@ -1,5 +1,7 @@
 <?php
+
 use LDAP\Result;
+
 session_start();
 require "session.php";
 require('koneksi.php');
@@ -53,7 +55,7 @@ while ($data = mysqli_fetch_array($result)) {
                         <i class="uil uil-box"></i>
                         <span class="link-name">Product</span>
                     </a></li>
-                    <li><a href="voucher.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
+                <li><a href="voucher.php" style=" background-color: rgba(47, 128, 237, 0.16); border-radius: 8px;">
                         <i class="uil uil-pricetag-alt" style="color: #2F80ED;"></i>
                         <span class="link-name" style="color: #2F80ED; font-weight: 500;">Voucher</span>
                     </a></li>
@@ -77,7 +79,7 @@ while ($data = mysqli_fetch_array($result)) {
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
-                <!-- <li class="mode">
+                <li class="mode" style="display: none;">
                     <a href="#">
                         <i class="uil uil-moon"></i>
                         <span class="link-name">Dark mode</span>
@@ -85,7 +87,7 @@ while ($data = mysqli_fetch_array($result)) {
                     <div class="mode-toggle">
                         <span class="switch"></span>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>
